@@ -11,7 +11,7 @@ export default function App() {
       <Canvas dpr={[1, 2]} camera={{ position: [0, 0, 10], fov: 22 }}>
         <Bg />
         <Suspense fallback={null}>
-          {/* <Noodles /> */}
+          <Noodles />
           <Rig />
         </Suspense>
       </Canvas>

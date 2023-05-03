@@ -5,12 +5,12 @@ const Button = ({ callback, data, value, current, setCurrent }) => {
     e.preventDefault();
     setCurrent(value);
     callback(data[value]);
-    setActive(true);
   };
+
   return (
     <li onClick={handleSelect}>
       <a
-        className={`uppercase ${current == value ? "underline text-cyan-500" : "text-normal"
+        className={`uppercase text-xs md:text-sm ${current == value ? "underline text-cyan-500" : "text-normal"
           }`}
       >
         <svg
@@ -44,6 +44,7 @@ export const BreadCrumb = ({ callback, data }) => {
             value={item}
             current={current}
             setCurrent={setCurrent}
+            key={i}
           />
         ))}
       </ul>

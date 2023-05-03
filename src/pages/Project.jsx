@@ -6,34 +6,38 @@ import { useState } from "react";
 const data = {
   frontend: [
     {
-      title: "DOOM-READER / Electron Library",
-      description: "Book manager application built with web technology",
+      title: "Book-Reader / Electron Library",
+      description:
+        "Administrador de libros virtuales, creado a partir de tecnologia web",
       date: "2023",
-      link: "#",
+      link: "https://github.com/CMOISDEAD/next-library",
     },
     {
-      title: "DOOM-LOG / Personal Blog",
-      description: "Ultimate dev blog",
+      title: "DOOM-BLOG / Blog Personal",
+      description: "Blog enfocado a hablar sobre temas de desarrollo.",
       date: "2023",
-      link: "#",
+      link: "https://github.com/CMOISDEAD/next-blog",
     },
     {
-      title: "Marked / Markdown note app",
-      description: "Markdown powered note app special designed for CS student",
+      title: "Marked / Markdown - notas",
+      description:
+        "Aplicacion de notas pensado para estudiantes de ciencias de la computacion.",
       date: "2023",
-      link: "#",
+      link: "https://github.com/CMOISDEAD/Notes-app",
     },
   ],
   backend: [
     {
-      title: "PyNews / HackerNews reader",
-      description: "Terminal app to read HackerNews like a Hacker",
+      title: "DoomNews / red social tipo HackerNews",
+      description:
+        "Infraestructura para una red social al estilo de HackerNews.",
       date: "2023",
       link: "#",
     },
     {
       title: "0_Drive / Intranet storage",
-      description: "Storage service like Drive but running on a intranet",
+      description:
+        "Servicio de almacenamiento tipo Drive pero corriendo en una intranet.",
       year: "2021",
       link: "#",
     },
@@ -41,7 +45,8 @@ const data = {
   mobile: [
     {
       title: "TODO / React Native App",
-      description: "React native app to manage to-dos",
+      description:
+        "Aplicacion de manejo de tiempo y tareas, creada en React Native",
       date: "2023",
       link: "#",
     },
@@ -53,7 +58,9 @@ export const Project = () => {
   return (
     <Layout>
       <div>
-        <div className="text-6xl text-white font-bold special">PROJECTS</div>
+        <div className="text-xl text-white font-bold special mb-2 md:text-4xl">
+          Proyectos
+        </div>
         <BreadCrumb callback={setList} data={data} />
         <div className="flex flex-col gap-4">
           {list.map((item, i) => (
