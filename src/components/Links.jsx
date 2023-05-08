@@ -3,44 +3,42 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import { RxDotFilled } from "react-icons/rx";
 
 export const Links = () => {
   const [route, setRoute] = useState("");
   const location = useLocation();
+  const routes = [
+    {
+      name: "Home",
+      path: "/",
+    },
+    {
+      name: "Project",
+      path: "/project",
+    },
+    {
+      name: "Contact",
+      path: "/contact",
+    },
+  ];
 
   useEffect(() => {
     const path = location.pathname;
     setRoute(path);
   });
 
-  const handleFocus = (path) => {
-    if (path == route) {
-      return "text-sky-500 translate-x-2 transition-all ease-in";
-    }
-  };
-
   return (
     <div>
       <ul>
-        {[
-          {
-            name: "Home",
-            path: "/",
-          },
-          {
-            name: "Project",
-            path: "/project",
-          },
-          {
-            name: "Contact",
-            path: "/contact",
-          },
-        ].map(({ path }, i) => (
+        {routes.map(({ path }, i) => (
           <li key={i}>
-            <Link to={path} className="text-2xl md:text-3xl">
-              <RxDotFilled className={`${handleFocus(path)}`} />
-              {/* {name} */}
+            <Link to={path} className="text-xl md:text-3xl italic">
+              <div
+                className={`inline-flex pr-2 transition-all duration-200 ease-linear ${path == route && "text-sky-500"
+                  }`}
+              >
+                {i}
+              </div>
             </Link>
           </li>
         ))}

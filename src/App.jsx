@@ -1,38 +1,21 @@
+import React from "react";
 import * as THREE from "three";
 import { Suspense } from "react";
-import { Canvas, useThree, useFrame } from "@react-three/fiber";
-import { Text } from "@react-three/drei";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { LayerMaterial, Depth, Noise } from "lamina";
 import Noodles from "./components/Noodles";
 
 export default function App() {
   return (
-    <>
+    <div class="fixed w-full h-full">
       <Canvas dpr={[1, 2]} camera={{ position: [0, 0, 10], fov: 22 }}>
-        <Bg />
+        {/* <Bg /> */}
         <Suspense fallback={null}>
-          <Noodles />
-          <Rig />
+          {/* <Noodles /> */}
+          {/* <Rig /> */}
         </Suspense>
       </Canvas>
-    </>
-  );
-}
-
-function Caption({ children }) {
-  const { width } = useThree((state) => state.viewport);
-  return (
-    <Text
-      position={[0, 0, -5]}
-      lineHeight={0.8}
-      font="/Ki-Medium.ttf"
-      fontSize={width / 8}
-      material-toneMapped={false}
-      anchorX="center"
-      anchorY="middle"
-    >
-      {children}
-    </Text>
+    </div>
   );
 }
 

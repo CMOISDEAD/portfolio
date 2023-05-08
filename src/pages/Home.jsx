@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import { Layout } from "../components/Layout";
+import { Skills } from "../components/Skills";
 
 export const Home = () => {
   return (
@@ -17,24 +19,14 @@ export const Home = () => {
         siempre estoy buscando nuevas formas de mejorar la experiencia del
         usuario. Si está buscando un programador frontend junior apasionado y
         comprometido,
-        <strong className="underline text-sky-200">
+        <Link
+          className="underline text-sky-200 font-bold cursor-pointer"
+          to="/contact"
+        >
           ¡no dude en ponerse en contacto conmigo!.
-        </strong>
+        </Link>
       </div>
-      <div className="text-xl md:text-4xl title">Habilidades</div>
-      <div className="grid grid-rows-4 grid-flow-col md:grid-rows-6 text-xs md:text-base">
-        <li>HTML / CSS</li>
-        <li>Javascript / Typescript</li>
-        <li>React / Vue / Svelte</li>
-        <li>Next / Nuxt / SvelteKit</li>
-        <li>Linux / Terminal</li>
-        <li>Git / Github</li>
-        <li>Node.js / Express.js / Nest.js</li>
-        <li>Flask / Django</li>
-        <li>Tailwind / Bootstrap / MaterialUI</li>
-        <li>MongoDB / MySql / PostegrSQL</li>
-        <li>More...</li>
-      </div>
+      <Skills />
     </Layout>
   );
 };

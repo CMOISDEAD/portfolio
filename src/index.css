@@ -5,28 +5,23 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  box-sizing: border-box;
-  cursor: none;
-}
-
 @font-face {
   font-family: "KiMedium";
   src: url("/public/Ki-Medium.ttf");
 }
 
-html,
-body,
-#root {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+* {
+  box-sizing: border-box;
+  cursor: none;
+}
+
+html {
+  background: #000000 !important; /* where aajaja ? */
 }
 
 body {
   overscroll-behavior-y: none;
+  overflow: auto; /* this need to be refactor */
   background: #000000;
   font-family: "Inter var", sans-serif;
   text-rendering: optimizeLegibility;
@@ -46,6 +41,7 @@ a {
 }
 
 svg {
+  /* This is for project icons */
   fill: white;
 }
 
