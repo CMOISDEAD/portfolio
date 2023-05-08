@@ -9,10 +9,10 @@ export default function App() {
   return (
     <div class="fixed w-full h-full">
       <Canvas dpr={[1, 2]} camera={{ position: [0, 0, 10], fov: 22 }}>
-        {/* <Bg /> */}
+        <Bg />
         <Suspense fallback={null}>
-          {/* <Noodles /> */}
-          {/* <Rig /> */}
+          <Noodles />
+          <Rig />
         </Suspense>
       </Canvas>
     </div>
