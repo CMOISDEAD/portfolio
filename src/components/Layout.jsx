@@ -5,7 +5,7 @@ import { Social } from "./Social";
 export const Layout = ({ children }) => {
   return (
     <>
-      <div className="fixed inline-flex gap-2 top-10 left-10 font-mono text-sm">
+      <div className="absolute inline-flex gap-2 top-10 left-10 font-mono text-sm">
         DOOM5D4Y — <Social />
       </div>
       <div className="fixed right-10 bottom-10 font-mono text-xs italic">

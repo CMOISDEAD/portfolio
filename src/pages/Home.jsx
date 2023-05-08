@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Layout } from "../components/Layout";
 import { Skills } from "../components/Skills";
+import { Certificates } from "../components/Certificates";
 
 export const Home = () => {
   return (
@@ -27,6 +28,7 @@ export const Home = () => {
         </Link>
       </div>
       <Skills />
+      <Certificates />
     </Layout>
   );
 };
