@@ -10,7 +10,7 @@ const Button = ({ callback, data, value, current, setCurrent }) => {
   return (
     <li onClick={handleSelect}>
       <a
-        className={`uppercase text-xs md:text-sm ${current == value ? "underline text-cyan-500" : "text-normal"
+        className={`uppercase text-xs md:text-sm ${current == value ? "underline text-pink" : "text-normal"
           }`}
       >
         <svg

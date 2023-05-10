@@ -14,7 +14,7 @@ export const Layout = ({ children }) => {
       <div className="absolute top-20 left-10 right-10 special backdrop-blur-md">
         {children}
       </div>
-      <div className="fixed bottom-64 right-2 md:right-2">
+      <div className="fixed bottom-60 right-2">
         <Links />
       </div>
     </>

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import { RxDotFilled } from "react-icons/rx";
 
 export const Links = () => {
   const [route, setRoute] = useState("");
@@ -38,11 +39,10 @@ export const Links = () => {
           <li key={i}>
             <Link to={path} className="text-xl md:text-3xl">
               <div
-                className={`inline-flex pr-2 transition-all duration-200 ease-linear ${
-                  path == route && "text-pink"
-                }`}
+                className={`inline-flex pr-2 transition-all duration-200 ease-linear ${path == route && "text-pink"
+                  }`}
               >
-                {i}
+                <RxDotFilled />
               </div>
             </Link>
           </li>
