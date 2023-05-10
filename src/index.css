@@ -15,13 +15,12 @@
 }
 
 html {
-  background: #000000 !important; /* where aajaja ? */
+  background: #000 !important; /* where aajaja ? */
 }
 
 body {
   overscroll-behavior-y: none;
   overflow: auto; /* this need to be refactor */
-  background: #000000;
   font-family: "Inter var", sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -40,17 +39,5 @@ a {
 }
 
 svg {
-  /* This is for project icons */
   fill: white;
 }
-
-/* cursor */
-/* #mouse-circle { */
-/*   position: absolute; */
-/*   width: 24px; */
-/*   height: 24px; */
-/*   margin: -12px 0 0 -12px; */
-/*   border: 2px solid #ffffff; */
-/*   border-radius: 50%; */
-/*   pointer-events: none; */
-/* } */

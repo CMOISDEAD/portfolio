@@ -1,28 +1,32 @@
-import React from "react";
 import * as THREE from "three";
 import { Suspense } from "react";
 import { Text } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { LayerMaterial, Depth, Noise } from "lamina";
+
 import Noodles from "./components/Noodles";
+import { HomeLayout } from "./components/Layout";
 
 export default function App() {
   return (
-    <div className="fixed w-full h-full">
-      <Canvas dpr={[1, 2]} camera={{ position: [0, 0, 10], fov: 22 }}>
-        <Bg />
-        <Suspense fallback={null}>
-          <Noodles />
-          <Rig />
-          <Caption size={8} position={[0, 0, -5]}>
-            CAMILO DAVILA
-          </Caption>
-          <Caption size={20} position={[0, -0.7, -5]}>
-            FULLSTACK DEVELOPER
-          </Caption>
-        </Suspense>
-      </Canvas>
-    </div>
+    <>
+      <div className="fixed w-full h-full">
+        <Canvas dpr={[1, 2]} camera={{ position: [0, 0, 10], fov: 22 }}>
+          <Bg />
+          <Suspense fallback={null}>
+            <Noodles />
+            <Rig />
+            <Caption size={8} position={[0, 0, -5]}>
+              CAMILO DAVILA
+            </Caption>
+            <Caption size={20} position={[0, -0.7, -5]}>
+              FULLSTACK DEVELOPER
+            </Caption>
+          </Suspense>
+        </Canvas>
+      </div>
+      <HomeLayout></HomeLayout>
+    </>
   );
 }
 
@@ -34,7 +38,7 @@ function Caption({ children, size = 8, position }) {
       lineHeight={0.8}
       font="/Ki-Medium.ttf"
       fontSize={width / size}
-      material-toneMapped={true}
+      material-toneMapped={false}
       anchorX="center"
       anchorY="middle"
     >

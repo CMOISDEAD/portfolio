@@ -1,9 +1,5 @@
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
-import { RxDotFilled } from "react-icons/rx";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 export const Links = () => {
   const [route, setRoute] = useState("");
@@ -33,21 +29,18 @@ export const Links = () => {
   });
 
   return (
-    <div>
-      <ul>
-        {routes.map(({ path }, i) => (
-          <li key={i}>
-            <Link to={path} className="text-xl md:text-3xl">
-              <div
-                className={`inline-flex pr-2 transition-all duration-200 ease-linear ${path == route && "text-pink"
-                  }`}
-              >
-                <RxDotFilled />
-              </div>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      {routes.map(({ path, name }, i) => (
+        <Link to={path} className="text-sm md:text-xl" key={i}>
+          <div
+            className={`inline-flex pr-2 transition-all duration-200 ease-linear hover:underline mx-2 ${
+              path == route && "text-pink underline"
+            }`}
+          >
+            {name}
+          </div>
+        </Link>
+      ))}
+    </>
   );
 };
