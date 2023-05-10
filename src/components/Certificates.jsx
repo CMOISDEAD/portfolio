@@ -24,12 +24,13 @@ export const Certificates = () => {
       <div className="text-xl md:text-4xl title">Titulos</div>
       <ul className="list-disc ml-5">
         {certificates.map((value, i) => (
-          <li class="" key={i}>
+          <li className="" key={i}>
             <p className="font-bold">
               {value.title}
               <span className="font-normal text-sm">
                 {" "}
-                - {value.institute} - <span class="italic">{value.year}</span>
+                - {value.institute} -{" "}
+                <span className="italic">{value.year}</span>
               </span>
             </p>
           </li>

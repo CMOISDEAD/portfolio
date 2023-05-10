@@ -1,5 +1,5 @@
 {
-  "name": "three_react",
+  "name": "portfolio_react",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -13,7 +13,7 @@
     "@react-three/drei": "^9.56.26",
     "@react-three/fiber": "^8.11.5",
     "daisyui": "^2.51.3",
-    "lamina": "^1.1.23",
+    "lamina": "1.0.5",
     "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

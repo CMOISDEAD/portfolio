@@ -12,7 +12,6 @@
 
 * {
   box-sizing: border-box;
-  cursor: none;
 }
 
 html {
@@ -46,12 +45,12 @@ svg {
 }
 
 /* cursor */
-#mouse-circle {
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  margin: -12px 0 0 -12px;
-  border: 2px solid #ffffff;
-  border-radius: 50%;
-  pointer-events: none;
-}
+/* #mouse-circle { */
+/*   position: absolute; */
+/*   width: 24px; */
+/*   height: 24px; */
+/*   margin: -12px 0 0 -12px; */
+/*   border: 2px solid #ffffff; */
+/*   border-radius: 50%; */
+/*   pointer-events: none; */
+/* } */

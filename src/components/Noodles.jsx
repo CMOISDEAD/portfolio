@@ -6,14 +6,15 @@ import * as THREE from "three";
 import { useState, useMemo } from "react";
 import { useThree } from "@react-three/fiber";
 import { useGLTF, Float } from "@react-three/drei";
-import { LayerMaterial, Color, Depth, Fresnel, Noise } from "lamina/vanilla";
+import { LayerMaterial, Base, Depth, Fresnel, Noise } from "lamina/vanilla";
 
-const colorA = new THREE.Color("red").convertSRGBToLinear();
-const colorB = new THREE.Color("black").convertSRGBToLinear();
-const fresnel = new THREE.Color("beach").convertSRGBToLinear();
+const colorA = new THREE.Color("#2032A5").convertSRGBToLinear();
+const colorB = new THREE.Color("#0F1C4D").convertSRGBToLinear();
+const fresnel = new THREE.Color("#E7B473").convertSRGBToLinear();
+
 const material = new LayerMaterial({
   layers: [
-    new Color({ color: colorA }),
+    new Base({ color: colorA }),
     new Depth({
       colorA: colorA,
       colorB: colorB,
@@ -80,7 +81,7 @@ function Noodle() {
 }
 
 export default function Noodles() {
-  return Array.from({ length: 20 }, (_, i) => <Noodle key={i} />);
+  return Array.from({ length: 25 }, (_, i) => <Noodle key={i} />);
 }
 
 useGLTF.preload("/worm-transformed.glb");

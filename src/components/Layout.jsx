@@ -8,10 +8,12 @@ export const Layout = ({ children }) => {
       <div className="absolute inline-flex gap-2 top-10 left-10 font-mono text-sm">
         DOOM5D4Y — <Social />
       </div>
-      <div className="fixed right-10 bottom-10 font-mono text-xs italic">
+      <div className="fixed right-10 bottom-10 font-mono text-xs md:text-base italic">
         Last update {moment("20230502", "YYYYMMDD").fromNow()}
       </div>
-      <div className="absolute top-20 left-10 right-10 special">{children}</div>
+      <div className="absolute top-20 left-10 right-10 special backdrop-blur-md">
+        {children}
+      </div>
       <div className="fixed bottom-64 right-2 md:right-2">
         <Links />
       </div>

@@ -8,15 +8,14 @@ document.addEventListener("DOMContentLoaded", () => {
     mousePosY = e.pageY;
   };
 
-  let delay = 1.5,
-    revisedMousePosX = 0,
+  let revisedMousePosX = 0,
     revisedMousePosY = 0;
 
   function delayMouseFollow() {
     requestAnimationFrame(delayMouseFollow);
 
-    revisedMousePosX += (mousePosX - revisedMousePosX) / delay;
-    revisedMousePosY += (mousePosY - revisedMousePosY) / delay;
+    revisedMousePosX += mousePosX - revisedMousePosX;
+    revisedMousePosY += mousePosY - revisedMousePosY;
 
     mouseCircle.style.top = revisedMousePosY + "px";
     mouseCircle.style.left = revisedMousePosX + "px";

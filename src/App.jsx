@@ -1,21 +1,45 @@
 import React from "react";
 import * as THREE from "three";
 import { Suspense } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Text } from "@react-three/drei";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { LayerMaterial, Depth, Noise } from "lamina";
 import Noodles from "./components/Noodles";
 
 export default function App() {
   return (
-    <div class="fixed w-full h-full">
+    <div className="fixed w-full h-full">
       <Canvas dpr={[1, 2]} camera={{ position: [0, 0, 10], fov: 22 }}>
         <Bg />
         <Suspense fallback={null}>
           <Noodles />
           <Rig />
+          <Caption size={8} position={[0, 0, -5]}>
+            CAMILO DAVILA
+          </Caption>
+          <Caption size={20} position={[0, -0.7, -5]}>
+            FULLSTACK DEVELOPER
+          </Caption>
         </Suspense>
       </Canvas>
     </div>
+  );
+}
+
+function Caption({ children, size = 8, position }) {
+  const { width } = useThree((state) => state.viewport);
+  return (
+    <Text
+      position={position}
+      lineHeight={0.8}
+      font="/Ki-Medium.ttf"
+      fontSize={width / size}
+      material-toneMapped={true}
+      anchorX="center"
+      anchorY="middle"
+    >
+      {children}
+    </Text>
   );
 }
 
@@ -34,8 +58,8 @@ function Bg() {
       <boxGeometry args={[1, 1, 1]} />
       <LayerMaterial side={THREE.BackSide}>
         <Depth
-          colorB="darkgray"
-          colorA="black"
+          colorB="red"
+          colorA="skyblue"
           alpha={1}
           mode="normal"
           near={130}
@@ -49,7 +73,7 @@ function Bg() {
           colorA="white"
           colorB="black"
           mode="subtract"
-          alpha={0.5}
+          alpha={0.2}
         />
       </LayerMaterial>
     </mesh>

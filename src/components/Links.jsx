@@ -13,6 +13,10 @@ export const Links = () => {
       path: "/",
     },
     {
+      name: "About",
+      path: "/about",
+    },
+    {
       name: "Project",
       path: "/project",
     },
@@ -32,10 +36,11 @@ export const Links = () => {
       <ul>
         {routes.map(({ path }, i) => (
           <li key={i}>
-            <Link to={path} className="text-xl md:text-3xl italic">
+            <Link to={path} className="text-xl md:text-3xl">
               <div
-                className={`inline-flex pr-2 transition-all duration-200 ease-linear ${path == route && "text-sky-500"
-                  }`}
+                className={`inline-flex pr-2 transition-all duration-200 ease-linear ${
+                  path == route && "text-pink"
+                }`}
               >
                 {i}
               </div>

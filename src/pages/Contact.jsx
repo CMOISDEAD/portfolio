@@ -10,7 +10,7 @@ export const Contact = () => {
         <li>
           <a
             href="https://github.com/CMOISDEAD"
-            className="hover:text-sky-200 hover:underline"
+            className="hover:text-pink hover:underline"
           >
             Github
           </a>
@@ -18,7 +18,7 @@ export const Contact = () => {
         <li>
           <a
             href="https://linkedn.com/"
-            className="hover:text-sky-200 hover:underline"
+            className="hover:text-pink hover:underline"
           >
             Linkedin
           </a>
