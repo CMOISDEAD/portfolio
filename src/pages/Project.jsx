@@ -9,7 +9,7 @@ export const Project = () => {
   return (
     <Layout>
       <div>
-        <div className="text-xl text-white font-bold special mb-2 md:text-4xl">
+        <div className="text-xl text-white font-bold mb-2 md:text-4xl">
           Proyectos
         </div>
         <BreadCrumb callback={setList} data={data} />

@@ -57,16 +57,16 @@ function Noodle() {
   const [geometry] = useState(
     () => nodes[`noodle_${Math.ceil(Math.random() * 4)}`].geometry
   );
+  const [z, setZ] = useState(Math.random() * -30);
+  const bounds = viewport.getCurrentViewport(camera, [0, 0, z]);
   const [speed] = useState(() => 0.1 + Math.random() / 10);
   const position = useMemo(() => {
-    const z = Math.random() * -30;
-    const bounds = viewport.getCurrentViewport(camera, [0, 0, z]);
     return [
       THREE.MathUtils.randFloatSpread(bounds.width),
       THREE.MathUtils.randFloatSpread(bounds.height * 0.75),
       z,
     ];
-  }, [viewport]);
+  }, [viewport, z]);
   return (
     <Float
       position={position}
@@ -74,6 +74,7 @@ function Noodle() {
       rotationIntensity={10}
       floatIntensity={40}
       dispose={null}
+      onClick={() => setZ(Math.random() * -30)}
     >
       <mesh scale={5} geometry={geometry} material={material} />
     </Float>

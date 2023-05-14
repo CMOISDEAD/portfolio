@@ -1,4 +1,4 @@
-@import url("https://rsms.me/inter/inter.css");
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap");
 
 @tailwind base;
@@ -19,8 +19,7 @@ html {
 }
 
 body {
-  overscroll-behavior-y: none;
-  overflow: auto; /* this need to be refactor */
+  scrollbar-gutter: stable both-edges !important;
   font-family: "Inter var", sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -32,7 +31,6 @@ body {
 }
 
 a {
-  font-family: "KiMedium";
   pointer-events: all;
   color: white;
   text-decoration: none;

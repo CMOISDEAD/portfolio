@@ -7,7 +7,7 @@ export const Skills = () => {
       <div className="flex flex-col md:flex-row gap-3 flex-wrap justify-start md:items-center py-5">
         {skills.map((section, i) => (
           <div
-            className="w-full md:w-[49.5%] border border-slate-300 rounded-sm p-3"
+            className="w-full md:w-[49%] border border-slate-300 rounded-sm p-3"
             key={i}
           >
             <div className="text-base underline md:text-xl">

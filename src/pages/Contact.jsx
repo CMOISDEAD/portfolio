@@ -3,9 +3,7 @@ import { Layout } from "../components/Layout";
 export const Contact = () => {
   return (
     <Layout>
-      <div className="text-xl md:text-4xl text-white font-bold special">
-        Contacto
-      </div>
+      <div className="text-xl md:text-4xl text-white font-bold">Contacto</div>
       <ul>
         <li>
           <a
