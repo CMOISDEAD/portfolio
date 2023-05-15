@@ -2,21 +2,7 @@ import moment from "moment";
 import { Links } from "./Links";
 import { Social } from "./Social";
 import { Sidebar } from "./Sidebar";
-
-const routes = [
-  {
-    name: "About",
-    path: "/about",
-  },
-  {
-    name: "Project",
-    path: "/project",
-  },
-  {
-    name: "Contact",
-    path: "/contact",
-  },
-];
+import { routes } from "../utils/data";
 
 export const HomeLayout = ({ children }) => {
   return (
@@ -32,7 +18,7 @@ export const HomeLayout = ({ children }) => {
       </div>
       <div className="absolute bottom-20 left-1/3 -translate-x-1/4 sm:bottom-10 sm:left-1/2 transform sm:-translate-x-1/2 special">
         <Links
-          routes={routes}
+          routes={routes.slice(1)}
           className="mx-2 hover:text-pink"
           classActive="text-pink"
         />
@@ -44,12 +30,11 @@ export const HomeLayout = ({ children }) => {
   );
 };
 
-// general layout
 export const Layout = ({ children }) => {
   return (
-    <div className="sm:flex flex-row gap-2 justify-between">
+    <div className="flex flex-row justify-between content-center items-center h-screen bg-[#0d0c0d]">
       <Sidebar />
-      <div className="container p-5">{children}</div>
+      <div className="container mx-20 p-5">{children}</div>
     </div>
   );
 };

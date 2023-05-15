@@ -21,13 +21,13 @@ const certificates = [
 export const Certificates = () => {
   return (
     <>
-      <div className="text-xl md:text-4xl title">Titulos</div>
-      <ul className="list-disc ml-5">
+      <div className="title">Titulos</div>
+      <ul>
         {certificates.map((value, i) => (
-          <li className="" key={i}>
-            <p className="font-bold">
+          <li key={i}>
+            <p className="font-bold text-white">
               {value.title}
-              <span className="font-normal text-sm">
+              <span className="content font-normal text-sm">
                 {" "}
                 - {value.institute} -{" "}
                 <span className="italic">{value.year}</span>

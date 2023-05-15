@@ -1,52 +1,39 @@
 import {
-  AiFillHome,
-  AiFillBook,
-  AiFillProject,
-  AiFillContacts,
+  AiOutlineGithub,
+  AiOutlineLinkedin,
+  AiOutlineTwitter,
 } from "react-icons/ai";
 import { Links } from "./Links";
-
-const routes = [
-  {
-    icon: <AiFillHome />,
-    name: "Home",
-    path: "/",
-  },
-  {
-    icon: <AiFillBook />,
-    name: "About",
-    path: "/about",
-  },
-  {
-    icon: <AiFillProject />,
-    name: "Project",
-    path: "/project",
-  },
-  {
-    icon: <AiFillContacts />,
-    name: "Contact",
-    path: "/contact",
-  },
-];
+import { routes } from "../utils/data";
+import { User } from "./User";
+import { Social } from "./Social";
 
 export const Sidebar = () => {
   return (
-    <div className="container mx-auto sm:mx-10 sm:w-64">
-      <div className="sm:sticky sm:top-0 sm:py-4">
-        <div className="hidden sm:flex flex-col content-center items-center gap-2">
-          <img
-            src="https://images.squarespace-cdn.com/content/v1/5837359ef5e231d203181634/1493091881001-KQLDMR8M5ZJNLB6LKCOZ/1024px-Individual_eleven.svg.png?format=500w"
-            alt="camilo davila logo"
-            className="invert w-32"
-          />
-          <p className="text-xs text-pink uppercase">The portfolio</p>
-        </div>
-        <div className="flex justify-center content-center items-center gap-2 text-center mt-4 sm:flex-col sm:content-start sm:items-stretch sm:my-6">
+    <div className="px-2 w-2/6 bg-[#070707] h-screen">
+      <div className="sticky top-0 py-10 flex flex-col justify-between content-center items-center h-full">
+        <User />
+        <div className="flex flex-col content-start justify-center gap-4 text-center mt-4 my-6">
+          <div className="my-3 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
+            Navigation
+          </div>
           <Links
             routes={routes}
-            className="bg-neutral-900 px-1 py-2 border border-neutral-800 rounded-md"
-            classActive="text-pink border-neutral-700"
+            className="transition-colors ease-in-out hover:text-blue-500"
+            classActive="text-blue-300"
           />
+        </div>
+        <div className="text-center mt-4 my-6">
+          <div className="my-5 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
+            Social
+          </div>
+          <ul className="flex flex-col justify-center content-center items-center gap-4 text-3xl">
+            <Social />
+          </ul>
+        </div>
+
+        <div className="text-xs text-gray-500 text-center">
+          Camilo Davila &reg; 2023
         </div>
       </div>
     </div>

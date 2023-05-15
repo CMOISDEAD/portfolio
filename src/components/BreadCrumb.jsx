@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AiOutlineFolder } from "react-icons/ai";
 
 const Button = ({ callback, data, value, current, setCurrent }) => {
   const handleSelect = (e) => {
@@ -10,23 +11,14 @@ const Button = ({ callback, data, value, current, setCurrent }) => {
   return (
     <li onClick={handleSelect}>
       <a
-        className={`uppercase text-xs md:text-sm ${current == value ? "underline text-pink" : "text-normal"
-          }`}
+        className={`uppercase text-xs md:text-sm ${
+          current === value ? "text-blue-500" : "text-normal"
+        } inline-flex content-center items-center gap-4`}
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          className="w-4 h-4 mr-2 text-white"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
-          ></path>
-        </svg>
-        {value}
+        <>
+          <AiOutlineFolder />
+          {value}
+        </>
       </a>
     </li>
   );

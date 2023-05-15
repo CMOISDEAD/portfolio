@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap");
 
 @tailwind base;
@@ -20,7 +20,7 @@ html {
 
 body {
   scrollbar-gutter: stable both-edges !important;
-  font-family: "Inter var", sans-serif;
+  font-family: "Cantarell", sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   color: white;
@@ -36,6 +36,10 @@ a {
   text-decoration: none;
 }
 
-svg {
-  fill: white;
+.title {
+  @apply text-xl font-bold capitalize md:text-4xl my-5;
+}
+
+.content {
+  @apply text-neutral-500;
 }
