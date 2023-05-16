@@ -1,4 +1,4 @@
-import { skills } from "../utils/data";
+import { skills } from "../utils/data/skills";
 
 export const Skills = () => {
   return (
@@ -13,9 +13,14 @@ export const Skills = () => {
             <div className="text-base underline md:text-xl text-blue-500">
               {section.title}
             </div>
-            <div className="flex flex-wrap gap-2 content">
-              {section.items.map((value, i) => (
-                <p key={i}>{value}</p>
+            <div className="flex flex-wrap gap-2 content my-1">
+              {section.items.map((item, i) => (
+                <div key={i} className="text-4xl group">
+                  {item.icon}
+                  <div className="hidden special absolute px-2 py-1 bg-black text-blue-500 group-hover:block">
+                    {item.name}
+                  </div>
+                </div>
               ))}
             </div>
           </div>

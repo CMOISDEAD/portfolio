@@ -1,29 +1,3 @@
-import {
-  AiOutlineHome,
-  AiOutlineBook,
-  AiOutlineProject,
-  AiOutlineContacts,
-} from "react-icons/ai";
-
-export const skills = [
-  {
-    title: "Frontend",
-    items: ["HTML", "CSS", "JavaScript", "React", "Vue", "Angular", "Svelte"],
-  },
-  {
-    title: "Backend",
-    items: ["Node.js", "Nest", "Express", "JWT"],
-  },
-  {
-    title: "Other",
-    items: ["Git", "Github", "NPM", "Docker", "Typescript"],
-  },
-  {
-    title: "Databases",
-    items: ["MySQL", "MariaDB", "MongoDB", "PostgreSQL", "Redis"],
-  },
-];
-
 export const projects = {
   frontend: [
     {
@@ -79,26 +53,3 @@ export const projects = {
     },
   ],
 };
-
-export const routes = [
-  {
-    icon: <AiOutlineHome />,
-    name: "Home",
-    path: "/",
-  },
-  {
-    icon: <AiOutlineBook />,
-    name: "About",
-    path: "/about",
-  },
-  {
-    icon: <AiOutlineProject />,
-    name: "Project",
-    path: "/project",
-  },
-  {
-    icon: <AiOutlineContacts />,
-    name: "Contact",
-    path: "/contact",
-  },
-];

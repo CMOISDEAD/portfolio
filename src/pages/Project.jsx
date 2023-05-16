@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Layout } from "../components/Layout";
 import { Card } from "../components/Card";
 import { BreadCrumb } from "../components/BreadCrumb";
-import { projects as data } from "../utils/data";
+import { projects as data } from "../utils/data/projects";
 
 export const Project = () => {
   const [list, setList] = useState(data.frontend);
