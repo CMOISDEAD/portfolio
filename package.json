@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@pmndrs/branding": "^0.0.8",
+    "@react-spring/three": "^9.7.2",
     "@react-three/drei": "^9.56.26",
     "@react-three/fiber": "^8.11.5",
     "daisyui": "^2.51.3",

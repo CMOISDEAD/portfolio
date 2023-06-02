@@ -7,6 +7,7 @@ import { useState, useMemo } from "react";
 import { useThree } from "@react-three/fiber";
 import { useGLTF, Float } from "@react-three/drei";
 import { LayerMaterial, Base, Depth, Fresnel, Noise } from "lamina/vanilla";
+import { useRef } from "react";
 
 const colorA = new THREE.Color("#2032A5").convertSRGBToLinear();
 const colorB = new THREE.Color("#0F1C4D").convertSRGBToLinear();
@@ -52,14 +53,14 @@ const material = new LayerMaterial({
 });
 
 function Noodle() {
+  const noodle = useRef();
   const { viewport, camera } = useThree();
   const { nodes } = useGLTF("/worms-transformed.glb");
   const [geometry] = useState(
     () => nodes[`noodle_${Math.ceil(Math.random() * 4)}`].geometry
   );
-  const [z, setZ] = useState(Math.random() * -30);
+  const [z] = useState(Math.random() * -30);
   const bounds = viewport.getCurrentViewport(camera, [0, 0, z]);
-  const [speed] = useState(() => 0.1 + Math.random() / 10);
   const position = useMemo(() => {
     return [
       THREE.MathUtils.randFloatSpread(bounds.width),
@@ -67,22 +68,32 @@ function Noodle() {
       z,
     ];
   }, [viewport, z]);
+
+  const handleClick = () => {
+    noodle.current.rotation.x += -1;
+  };
+
   return (
     <Float
       position={position}
-      speed={speed}
+      speed={0.1 + Math.random() / 10}
       rotationIntensity={10}
       floatIntensity={40}
       dispose={null}
-      onClick={() => setZ(Math.random() * -30)}
     >
-      <mesh scale={5} geometry={geometry} material={material} />
+      <mesh
+        scale={5}
+        geometry={geometry}
+        material={material}
+        ref={noodle}
+        onClick={handleClick}
+      />
     </Float>
   );
 }
 
 export default function Noodles() {
-  return Array.from({ length: 25 }, (_, i) => <Noodle key={i} />);
+  return Array.from({ length: 4 }, (i) => <Noodle key={i} />);
 }
 
 useGLTF.preload("/worm-transformed.glb");

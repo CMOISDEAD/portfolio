@@ -6,6 +6,7 @@ import { LayerMaterial, Depth, Noise } from "lamina";
 
 import Noodles from "./components/Noodles";
 import { HomeLayout } from "./components/Layout";
+import { useState } from "react";
 
 export default function App() {
   return (
@@ -16,10 +17,10 @@ export default function App() {
           <Suspense fallback={null}>
             <Noodles />
             <Rig />
-            <Caption size={8} position={[0, 0, -5]}>
+            <Caption size={8} y={0}>
               CAMILO DAVILA
             </Caption>
-            <Caption size={20} position={[0, -0.7, -5]}>
+            <Caption size={20} y={-0.1}>
               FULLSTACK DEVELOPER
             </Caption>
           </Suspense>
@@ -30,17 +31,22 @@ export default function App() {
   );
 }
 
-function Caption({ children, size = 8, position }) {
+function Caption({ children, size = 8, y }) {
   const { width } = useThree((state) => state.viewport);
+  const [isActive, setActive] = useState(false);
+
   return (
     <Text
-      position={position}
+      position={[0, y * width, -2]}
       lineHeight={0.8}
       font="/Ki-Medium.ttf"
       fontSize={width / size}
       material-toneMapped={false}
       anchorX="center"
       anchorY="middle"
+      onPointerEnter={() => setActive(true)}
+      onPointerLeave={() => setActive(false)}
+      // color={isActive ? "#fbf1c7" : "white"}
     >
       {children}
     </Text>
