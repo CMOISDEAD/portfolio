@@ -22,7 +22,7 @@ export const Sidebar = () => {
       <div
         className={`${
           view || "hidden"
-        } w-2/6 h-screen py-5 bg-[#070707] max-sm:fixed max-sm:w-screen md:block`}
+        } w-2/6 h-screen py-5 bg-[#070707] max-sm:fixed max-sm:w-screen md:block z-50`}
       >
         <div className="px-5 inline-flex w-full justify-end md:hidden">
           <button
