@@ -11,7 +11,7 @@ export const User = () => {
     >
       <img
         src={user?.avatar_url}
-        alt={`${user.login} user image`}
+        alt={`${user?.login} user image`}
         className="rounded-full"
         width={32}
         height={32}
