@@ -15,11 +15,8 @@ export const Skills = () => {
             </div>
             <div className="flex flex-wrap gap-2 content my-1">
               {section.items.map((item, i) => (
-                <div key={i} className="text-4xl group">
+                <div className="text-4xl group text-center" key={i}>
                   {item.icon}
-                  <div className="hidden special absolute px-2 py-1 bg-black text-blue-500 group-hover:block">
-                    {item.name}
-                  </div>
                 </div>
               ))}
             </div>

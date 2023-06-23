@@ -10,6 +10,12 @@ export const Project = () => {
     <Layout>
       <div>
         <div className="title mb-2">Proyectos</div>
+        <p className="text-sm text-neutral-500">
+          Estos son unos de mis proyectos mas destacables,
+          <span className="font-bold text-blue-500">
+            !clickea para ir al repositorio!
+          </span>
+        </p>
         <BreadCrumb callback={setList} data={data} />
         <div className="flex flex-col gap-4">
           {list.map((item, i) => (

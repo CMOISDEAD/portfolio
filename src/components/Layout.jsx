@@ -3,8 +3,11 @@ import { Links } from "./Links";
 import { Social } from "./Social";
 import { Sidebar } from "./Sidebar";
 import { routes } from "../utils/data/routes";
+import { useGithub } from "../hooks/useGithub";
 
 export const HomeLayout = ({ children }) => {
+  const { commit } = useGithub();
+
   return (
     <>
       <div className="absolute inline-flex gap-2 top-10 left-10 font-mono text-sm text-white">
@@ -25,7 +28,7 @@ export const HomeLayout = ({ children }) => {
           />
         </div>
         <div className="font-mono text-xs md:text-sm italic text-white grow basis-0 text-end">
-          Last update {moment("2023-05-15", "YYYYMMDD").fromNow()}
+          Last update {moment(commit?.author?.date, "YYYYMMDD").fromNow()}
         </div>
       </div>
     </>

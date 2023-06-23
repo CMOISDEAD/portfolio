@@ -1,4 +1,8 @@
+import { useGithub } from "../hooks/useGithub";
+
 export const User = () => {
+  const { user } = useGithub();
+
   return (
     <a
       href="https://github.com/CMOISDEAD"
@@ -6,8 +10,8 @@ export const User = () => {
       target="_blank"
     >
       <img
-        src="https://avatars.githubusercontent.com/u/51010598?v=4"
-        alt="camilo davila"
+        src={user.avatar_url}
+        alt={`${user.login} user image`}
         className="rounded-full"
         width={32}
         height={32}

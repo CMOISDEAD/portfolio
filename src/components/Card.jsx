@@ -1,6 +1,6 @@
 import { AiOutlineStar, AiOutlineBranches } from "react-icons/ai";
 
-export const Card = ({ title, description, year, link }) => {
+export const Card = ({ title, description, link, tech }) => {
   return (
     <a
       href={link}
@@ -19,7 +19,6 @@ export const Card = ({ title, description, year, link }) => {
             {title}
           </div>
           <div className="content text-sm md:text-sm">{description}</div>
-          {/* <div className="content text-sm italic">{year}</div> */}
           <div className="github-information flex gap-4 text-xs text-neutral-500 mt-5">
             <div className="inline-flex content-center items-center gap-1 group-hover:text-yellow-500">
               10 <AiOutlineStar />
@@ -27,7 +26,11 @@ export const Card = ({ title, description, year, link }) => {
             <div className="inline-flex content-center items-center gap-1">
               18 <AiOutlineBranches />
             </div>
-            <span className="text-neutral-600">Next.js TailwindCSS Redux</span>
+            <div className="text-neutral-600 inline-flex gap-1">
+              {tech.map((item, i) => (
+                <p key={i}>{`${item}${tech.length !== i + 1 ? "," : ""}`}</p>
+              ))}
+            </div>
           </div>
         </div>
       </div>

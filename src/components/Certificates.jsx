@@ -8,7 +8,7 @@ const certificates = [
   },
   {
     title: "Analisis de Datos",
-    institute: "Universidad del Quindio",
+    institute: "DS4A",
     year: "2022",
   },
   {
