@@ -10,7 +10,7 @@ export const User = () => {
       target="_blank"
     >
       <img
-        src={user.avatar_url}
+        src={user?.avatar_url}
         alt={`${user.login} user image`}
         className="rounded-full"
         width={32}
