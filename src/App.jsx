@@ -21,7 +21,7 @@ export default function App() {
               CAMILO DAVILA
             </Caption>
             <Caption size={20} y={-0.1}>
-              FULLSTACK DEVELOPER
+              FRONTEND DEVELOPER
             </Caption>
           </Suspense>
         </Canvas>
