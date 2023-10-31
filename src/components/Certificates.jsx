@@ -1,4 +1,4 @@
-import React from "react";
+import { Accordion, AccordionItem } from "@nextui-org/react";
 
 const certificates = [
   {
@@ -20,22 +20,17 @@ const certificates = [
 
 export const Certificates = () => {
   return (
-    <>
+    <div>
       <div className="title">Titulos</div>
-      <ul>
+      <Accordion isCompact variant="light">
         {certificates.map((value, i) => (
-          <li key={i}>
-            <p className="font-bold text-white">
-              {value.title}
-              <span className="content font-normal text-sm">
-                {" "}
-                - {value.institute} -{" "}
-                <span className="italic">{value.year}</span>
-              </span>
+          <AccordionItem key={i} aria-label={value.title} title={value.title}>
+            <p className="italic">
+              {value.institute} - <span className="italic">{value.year}</span>
             </p>
-          </li>
+          </AccordionItem>
         ))}
-      </ul>
-    </>
+      </Accordion>
+    </div>
   );
 };

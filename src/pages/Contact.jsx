@@ -1,23 +1,22 @@
-import { Layout } from "../components/Layout";
 import cv from "/public/cv.pdf";
 
 export const Contact = () => {
   const mail = "camiloesteban661@gmail.com";
   return (
-    <Layout>
+    <>
       <div className="title">Contacto</div>
       <p className="my-2">
         ¡Hola! ¿Listo para crear algo increíble juntos? Haz clic aquí para
         enviarme un mensaje y comencemos a construir el futuro juntos.
       </p>
       <a href={`mailto:${mail}`} target="_blank" className="my-2">
-        <div className="relative border border-transparent rounded cursor-pointer group hover:border-blue-500">
+        <div className="relative rounded border border-transparent cursor-pointer hover:border-blue-500 group">
           <img
             src="/gradient.jpeg"
             alt="gradient image"
-            className="rounded h-32 w-full"
+            className="w-full h-32 rounded"
           />
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-bold text-2xl text-indigo-300 group-hover:text-indigo-100 transition-colors">
+          <div className="absolute top-1/2 left-1/2 text-2xl font-bold text-indigo-300 transition-colors transform -translate-x-1/2 -translate-y-1/2 group-hover:text-indigo-100">
             ¡Enviame un correo ahora! <br />
           </div>
         </div>
@@ -30,13 +29,13 @@ export const Contact = () => {
       </p>
       <div className="grid grid-cols-2 grid-flow-row gap-2">
         <a href="https://github.com/CMOISDEAD" target="_blank" className="my-2">
-          <div className="relative border border-transparent rounded cursor-pointer group hover:border-blue-500">
+          <div className="relative rounded border border-transparent cursor-pointer hover:border-blue-500 group">
             <img
               src="/gradient.jpeg"
               alt="gradient image"
-              className="rounded h-32 w-full"
+              className="w-full h-32 rounded"
             />
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-bold text-2xl text-indigo-300 group-hover:text-indigo-100 transition-colors">
+            <div className="absolute top-1/2 left-1/2 text-2xl font-bold text-indigo-300 transition-colors transform -translate-x-1/2 -translate-y-1/2 group-hover:text-indigo-100">
               ¡Contactame en Github!
             </div>
           </div>
@@ -46,32 +45,32 @@ export const Contact = () => {
           target="_blank"
           className="my-2"
         >
-          <div className="relative border border-transparent rounded cursor-pointer group hover:border-blue-500">
+          <div className="relative rounded border border-transparent cursor-pointer hover:border-blue-500 group">
             <img
               src="/gradient.jpeg"
               alt="gradient image"
-              className="rounded h-32 w-full"
+              className="w-full h-32 rounded"
             />
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-bold text-2xl text-indigo-300 group-hover:text-indigo-100 transition-colors">
+            <div className="absolute top-1/2 left-1/2 text-2xl font-bold text-indigo-300 transition-colors transform -translate-x-1/2 -translate-y-1/2 group-hover:text-indigo-100">
               ¡Contactame en Linkedin!
             </div>
           </div>
         </a>
         <div className="col-span-full">
           <a href={cv} target="_blank">
-            <div className="relative border border-transparent rounded cursor-pointer group hover:border-blue-500">
+            <div className="relative rounded border border-transparent cursor-pointer hover:border-blue-500 group">
               <img
                 src="/gradient.jpeg"
                 alt="gradient image"
-                className="rounded h-32 w-full"
+                className="w-full h-32 rounded"
               />
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-bold text-2xl text-indigo-300 group-hover:text-indigo-100 transition-colors">
+              <div className="absolute top-1/2 left-1/2 text-2xl font-bold text-indigo-300 transition-colors transform -translate-x-1/2 -translate-y-1/2 group-hover:text-indigo-100">
                 ¡Descarga mi CV!
               </div>
             </div>
           </a>
         </div>
       </div>
-    </Layout>
+    </>
   );
 };

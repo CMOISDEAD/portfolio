@@ -14,17 +14,17 @@ export const Sidebar = () => {
   return (
     <>
       <button
-        className="max-sm:block hidden absolute text-neutral-500 text-3xl mx-5"
+        className="hidden absolute mx-5 text-3xl max-sm:block text-neutral-500"
         onClick={handleClick}
       >
         &#8801;
       </button>
       <div
-        className={`${
+        className={`w-2/6 h-screen border border-divider backdrop-blur-sm py-5max-sm:fixed max-sm:w-screen md:block z-50 ${
           view || "hidden"
-        } w-2/6 h-screen py-5 bg-[#070707] max-sm:fixed max-sm:w-screen md:block z-50`}
+        } `}
       >
-        <div className="px-5 inline-flex w-full justify-end md:hidden">
+        <div className="inline-flex justify-end px-5 w-full md:hidden">
           <button
             className="text-xl text-neutral-500 hover:text-neutral-400"
             onClick={handleClick}
@@ -32,25 +32,25 @@ export const Sidebar = () => {
             &#215;
           </button>
         </div>
-        <div className="flex flex-col justify-center content-center items-center gap-4 text-center mt-4 my-6">
+        <div className="flex flex-col gap-4 justify-center content-center items-center h-full text-center">
           <User />
-          <div className="my-3 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
+          <div className="my-3 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-foreground to-primary">
             Navigation
           </div>
           <Links
             routes={routes}
-            className="transition-colors ease-in-out hover:text-blue-500"
-            classActive="text-blue-300"
+            className="transition-colors ease-in-out hover:text-focus"
+            classActive="text-primary-300"
           />
-          <div className="text-center mt-4 my-6">
-            <div className="my-5 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
+          <div className="my-6 mt-4 text-center">
+            <div className="my-5 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-foreground to-primary">
               Social
             </div>
-            <ul className="flex flex-col justify-center content-center items-center gap-4 text-3xl">
+            <ul className="flex flex-col gap-4 justify-center content-center items-center text-3xl">
               <Social />
             </ul>
           </div>
-          <div className="text-xs text-gray-500 text-center">
+          <div className="text-xs text-center text-gray-500">
             Camilo Davila &reg; 2023
           </div>
         </div>

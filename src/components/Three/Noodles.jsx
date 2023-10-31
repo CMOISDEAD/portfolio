@@ -96,4 +96,4 @@ export default function Noodles() {
   return Array.from({ length: 20 }, (i) => <Noodle key={i} />);
 }
 
-useGLTF.preload("/worm-transformed.glb");
+useGLTF.preload("/worms-transformed.glb");

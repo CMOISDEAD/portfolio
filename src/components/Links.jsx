@@ -10,9 +10,9 @@ export const Links = ({ routes, className, classActive }) => {
         <Link
           key={i}
           to={path}
-          className={`${active && classActive} ${className}`}
+          className={`${active && classActive} ${className} text-foreground`}
         >
-          <div className="inline-flex content-center items-center justify-between gap-2">
+          <div className="inline-flex gap-2 justify-between content-center items-center">
             {icon}
             {name}
           </div>
