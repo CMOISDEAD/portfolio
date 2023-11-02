@@ -15,14 +15,14 @@ export const HomeLayout = ({ children }) => {
       <div className="absolute right-10 left-10 top-20 backdrop-blur-md">
         {children}
       </div>
-      <div className="flex absolute bottom-10 justify-between px-10 w-full">
-        <div className="inline-flex left-10 gap-2 font-mono text-xl text-white grow basis-0 max-sm:hidden">
+      <div className="flex absolute bottom-10 justify-between px-10 w-full text-white">
+        <div className="inline-flex left-10 gap-2 font-mono text-xl [&>*]:text-white grow basis-0 max-sm:hidden">
           <Social />
         </div>
-        <div className="bottom-20 sm:bottom-10 special">
+        <div className="bottom-20 text-white sm:bottom-10 special">
           <Links
             routes={routes.slice(1)}
-            className="mx-2 hover:text-focus"
+            className="mx-2 text-white hover:text-focus"
             classActive="text-primary"
           />
         </div>

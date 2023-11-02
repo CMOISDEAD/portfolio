@@ -20,7 +20,7 @@ export const Sidebar = () => {
         &#8801;
       </button>
       <div
-        className={`w-2/6 h-screen border border-divider backdrop-blur-sm py-5max-sm:fixed max-sm:w-screen md:block z-50 ${
+        className={`w-3/12 h-screen border border-divider backdrop-blur-sm py-5max-sm:fixed max-sm:w-screen md:block z-50 ${
           view || "hidden"
         } `}
       >

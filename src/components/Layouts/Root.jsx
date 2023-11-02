@@ -6,11 +6,11 @@ export const Root = () => {
   return (
     <div className="flex flex-row justify-between">
       <Sidebar />
-      <div className="container overflow-y-auto p-5 mx-auto h-screen md:px-20">
-        <ScrollShadow>
+      <ScrollShadow>
+        <div className="container overflow-y-auto flex-grow p-5 mx-auto h-screen md:px-20">
           <Outlet />
-        </ScrollShadow>
-      </div>
+        </div>
+      </ScrollShadow>
     </div>
   );
 };
