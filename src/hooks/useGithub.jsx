@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const API_GITHUB =
   "https://api.github.com/repos/CMOISDEAD/portfolio/branches/master";

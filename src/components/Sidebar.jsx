@@ -1,10 +1,9 @@
-import { User } from "./User";
+import React, { useState } from "react";
+import { routes } from "../utils/data/routes";
 import { Links } from "./Links";
 import { Social } from "./Social";
-import { routes } from "../utils/data/routes";
-import { useState } from "react";
+import { User } from "./User";
 
-import React from "react";
 export const Sidebar = () => {
   const [view, setView] = useState(false);
 

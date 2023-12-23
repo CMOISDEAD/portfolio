@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Image } from "@nextui-org/react";
 import { Skills } from "../components/Skills";
 import { Certificates } from "../components/Certificates";
 
@@ -7,6 +7,23 @@ export const About = () => {
   return (
     <div className="flex flex-col gap-2">
       <div className="title">Acerca de mi</div>
+      <div className="relative mb-10 h-[30vh]">
+        <Image
+          isBlurred
+          src="assets/images/tokyo.jpg"
+          alt="tokyo image"
+          className="object-cover border max-h-[30vh] w-[100vw] border-divider"
+        />
+        <div className="absolute bottom-5 z-50 md:left-5 md:-bottom-9 left-20">
+          <Image
+            isBlurred
+            radius="full"
+            src="https://avatars.githubusercontent.com/u/51010598?v=4"
+            alt="Camilo Davila avatar image"
+            className="w-36 border border-divider"
+          />
+        </div>
+      </div>
       <div className="content">
         Soy un programador <span className="font-bold">fullstack</span>{" "}
         apasionado por crear experiencias web atractivas y eficientes con las

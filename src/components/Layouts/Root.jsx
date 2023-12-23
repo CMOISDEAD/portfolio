@@ -9,12 +9,12 @@ export const Root = () => {
       <img
         src="assets/textures/noise.png"
         alt="noise"
-        className="hidden absolute top-0 right-5 md:block animate-appearance-in"
+        className="absolute top-0 right-5 md:block animate-appearance-in"
       />
       <img
         src="assets/textures/small_noise.png"
         alt="noise"
-        className="hidden absolute bottom-0 left-5 md:block animate-appearance-in"
+        className="absolute bottom-0 left-5 md:block animate-appearance-in"
       />
       <Sidebar />
       <ScrollShadow className="p-0 m-0 w-full">

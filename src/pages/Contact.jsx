@@ -6,12 +6,6 @@ export const Contact = () => {
   const mail = "camiloesteban661@gmail.com";
   return (
     <div className="flex flex-col justify-between">
-      <Image
-        isBlurred
-        src="assets/images/tokyo.jpg"
-        alt="tokyo image"
-        className="object-cover h-96 w-[100vw]"
-      />
       <div className="title">Contacto</div>
       <p className="my-2">
         Hola, si quieres contactarme puedes hacerlo por cualquiera de estos
