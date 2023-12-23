@@ -4,6 +4,7 @@ import { Social } from "./Social";
 import { routes } from "../utils/data/routes";
 import { useState } from "react";
 
+import React from "react";
 export const Sidebar = () => {
   const [view, setView] = useState(false);
 
@@ -14,15 +15,14 @@ export const Sidebar = () => {
   return (
     <>
       <button
-        className="hidden absolute mx-5 text-3xl max-sm:block text-neutral-500"
+        className="block absolute z-50 mx-5 text-3xl md:hidden text-neutral-500"
         onClick={handleClick}
       >
         &#8801;
       </button>
       <div
-        className={`w-3/12 h-screen border border-divider backdrop-blur-sm py-5max-sm:fixed max-sm:w-screen md:block z-50 ${
-          view || "hidden"
-        } `}
+        className={`w-3/12 bg-background/80 h-screen border border-divider backdrop-blur-sm py-5 max-sm:fixed max-sm:w-screen md:block z-50 ${view || "hidden"
+          } `}
       >
         <div className="inline-flex justify-end px-5 w-full md:hidden">
           <button

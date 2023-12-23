@@ -7,7 +7,7 @@
 
 @font-face {
   font-family: "KiMedium";
-  src: url("/public/Ki-Medium.ttf");
+  src: url("/src/assets/fonts/Ki-Medium.ttf");
 }
 
 * {
@@ -30,9 +30,5 @@ body {
 }
 
 .title {
-  @apply text-xl font-bold capitalize md:text-4xl my-5 text-transparent bg-clip-text bg-gradient-to-r  from-foreground via-primary to-primary;
-}
-
-.content {
-  @apply text-neutral-500;
+  @apply text-xl font-bold capitalize md:text-4xl my-5 text-transparent bg-clip-text bg-gradient-to-r from-foreground via-primary to-primary;
 }

@@ -1,15 +1,26 @@
-import { Card, CardBody, CardHeader } from "@nextui-org/react";
+import React from "react";
+import { Card, CardBody, CardHeader, Image, Tooltip } from "@nextui-org/react";
 import { skills } from "../utils/data/skills";
+import { useTheme } from "next-themes";
 
 export const Skills = () => {
+  const { theme } = useTheme();
+
+  const verifyIcon = (item) => {
+    if (item.themeable) {
+      if (theme === "dark") return item.icondark;
+      if (theme === "light") return item.iconlight;
+    }
+    return item.icon;
+  };
+
   return (
     <div>
       <div className="title">Habilidades</div>
-      <div className="flex flex-col flex-wrap gap-3 justify-start md:flex-row md:items-center">
+      <div className="flex flex-col flex-wrap gap-3 justify-start md:flex-row">
         {skills.map((section, i) => (
           <Card
             isBlurred
-            isPressable
             isHoverable
             shadow="lg"
             key={i}
@@ -18,11 +29,17 @@ export const Skills = () => {
             <CardHeader className="text-base font-bold md:text-xl">
               {section.title}
             </CardHeader>
-            <CardBody className="flex flex-row flex-wrap gap-2 my-1 content">
+            <CardBody className="grid grid-cols-5 grid-flow-row gap-5 content-start items-center py-8">
               {section.items.map((item, i) => (
-                <div className="text-4xl text-center group" key={i}>
-                  {item.icon}
-                </div>
+                <Tooltip key={i} content={item.name}>
+                  <Image
+                    isBlurred
+                    radius="none"
+                    src={`https://svgl.app/library/${verifyIcon(item)}.svg`}
+                    alt={`${item.name} icon`}
+                    className="object-contain w-10 h-10"
+                  />
+                </Tooltip>
               ))}
             </CardBody>
           </Card>

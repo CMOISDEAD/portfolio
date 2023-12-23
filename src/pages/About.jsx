@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import { Skills } from "../components/Skills";
 import { Certificates } from "../components/Certificates";
@@ -13,13 +14,7 @@ export const About = () => {
         tendencias y tecnologías en el desarrollo web, y siempre estoy buscando
         nuevas formas de mejorar mi trabajo. Me encanta aprender y compartir
         conocimientos con los demás. Si tiene alguna pregunta o desea que
-        trabajemos juntos,{" "}
-        <Link
-          className="font-bold underline cursor-pointer text-primary"
-          to="/contact"
-        >
-          ¡no dude en ponerse en contacto conmigo!
-        </Link>
+        trabajemos juntos.
       </div>
       <Skills />
       <Certificates />

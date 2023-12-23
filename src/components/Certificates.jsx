@@ -1,3 +1,4 @@
+import React from "react";
 import { Accordion, AccordionItem } from "@nextui-org/react";
 
 const certificates = [
@@ -7,7 +8,7 @@ const certificates = [
     year: "2025",
   },
   {
-    title: "Analisis de Datos",
+    title: "Certificado en Analisis de Datos",
     institute: "DS4A",
     year: "2022",
   },
@@ -21,7 +22,7 @@ const certificates = [
 export const Certificates = () => {
   return (
     <div>
-      <div className="title">Titulos</div>
+      <div className="title">Titulos y Certificados</div>
       <Accordion isCompact variant="light">
         {certificates.map((value, i) => (
           <AccordionItem key={i} aria-label={value.title} title={value.title}>

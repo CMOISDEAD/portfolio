@@ -1,59 +1,74 @@
 export const projects = [
   {
-    title: "frontend",
+    title: "Frontend",
     childs: [
       {
-        title: "Book Reader",
-        image:
-          "https://user-images.githubusercontent.com/51010598/251323461-983a61b5-b827-44a3-ba7d-fe10660563e1.png",
+        title: "Next Reader",
+        image: "src/assets/projects/next_library.png",
         description:
-          "Administrador de libros virtuales, creado a partir de tecnologia web.",
+          "Aplicacion de escritorio multiplataforma para la administración y lectura de libros virtuales, creado a partir de tecnologia web, altamente configurable y extendible.",
         year: "2023",
         link: "https://github.com/CMOISDEAD/next-library",
         tech: ["Next.js", "Electron", "Redux", "TailwindCSS", "Sass"],
       },
       {
-        title: "DOOM Blog / Blog Personal",
-        image:
-          "https://user-images.githubusercontent.com/51010598/251323461-983a61b5-b827-44a3-ba7d-fe10660563e1.png",
-        description: "Blog enfocado a hablar sobre temas de desarrollo.",
+        title: "Online Library",
+        image: "src/assets/projects/online_library.png",
+        description:
+          "Aplicacion que intenta crear una comunidad de lectores online, donde los usuarios tienen a su dispoisicion una plataforma la cual les permite leer libros de manera gratuita, ademas de poder interactuar dentro la aplicación.",
         year: "2023",
-        link: "https://github.com/CMOISDEAD/developer-blog",
+        link: "https://onlinelibrarian.vercel.app/",
+        tech: ["React.js", "Tailwind.css", "MongoDB", "Express"],
+      },
+      {
+        title: "Doomguy - plataforma API",
+        image: "src/assets/projects/doomguy.png",
+        description:
+          "Doomguys es una aplicacion de escritorio/web para hacer peticiones HTTP, similar a Postman, pero con un diseño mas minimalista y moderno, su objetivo es hacer una aplicacion sin tantas caracteristicas innecesarias que logre cumplir las necesidades.",
+        year: "2023",
+        link: "https://doomguy.vercel.app/",
         tech: ["React.js", "Astro", "SEO", "TailwindCSS"],
       },
       {
-        title: "Marked / Markdown - notas",
-        image:
-          "https://user-images.githubusercontent.com/51010598/251323461-983a61b5-b827-44a3-ba7d-fe10660563e1.png",
+        title: "Xcution - Algoritmos y codificación",
+        image: "src/assets/projects/xcution.png",
         description:
-          "Aplicacion de notas pensado para estudiantes de ciencias de la computacion.",
+          "Aplicación online para resolver problemas algorítmicos y de codificación destinados a que los usuarios practiquen la codificación.",
         year: "2023",
-        link: "https://github.com/CMOISDEAD/Notes-app",
-        tech: ["React.js", "Electron", "Redux", "Bootstrap"],
+        link: "https://judge-frontend.vercel.app/",
+        tech: ["Next.js", "Node.js", "Nest.js", "Docker", "Tailwind"],
       },
       {
-        title: "E-commerce / E-commerce Angular",
-        image:
-          "https://user-images.githubusercontent.com/51010598/251323461-983a61b5-b827-44a3-ba7d-fe10660563e1.png",
-        description: "Un E-commerce desarrollado en Angular y Typescript.",
+        title: "Svelte Scheduler",
+        image: "src/assets/projects/scheduler.png",
+        description:
+          "Aplicacion de calendario y tareas enfoncado en el minimalismo y la funcionalidad al usuario, cread con Svelte.",
         year: "2023",
-        link: "https://github.com/CMOISDEAD/angular-ecommerce",
+        link: "https://doom-scheduler.vercel.app/",
         tech: ["Angular", "TailwindCSS", "PWA"],
+      },
+      {
+        title: "Doomsday - Blog Personal",
+        image: "src/assets/projects/doomsday.png",
+        description:
+          "Blog enfocado a hablar sobre temas de desarrollo y otros temas relacionados con las ciencias de la computación.",
+        year: "2023",
+        link: "https://github.com/CMOISDEAD/cmoisdead.github.io",
+        tech: ["React.js", "Astro", "SEO", "TailwindCSS"],
       },
     ],
   },
   {
-    title: "backend",
+    title: "Backend",
     childs: [
       {
-        title: "DoomNews / red social tipo HackerNews",
-        image:
-          "https://user-images.githubusercontent.com/51010598/251323461-983a61b5-b827-44a3-ba7d-fe10660563e1.png",
+        title: "Xcution Bakckend",
+        image: "src/assets/projects/xcution.png",
         description:
-          "Infraestructura para una red social al estilo de HackerNews.",
+          "Servidor desarrollado en Nest.js para la plataforma Xcution, el cual se encarga de la ejecucion de codigo y de su respectiva comprobacion a travez del manejo de contenedores, ademas del control de usuarios y otras tareas relacionadas.",
         year: "2023",
-        link: "#",
-        tech: ["Next.js", "Electron", "Redux", "TailwindCSS"],
+        link: "https://github.com/CMOISDEAD/judge-backend",
+        tech: ["Node.js", "Nest.js", "Docker", "Typescript"],
       },
       {
         title: "0_Drive / Intranet storage",
@@ -68,7 +83,7 @@ export const projects = [
     ],
   },
   {
-    title: "mobile",
+    title: "Mobile",
     childs: [
       {
         title: "TODO / React Native App",

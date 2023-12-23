@@ -1,59 +1,46 @@
-import {
-  DiAngularSimple,
-  DiCss3,
-  DiDocker,
-  DiGit,
-  DiGithub,
-  DiHtml5,
-  DiJavascript,
-  DiMongodb,
-  DiMysql,
-  DiNodejs,
-  DiNpm,
-  DiPostgresql,
-  DiReact,
-  DiRedis,
-  DiSqllite,
-} from "react-icons/di";
-import {
-  SiExpress,
-  SiNestjs,
-  SiSvelte,
-  SiTypescript,
-  SiVuedotjs,
-} from "react-icons/si";
-
 export const skills = [
   {
     title: "Frontend",
     items: [
       {
         name: "HTML",
-        icon: <DiHtml5 />,
+        icon: "html5",
       },
       {
         name: "CSS",
-        icon: <DiCss3 />,
+        icon: "css",
       },
       {
         name: "JavaScript",
-        icon: <DiJavascript />,
+        icon: "javascript",
       },
       {
         name: "React",
-        icon: <DiReact />,
+        icon: "react",
       },
       {
         name: "Vue",
-        icon: <SiVuedotjs />,
+        icon: "vue",
       },
       {
         name: "Angular",
-        icon: <DiAngularSimple />,
+        icon: "angular",
       },
       {
         name: "Svelte",
-        icon: <SiSvelte />,
+        icon: "svelte",
+      },
+      {
+        name: "Next.js",
+        icon: "nextjs",
+      },
+      {
+        name: "TailwindCSS",
+        icon: "tailwindcss",
+      },
+      {
+        name: "Redux",
+        icon: "redux",
       },
     ],
   },
@@ -62,41 +49,56 @@ export const skills = [
     items: [
       {
         name: "Node.js",
-        icon: <DiNodejs />,
+        icon: "nodejs",
       },
       {
         name: "Nest",
-        icon: <SiNestjs />,
+        icon: "nestjs",
       },
       {
         name: "Express",
-        icon: <SiExpress />,
+        icondark: "expressjs_dark",
+        iconlight: "expressjs",
+        themeable: true,
+      },
+      {
+        name: "PHP",
+        icondark: "php_dark",
+        iconlight: "php",
+        themeable: true,
+      },
+      {
+        name: "JWT",
+        icon: "jwt",
       },
     ],
-    // items: ["Node.js", "Nest", "Express", "JWT"],
   },
   {
     title: "Other",
     items: [
       {
         name: "Git",
-        icon: <DiGit />,
+        icon: "git",
       },
       {
         name: "Github",
-        icon: <DiGithub />,
+        icon: "github",
       },
       {
         name: "NPM",
-        icon: <DiNpm />,
+        icon: "npm",
       },
       {
         name: "Docker",
-        icon: <DiDocker />,
+        icon: "docker",
       },
       {
         name: "Typescript",
-        icon: <SiTypescript />,
+        icon: "typescript",
+      },
+      {
+        name: "Postman",
+        icon: "postman",
       },
     ],
   },
@@ -105,23 +107,29 @@ export const skills = [
     items: [
       {
         name: "MySQL",
-        icon: <DiMysql />,
+        icon: "mysql",
       },
       {
         name: "SQLite",
-        icon: <DiSqllite />,
+        icon: "sqlite",
       },
       {
         name: "MongoDB",
-        icon: <DiMongodb />,
+        icon: "mongodb",
       },
       {
         name: "PostgreSQL",
-        icon: <DiPostgresql />,
+        icon: "postgresql",
       },
       {
         name: "Redis",
-        icon: <DiRedis />,
+        icon: "redis",
+      },
+      {
+        name: "Prisma",
+        icondark: "prisma_dark",
+        iconlight: "prisma",
+        themeable: true,
       },
     ],
   },

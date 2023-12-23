@@ -1,3 +1,4 @@
+import React from "react";
 import { Card, CardBody, Image } from "@nextui-org/react";
 import { useGithub } from "../hooks/useGithub";
 import { useTheme } from "next-themes";
@@ -13,7 +14,7 @@ export const User = () => {
       isHoverable
       radius="md"
       shadow="sm"
-      className="border border-transparent transition-colors bg-content2 hover:border-divider"
+      className="border border-divider"
       onPress={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
       <CardBody className="flex flex-row flex-nowrap gap-4">

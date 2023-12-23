@@ -1,21 +1,33 @@
 import { Image } from "@nextui-org/react";
-import cv from "/public/cv.pdf";
+import React from "react";
+import cv from "/src/assets/files/cv.pdf";
 
 export const Contact = () => {
   const mail = "camiloesteban661@gmail.com";
   return (
     <div className="flex flex-col justify-between">
+      <Image
+        isBlurred
+        src="src/assets/images/tokyo.jpg"
+        alt="tokyo image"
+        className="object-cover h-96 w-[100vw]"
+      />
       <div className="title">Contacto</div>
       <p className="my-2">
-        Hola, si quieres contactarme puedes enviarme un correo a{" "}
-        <strong>{mail}</strong> o a través de cualquiera de los medios que
+        Hola, si quieres contactarme puedes hacerlo por cualquiera de estos
+        medios, estaré encantado de hablar contigo.
       </p>
-      <a href={`mailto:${mail}`} target="_blank" className="my-2">
+      <a
+        href={`mailto:${mail}`}
+        target="_blank"
+        className="my-2"
+        rel="noreferrer"
+      >
         <div className="relative rounded border border-transparent cursor-pointer hover:border-blue-500 group">
           <Image
             isBlurred
             shadow="lg"
-            src="/gradient.jpeg"
+            src="src/assets/textures/gradient.jpeg"
             alt="gradient image"
             className="w-screen h-32 rounded"
           />
@@ -27,19 +39,20 @@ export const Contact = () => {
       <p className="my-2">
         Estos son otros medios a través de los cuales puedes encontrarme en
         línea. No dudes en enviarme un mensaje a través de LinkedIn para iniciar
-        una conversación.{" "}
-        <strong>
-          ¡Estoy ansioso por conocer a otros desarrolladores y crear algo
-          increíble juntos!
-        </strong>
+        una conversación.
       </p>
       <div className="grid grid-cols-2 grid-flow-row gap-4">
-        <a href="https://github.com/CMOISDEAD" target="_blank" className="my-2">
+        <a
+          href="https://github.com/CMOISDEAD"
+          target="_blank"
+          className="my-2"
+          rel="noreferrer"
+        >
           <div className="relative rounded border border-transparent cursor-pointer hover:border-blue-500 group">
             <Image
               isBlurred
               shadow="lg"
-              src="/gradient.jpeg"
+              src="src/assets/textures/gradient.jpeg"
               alt="gradient image"
               className="w-screen h-32 rounded"
             />
@@ -52,12 +65,13 @@ export const Contact = () => {
           href="https://www.linkedin.com/in/camilo-esteban-501126220/"
           target="_blank"
           className="my-2"
+          rel="noreferrer"
         >
           <div className="relative rounded border border-transparent cursor-pointer hover:border-blue-500 group">
             <Image
               isBlurred
               shadow="lg"
-              src="/gradient.jpeg"
+              src="src/assets/textures/gradient.jpeg"
               alt="gradient image"
               className="w-screen h-32 rounded"
             />
@@ -67,12 +81,12 @@ export const Contact = () => {
           </div>
         </a>
         <div className="col-span-full">
-          <a href={cv} target="_blank">
+          <a href={cv} target="_blank" rel="noreferrer">
             <div className="relative rounded border border-transparent cursor-pointer hover:border-blue-500 group">
               <Image
                 isBlurred
                 shadow="lg"
-                src="/gradient.jpeg"
+                src="src/assets/textures/gradient.jpeg"
                 alt="gradient image"
                 className="w-screen h-32 rounded"
               />
