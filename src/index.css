@@ -32,3 +32,22 @@ body {
 .title {
   @apply text-xl font-bold capitalize md:text-4xl my-5 text-transparent bg-clip-text bg-gradient-to-r from-foreground via-primary to-primary;
 }
+
+.floating {
+  animation: float 8s ease-in-out infinite;
+}
+
+/* float like a particle in the space in both axis */
+@keyframes float {
+  0% {
+    transform: translatey(0px) translateX(0px);
+  }
+
+  50% {
+    transform: translatey(-30px) translateX(10px);
+  }
+
+  100% {
+    transform: translatey(0px) translateX(0px);
+  }
+}
