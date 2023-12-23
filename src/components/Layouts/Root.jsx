@@ -7,12 +7,12 @@ export const Root = () => {
   return (
     <div className="flex relative flex-row justify-between">
       <img
-        src="src/assets/textures/noise.png"
+        src="assets/textures/noise.png"
         alt="noise"
         className="hidden absolute top-0 right-5 md:block animate-appearance-in"
       />
       <img
-        src="src/assets/textures/small_noise.png"
+        src="assets/textures/small_noise.png"
         alt="noise"
         className="hidden absolute bottom-0 left-5 md:block animate-appearance-in"
       />

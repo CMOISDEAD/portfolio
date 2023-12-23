@@ -1,6 +1,6 @@
 import { Image } from "@nextui-org/react";
 import React from "react";
-import cv from "/src/assets/files/cv.pdf";
+import cv from "/assets/files/cv.pdf";
 
 export const Contact = () => {
   const mail = "camiloesteban661@gmail.com";
@@ -8,7 +8,7 @@ export const Contact = () => {
     <div className="flex flex-col justify-between">
       <Image
         isBlurred
-        src="src/assets/images/tokyo.jpg"
+        src="assets/images/tokyo.jpg"
         alt="tokyo image"
         className="object-cover h-96 w-[100vw]"
       />
@@ -27,7 +27,7 @@ export const Contact = () => {
           <Image
             isBlurred
             shadow="lg"
-            src="src/assets/textures/gradient.jpeg"
+            src="assets/textures/gradient.jpeg"
             alt="gradient image"
             className="w-screen h-32 rounded"
           />
@@ -52,7 +52,7 @@ export const Contact = () => {
             <Image
               isBlurred
               shadow="lg"
-              src="src/assets/textures/gradient.jpeg"
+              src="assets/textures/gradient.jpeg"
               alt="gradient image"
               className="w-screen h-32 rounded"
             />
@@ -71,7 +71,7 @@ export const Contact = () => {
             <Image
               isBlurred
               shadow="lg"
-              src="src/assets/textures/gradient.jpeg"
+              src="assets/textures/gradient.jpeg"
               alt="gradient image"
               className="w-screen h-32 rounded"
             />
@@ -86,7 +86,7 @@ export const Contact = () => {
               <Image
                 isBlurred
                 shadow="lg"
-                src="src/assets/textures/gradient.jpeg"
+                src="assets/textures/gradient.jpeg"
                 alt="gradient image"
                 className="w-screen h-32 rounded"
               />
