@@ -39,13 +39,22 @@ export const projects = [
         tech: ["Next.js", "Node.js", "Nest.js", "Docker", "Tailwind"],
       },
       {
+        title: "DoomDraw - Pizarra online",
+        image: "assets/projects/doomdraw.png",
+        description:
+          "Aplicación que simula una pizarra online, donde los usuarios pueden dibujar y compartir sus dibujos con otros usuarios.",
+        year: "2023",
+        link: "https://doom-scheduler.vercel.app/",
+        tech: ["React", "Typescript", "TailwindCSS"],
+      },
+      {
         title: "Svelte Scheduler",
         image: "assets/projects/scheduler.png",
         description:
           "Aplicacion de calendario y tareas enfoncado en el minimalismo y la funcionalidad al usuario, cread con Svelte.",
         year: "2023",
         link: "https://doom-scheduler.vercel.app/",
-        tech: ["Angular", "TailwindCSS", "PWA"],
+        tech: ["Svelte", "TailwindCSS", "PWA"],
       },
       {
         title: "Doomsday - Blog Personal",
