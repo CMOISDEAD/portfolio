@@ -5,9 +5,9 @@ import cv from "/assets/files/cv.pdf";
 export const Contact = () => {
   const mail = "camiloesteban661@gmail.com";
   return (
-    <div className="flex flex-col justify-between">
+    <div className="flex flex-col justify-between h-full">
       <div className="title">Contacto</div>
-      <p className="my-2">
+      <p>
         Hola, si quieres contactarme puedes hacerlo por cualquiera de estos
         medios, estaré encantado de hablar contigo.
       </p>
