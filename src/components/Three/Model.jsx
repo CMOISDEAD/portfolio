@@ -3,6 +3,7 @@ import * as THREE from "three";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Text } from "@react-three/drei";
 import { LayerMaterial, Depth, Noise } from "lamina";
+import React from "react";
 import Noodles from "./Noodles";
 
 export default function Model() {
@@ -32,7 +33,7 @@ function Caption({ children, size = 8, y }) {
     <Text
       position={[0, y * width, -2]}
       lineHeight={0.8}
-      font="/Ki-Medium.ttf"
+      font="/assets/fonts/Ki-Medium.ttf"
       fontSize={width / size}
       material-toneMapped={false}
       anchorX="center"
@@ -47,7 +48,7 @@ function Rig({ v = new THREE.Vector3() }) {
   return useFrame((state) => {
     state.camera.position.lerp(
       v.set(state.mouse.x / 2, state.mouse.y / 2, 10),
-      0.05
+      0.05,
     );
   });
 }

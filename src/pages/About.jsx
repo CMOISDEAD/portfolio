@@ -14,7 +14,7 @@ export const About = () => {
           alt="tokyo image"
           className="object-cover border max-h-[30vh] w-[100vw] border-divider"
         />
-        <div className="absolute bottom-5 z-50 md:left-5 md:-bottom-9 left-20">
+        <div className="absolute left-0 bottom-5 z-50 m-auto md:left-5 md:-bottom-9 max-sm:right-0 w-fit">
           <Image
             isBlurred
             radius="full"
