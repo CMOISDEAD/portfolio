@@ -48,13 +48,15 @@ export const Project = () => {
                       />
                     </CardBody>
                     <CardFooter className="flex justify-between gap-2">
-                      <h4 className="font-bold text-lg">{child.title}</h4>
-                      <div className="flex gap-2 content-center text-sm">
+                      <h4 className="font-bold text-sm md:text-lg">
+                        {child.title}
+                      </h4>
+                      <div className="flex flex-col md:flex-row gap-2 content-center text-sm">
                         {child.repo && (
                           <Link
-                            to={child.repo}
+                            href={child.repo}
                             target="_blank"
-                            className="gap-1"
+                            className="gap-1 text-xs md:text-sm"
                           >
                             <AiOutlineGithub />
                             Repositorio
@@ -62,9 +64,9 @@ export const Project = () => {
                         )}
                         {child.link && (
                           <Link
-                            to={child.link}
+                            href={child.link}
                             target="_blank"
-                            className="gap-1"
+                            className="gap-1 text-xs md:text-sm"
                           >
                             <AiOutlineExport />
                             Ver Proyecto
