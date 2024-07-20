@@ -20,7 +20,6 @@ export const Skills = () => {
       <div className="flex flex-col flex-wrap gap-3 justify-start md:flex-row">
         {skills.map((section, i) => (
           <Card
-            isBlurred
             isHoverable
             shadow="lg"
             key={i}
@@ -33,7 +32,6 @@ export const Skills = () => {
               {section.items.map((item, i) => (
                 <Tooltip key={i} content={item.name}>
                   <Image
-                    isBlurred
                     radius="none"
                     src={`https://svgl.app/library/${verifyIcon(item)}.svg`}
                     alt={`${item.name} icon`}

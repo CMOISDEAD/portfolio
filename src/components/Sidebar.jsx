@@ -20,8 +20,9 @@ export const Sidebar = () => {
         &#8801;
       </button>
       <div
-        className={`w-3/12 bg-background/80 h-screen border border-divider backdrop-blur-sm py-5 max-sm:fixed max-sm:w-screen md:block z-50 ${view || "hidden"
-          } `}
+        className={`w-3/12 bg-background/80 h-screen border border-divider py-5 max-sm:fixed max-sm:w-screen md:block z-50 ${
+          view || "hidden"
+        } `}
       >
         <div className="inline-flex justify-end px-5 w-full md:hidden">
           <button
@@ -34,7 +35,7 @@ export const Sidebar = () => {
         <div className="flex flex-col gap-4 justify-center content-center items-center h-full text-center">
           <User />
           <div className="my-3 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-foreground to-primary">
-            Navigation
+            Navegacion
           </div>
           <Links
             routes={routes}
@@ -50,7 +51,7 @@ export const Sidebar = () => {
             </ul>
           </div>
           <div className="text-xs text-center text-gray-500">
-            Camilo Davila &reg; 2023
+            Camilo Davila &reg; 2024
           </div>
         </div>
       </div>

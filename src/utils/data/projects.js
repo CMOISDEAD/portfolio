@@ -1,31 +1,62 @@
 export const projects = [
   {
-    title: "Frontend",
+    title: "Fullstack",
+    disabled: false,
     childs: [
       {
-        title: "Next Reader",
-        image: "assets/projects/next_library.png",
+        title: "Librarian",
+        image: "assets/projects/librarian.png",
         description:
-          "Aplicacion de escritorio multiplataforma para la administración y lectura de libros virtuales, creado a partir de tecnologia web, altamente configurable y extendible.",
-        year: "2023",
-        link: "https://github.com/CMOISDEAD/next-library",
-        tech: ["Next.js", "Electron", "Redux", "TailwindCSS", "Sass"],
+          "Aplicacion de escritorio multiplataforma para la administración y lectura de libros virtuales, creado a partir de tecnologias web, altamente configurable y extendible.",
+        year: "2024",
+        repo: "https://github.com/CMOISDEAD/librarian",
+        tech: ["React", "Electron", "Prisma", "Redux", "TailwindCSS", "Sass"],
+      },
+      {
+        title: "SwimSchool Manager",
+        image: "assets/projects/dashboard.png",
+        description:
+          "Creación de una aplicación web integral para la gestión de escuelas de natación. La plataforma facilita el registro y seguimiento de estudiantes, profesores y personal administrativo, además de permitir la organización y administración de eventos, competiciones y clases. Un sistema completo para optimizar la gestión y comunicación en escuelas de natación.",
+        year: "2024",
+        // repo: "https://github.com/CMOISDEAD/doomguy",
+        // link: "https://doomguy.vercel.app/",
+        tech: ["React.js", "Astro", "SEO", "TailwindCSS"],
+      },
+      {
+        title: "Comunidad Deportiva",
+        image: "assets/projects/comunidad.png",
+        description:
+          "Desarrollo de una página web deportiva que destaca a los deportistas de la región mediante un mapa interactivo. La aplicación permite visualizar información relevante sobre cada atleta y su trayectoria, utilizando tecnologías de geolocalización para enriquecer la experiencia del usuario.",
+        year: "2024",
+        repo: "https://github.com/CMOISDEAD/comunidad",
+        link: "https://comunidad-xi.vercel.app/",
+        tech: ["React", "Electron", "Prisma", "Redux", "TailwindCSS", "Sass"],
       },
       {
         title: "Online Library",
         image: "assets/projects/online_library.png",
         description:
-          "Aplicacion que intenta crear una comunidad de lectores online, donde los usuarios tienen a su dispoisicion una plataforma la cual les permite leer libros de manera gratuita, ademas de poder interactuar dentro la aplicación.",
+          "Aplicacion que intenta crear una comunidad de lectores online, donde los usuarios tienen a su disposicion una plataforma la cual les permite leer libros de manera gratuita, ademas de poder interactuar dentro la aplicación.",
         year: "2023",
+        repo: "https://github.com/CMOISDEAD/online-library",
         link: "https://onlinelibrarian.vercel.app/",
-        tech: ["React.js", "Tailwind.css", "MongoDB", "Express"],
+        tech: [
+          "Next.js",
+          "Tailwind.css",
+          "MongoDB",
+          "Prisma",
+          "Express",
+          "JWT",
+        ],
       },
+
       {
         title: "Doomguy - plataforma API",
         image: "assets/projects/doomguy.png",
         description:
           "Doomguys es una aplicacion de escritorio/web para hacer peticiones HTTP, similar a Postman, pero con un diseño mas minimalista y moderno, su objetivo es hacer una aplicacion sin tantas caracteristicas innecesarias que logre cumplir las necesidades.",
         year: "2023",
+        repo: "https://github.com/CMOISDEAD/doomguy",
         link: "https://doomguy.vercel.app/",
         tech: ["React.js", "Astro", "SEO", "TailwindCSS"],
       },
@@ -34,8 +65,9 @@ export const projects = [
         image: "assets/projects/xcution.png",
         description:
           "Aplicación online para resolver problemas algorítmicos y de codificación destinados a que los usuarios practiquen la codificación.",
-        year: "2023",
-        link: "https://judge-frontend.vercel.app/",
+        year: "2022",
+        repo: "https://github.com/CMOISDAED/judge-frontend",
+        // link: "https://judge-frontend.vercel.app/",
         tech: ["Next.js", "Node.js", "Nest.js", "Docker", "Tailwind"],
       },
       {
@@ -44,6 +76,7 @@ export const projects = [
         description:
           "Aplicación que simula una pizarra online, donde los usuarios pueden dibujar y compartir sus dibujos con otros usuarios.",
         year: "2023",
+        repo: "https://github.com/CMOISDEAD/doomdraw",
         link: "https://doom-scheduler.vercel.app/",
         tech: ["React", "Typescript", "TailwindCSS"],
       },
@@ -68,31 +101,8 @@ export const projects = [
     ],
   },
   {
-    title: "Backend",
-    childs: [
-      {
-        title: "Xcution Bakckend",
-        image: "assets/projects/xcution.png",
-        description:
-          "Servidor desarrollado en Nest.js para la plataforma Xcution, el cual se encarga de la ejecucion de codigo y de su respectiva comprobacion a travez del manejo de contenedores, ademas del control de usuarios y otras tareas relacionadas.",
-        year: "2023",
-        link: "https://github.com/CMOISDEAD/judge-backend",
-        tech: ["Node.js", "Nest.js", "Docker", "Typescript"],
-      },
-      {
-        title: "0_Drive / Intranet storage",
-        image:
-          "https://user-images.githubusercontent.com/51010598/251323461-983a61b5-b827-44a3-ba7d-fe10660563e1.png",
-        description:
-          "Servicio de almacenamiento tipo Drive pero corriendo en una intranet.",
-        year: "2021",
-        link: "#",
-        tech: ["Next.js", "Electron", "Redux", "TailwindCSS"],
-      },
-    ],
-  },
-  {
     title: "Mobile",
+    disabled: true,
     childs: [
       {
         title: "TODO / React Native App",

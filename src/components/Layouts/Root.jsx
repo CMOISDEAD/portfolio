@@ -17,11 +17,9 @@ export const Root = () => {
         className="absolute bottom-0 left-5 md:block floating"
       />
       <Sidebar />
-      <ScrollShadow className="p-0 m-0 w-full">
-        <div className="container overflow-y-auto flex-grow p-5 mx-auto w-full h-screen md:px-20 backdrop-blur-sm">
-          <Outlet />
-        </div>
-      </ScrollShadow>
+      <div className="container overflow-y-auto flex-grow p-5 mx-auto w-full h-screen md:px-20 backdrop-blur-sm">
+        <Outlet />
+      </div>
     </div>
   );
 };

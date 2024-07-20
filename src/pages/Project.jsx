@@ -1,8 +1,16 @@
 import React from "react";
-import { Card, CardBody, Image, Link, Tab, Tabs } from "@nextui-org/react";
-import { AiOutlineExport, AiOutlineGithub } from "react-icons/ai";
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  Image,
+  Link,
+  Tab,
+  Tabs,
+} from "@nextui-org/react";
 import { projects as data } from "../utils/data/projects";
 import { motion } from "framer-motion";
+import { AiOutlineGithub, AiOutlineExport } from "react-icons/ai";
 
 export const Project = () => {
   return (
@@ -15,8 +23,8 @@ export const Project = () => {
         variant="underlined"
         color="primary"
       >
-        {data.map(({ title, childs }, i) => (
-          <Tab key={i} title={title}>
+        {data.map(({ title, childs, disabled }, i) => (
+          <Tab key={i} title={title} disabled={disabled}>
             <div className="flex flex-col gap-2">
               {childs.map((child, j) => (
                 <motion.div
@@ -28,41 +36,42 @@ export const Project = () => {
                   <Card
                     isBlurred
                     isHoverable
-                    shadow="lg"
                     className="w-full border border-divider"
                   >
                     <CardBody className="flex gap-4 md:flex-row">
                       <Image
-                        isBlurred
-                        width={300}
+                        removeWrapper
                         src={child.image}
                         alt={`${child.title} preview image`}
                         fallbackSrc="https://via.placeholder.com/300"
-                        className="object-cover flex-grow w-[80vw]"
+                        className="object-cover flex-grow h-full"
                       />
-                      <div className="flex flex-col gap-2 justify-between">
-                        <div>
-                          <h3 className="mb-3 text-xl font-bold capitalize text-ellipsis">
-                            {child.title}
-                          </h3>
-                          <p className="text-clip">{child.description}</p>
-                        </div>
-                        <div className="flex gap-4 content-center py-2 border-t border-divider">
-                          <Link
-                            href={child.link}
-                            className="flex gap-2 content-center items-center"
-                          >
-                            <AiOutlineGithub /> Repositorio
-                          </Link>
-                          <Link
-                            href={child.link}
-                            className="flex gap-2 content-center items-center"
-                          >
-                            <AiOutlineExport /> Ver Pagina
-                          </Link>
-                        </div>
-                      </div>
                     </CardBody>
+                    <CardFooter className="flex justify-between gap-2">
+                      <h4 className="font-bold text-lg">{child.title}</h4>
+                      <div className="flex gap-2 content-center text-sm">
+                        {child.repo && (
+                          <Link
+                            to={child.repo}
+                            target="_blank"
+                            className="gap-1"
+                          >
+                            <AiOutlineGithub />
+                            Repositorio
+                          </Link>
+                        )}
+                        {child.link && (
+                          <Link
+                            to={child.link}
+                            target="_blank"
+                            className="gap-1"
+                          >
+                            <AiOutlineExport />
+                            Ver Proyecto
+                          </Link>
+                        )}
+                      </div>
+                    </CardFooter>
                   </Card>
                 </motion.div>
               ))}

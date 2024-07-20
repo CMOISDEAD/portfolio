@@ -32,7 +32,7 @@ export const skills = [
       },
       {
         name: "Next.js",
-        icon: "nextjs",
+        icon: "nextjs_icon_dark",
       },
       {
         name: "TailwindCSS",
@@ -82,7 +82,9 @@ export const skills = [
       },
       {
         name: "Github",
-        icon: "github",
+        iconlight: "github-light",
+        icondark: "github-dark",
+        themeable: true,
       },
       {
         name: "NPM",

@@ -13,9 +13,7 @@ export const HomeLayout = ({ children }) => {
       <div className="inline-flex absolute top-10 left-10 gap-2 font-mono text-sm text-white">
         DOOM5D4Y
       </div>
-      <div className="absolute right-10 left-10 top-20 backdrop-blur-md">
-        {children}
-      </div>
+      <div className="absolute right-10 left-10 top-20">{children}</div>
       <div className="flex absolute bottom-10 justify-between px-10 w-full text-white">
         <div className="inline-flex left-10 gap-2 font-mono text-xl [&>*]:text-white grow basis-0 max-sm:hidden">
           <Social />

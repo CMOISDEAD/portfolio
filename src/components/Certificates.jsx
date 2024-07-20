@@ -32,10 +32,10 @@ export const Certificates = () => {
       <div className="flex flex-col gap-2 md:flex-row">
         {certificates.map((item, i) => (
           <div
-            className={`shadow shadow-${item.color} flex relative gap-2 content-center items-center h-32 rounded border md:w-5/12 border-${item.color} bg-${item.color}/20 backdrop-blur-sm`}
+            className={`shadow shadow-${item.color} flex relative gap-2 content-center items-center h-32 rounded border md:w-5/12 border-${item.color} bg-${item.color}/20`}
             key={i}
           >
-            <div className="flex z-50 flex-col gap-4 justify-between p-2 w-full h-full info backdrop-blur-sm">
+            <div className="flex z-50 flex-col gap-4 justify-between p-2 w-full h-full info">
               <div className="text-xl font-bold capitalize">{item.title}</div>
               <div className="text-sm">
                 {item.institute} - {item.year}
