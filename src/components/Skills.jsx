@@ -16,7 +16,7 @@ export const Skills = () => {
 
   return (
     <div>
-      <div className="title">Habilidades</div>
+      <div className="title">Skills</div>
       <div className="flex flex-col flex-wrap gap-3 justify-start md:flex-row">
         {skills.map((section, i) => (
           <Card

@@ -1,9 +1,9 @@
 import React from "react";
-import moment from "moment";
 import { Links } from "./Links";
 import { Social } from "./Social";
 import { routes } from "../utils/data/routes";
 import { useGithub } from "../hooks/useGithub";
+import { formatDistanceToNow } from "date-fns";
 
 export const HomeLayout = ({ children }) => {
   const { commit } = useGithub();
@@ -26,7 +26,9 @@ export const HomeLayout = ({ children }) => {
           />
         </div>
         <div className="font-mono text-xs italic text-white md:text-sm grow basis-0 text-end">
-          Last update {moment(commit?.author?.date, "YYYYMMDD").fromNow()}
+          Last update:{" "}
+          {commit?.author?.date &&
+            formatDistanceToNow(commit?.author?.date, { addSuffix: true })}
         </div>
       </div>
     </>

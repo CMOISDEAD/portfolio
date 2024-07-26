@@ -7,7 +7,7 @@ export const projects = [
         title: "Librarian",
         image: "assets/projects/librarian.png",
         description:
-          "Aplicacion de escritorio multiplataforma para la administración y lectura de libros virtuales, creado a partir de tecnologias web, altamente configurable y extendible.",
+          "A cross-platform desktop application designed for managing and reading virtual books. Built using web technologies, it offers high configurability and extensibility, providing a smooth and adaptable user experience for various needs.",
         year: "2024",
         repo: "https://github.com/CMOISDEAD/librarian",
         tech: ["React", "Electron", "Prisma", "Redux", "TailwindCSS", "Sass"],
@@ -16,7 +16,7 @@ export const projects = [
         title: "SwimSchool Manager",
         image: "assets/projects/dashboard.png",
         description:
-          "Creación de una aplicación web integral para la gestión de escuelas de natación. La plataforma facilita el registro y seguimiento de estudiantes, profesores y personal administrativo, además de permitir la organización y administración de eventos, competiciones y clases. Un sistema completo para optimizar la gestión y comunicación en escuelas de natación.",
+          "Development of a comprehensive web application for managing swimming schools. The platform streamlines the registration and tracking of students, instructors, and administrative staff, and facilitates the organization and management of events, competitions, and classes. A complete system designed to optimize management and enhance communication in swimming schools.",
         year: "2024",
         // repo: "https://github.com/CMOISDEAD/doomguy",
         // link: "https://doomguy.vercel.app/",
@@ -26,7 +26,7 @@ export const projects = [
         title: "Comunidad Deportiva",
         image: "assets/projects/comunidad.png",
         description:
-          "Desarrollo de una página web deportiva que destaca a los deportistas de la región mediante un mapa interactivo. La aplicación permite visualizar información relevante sobre cada atleta y su trayectoria, utilizando tecnologías de geolocalización para enriquecer la experiencia del usuario.",
+          "Development of a sports website that highlights regional athletes through an interactive map. The application enables users to view relevant information about each athlete and their career, utilizing geolocation technologies to enhance the user experience.",
         year: "2024",
         repo: "https://github.com/CMOISDEAD/comunidad",
         link: "https://comunidad-xi.vercel.app/",
@@ -36,7 +36,7 @@ export const projects = [
         title: "Online Library",
         image: "assets/projects/online_library.png",
         description:
-          "Aplicacion que intenta crear una comunidad de lectores online, donde los usuarios tienen a su disposicion una plataforma la cual les permite leer libros de manera gratuita, ademas de poder interactuar dentro la aplicación.",
+          "Application designed to build an online reading community, providing a platform where users can read books for free and interact within the app. The platform fosters connections among readers and enhances the reading experience with integrated social features.",
         year: "2023",
         repo: "https://github.com/CMOISDEAD/online-library",
         link: "https://onlinelibrarian.vercel.app/",
@@ -54,7 +54,7 @@ export const projects = [
         title: "Doomguy - plataforma API",
         image: "assets/projects/doomguy.png",
         description:
-          "Doomguys es una aplicacion de escritorio/web para hacer peticiones HTTP, similar a Postman, pero con un diseño mas minimalista y moderno, su objetivo es hacer una aplicacion sin tantas caracteristicas innecesarias que logre cumplir las necesidades.",
+          "Doomguy is a desktop/web application for making HTTP requests, similar to Postman, but with a more minimalist and modern design. Its goal is to offer a streamlined tool with essential features, avoiding unnecessary complexity while effectively meeting user needs.",
         year: "2023",
         repo: "https://github.com/CMOISDEAD/doomguy",
         link: "https://doomguy.vercel.app/",
@@ -64,7 +64,7 @@ export const projects = [
         title: "Xcution - Algoritmos y codificación",
         image: "assets/projects/xcution.png",
         description:
-          "Aplicación online para resolver problemas algorítmicos y de codificación destinados a que los usuarios practiquen la codificación.",
+          "Online application for solving algorithmic and coding problems, designed to help users practice and refine their programming skills. The platform provides a variety of challenges that encourage active practice and skill development in coding.",
         year: "2022",
         repo: "https://github.com/CMOISDAED/judge-frontend",
         // link: "https://judge-frontend.vercel.app/",
@@ -74,7 +74,7 @@ export const projects = [
         title: "DoomDraw - Pizarra online",
         image: "assets/projects/doomdraw.png",
         description:
-          "Aplicación que simula una pizarra online, donde los usuarios pueden dibujar y compartir sus dibujos con otros usuarios.",
+          "Application that simulates an online whiteboard, allowing users to draw and share their creations with others. The platform facilitates collaboration and idea sharing through an intuitive and accessible digital drawing space.",
         year: "2023",
         repo: "https://github.com/CMOISDEAD/doomdraw",
         link: "https://doom-scheduler.vercel.app/",
@@ -84,7 +84,7 @@ export const projects = [
         title: "Svelte Scheduler",
         image: "assets/projects/scheduler.png",
         description:
-          "Aplicacion de calendario y tareas enfoncado en el minimalismo y la funcionalidad al usuario, cread con Svelte.",
+          "Calendar and task management application focused on minimalism and user functionality. Built with Svelte, the app provides a clean and efficient interface for effectively organizing your time and tasks.",
         year: "2023",
         link: "https://doom-scheduler.vercel.app/",
         tech: ["Svelte", "TailwindCSS", "PWA"],
@@ -93,7 +93,7 @@ export const projects = [
         title: "Doomsday - Blog Personal",
         image: "assets/projects/doomsday.png",
         description:
-          "Blog enfocado a hablar sobre temas de desarrollo y otros temas relacionados con las ciencias de la computación.",
+          "Blog focused on development and computer science topics. It features articles and content on the latest trends, techniques, and updates in the field, providing readers with relevant and up-to-date information to stay informed in the industry.",
         year: "2023",
         link: "https://github.com/CMOISDEAD/cmoisdead.github.io",
         tech: ["React.js", "Astro", "SEO", "TailwindCSS"],
@@ -105,13 +105,22 @@ export const projects = [
     disabled: true,
     childs: [
       {
-        title: "TODO / React Native App",
-        image:
-          "https://user-images.githubusercontent.com/51010598/251323461-983a61b5-b827-44a3-ba7d-fe10660563e1.png",
+        title: "Workspace Reservation App",
         description:
-          "Aplicacion de manejo de tiempo y tareas, creada en React Native",
+          "App for reserving shared workspaces or meeting rooms at various locations. Users can search, compare, and book spaces, as well as manage their reservations and receive real-time confirmations.",
+        year: "2024",
+      },
+      {
+        title: "Healthy Habits Tracker App",
+        description:
+          "App to help users establish and maintain healthy habits, such as exercise, hydration, and meditation. It offers reminders and progress analysis to encourage positive habit formation.",
+        year: "2024",
+      },
+      {
+        title: "TODO / React Native App",
+        description:
+          "Time and task management application, developed with React Native. The platform enables users to organize and manage their activities efficiently, providing an intuitive and accessible interface to enhance productivity.",
         year: "2023",
-        link: "#",
         tech: ["Next.js", "Electron", "Redux", "TailwindCSS"],
       },
     ],

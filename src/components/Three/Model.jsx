@@ -1,9 +1,9 @@
-import { Suspense } from "react";
+import React, { Suspense } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Text } from "@react-three/drei";
 import { LayerMaterial, Depth, Noise } from "lamina";
-import React from "react";
+
 import Noodles from "./Noodles";
 
 export default function Model() {

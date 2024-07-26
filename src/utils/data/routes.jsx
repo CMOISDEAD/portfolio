@@ -18,7 +18,7 @@ export const routes = [
   },
   {
     icon: <AiOutlineProject />,
-    name: "Project",
+    name: "Projects",
     path: "/project",
   },
   {

@@ -6,7 +6,7 @@ import { Certificates } from "../components/Certificates";
 export const About = () => {
   return (
     <div className="flex flex-col gap-2">
-      <div className="title">Acerca de mi</div>
+      <div className="title">About Me</div>
       <div className="relative mb-10 h-[30vh]">
         <Image
           isBlurred
@@ -25,13 +25,13 @@ export const About = () => {
         </div>
       </div>
       <div className="content">
-        Soy un programador <span className="font-bold">fullstack</span>{" "}
-        apasionado por crear experiencias web atractivas y eficientes con las
-        ultimas tecnologias, Me gusta mantenerme al día con las últimas
-        tendencias y tecnologías en el desarrollo web, y siempre estoy buscando
-        nuevas formas de mejorar mi trabajo. Me encanta aprender y compartir
-        conocimientos con los demás. Si tiene alguna pregunta o desea que
-        trabajemos juntos.
+        I am a <span className="font-bold">fullstack</span> developer passionate
+        about creating engaging and efficient web experiences using the latest
+        technologies. I strive to stay updated with the newest trends and tools
+        in web development, constantly seeking new ways to enhance my work. I
+        enjoy learning and sharing knowledge with others. If you have any
+        questions or would like to explore collaboration opportunities, feel
+        free to reach out.
       </div>
       <Skills />
       <Certificates />

@@ -3,21 +3,21 @@ import { Image } from "@nextui-org/react";
 
 const certificates = [
   {
-    title: "Ingenieria en Sistemas y Computacion",
-    institute: "Universidad del Quindio",
+    title: "Bachelor's Degree in Systems and Computing",
+    institute: "Universidad del Quindío",
     year: "2025",
     color: "success",
     icon: "nodejs",
   },
   {
-    title: "Certificado en Analisis de Datos",
+    title: "Certificate in Data Analysis",
     institute: "DS4A",
     year: "2022",
     color: "warning",
     icon: "fresh",
   },
   {
-    title: "Tecnico en Programacion de Software",
+    title: "Technical Degree in Software Programming",
     institute: "SENA",
     year: "2019",
     color: "primary",
@@ -28,7 +28,7 @@ const certificates = [
 export const Certificates = () => {
   return (
     <div>
-      <div className="title">Titulos y Certificados</div>
+      <div className="title">Degrees and Certifications</div>
       <div className="flex flex-col gap-2 md:flex-row">
         {certificates.map((item, i) => (
           <div

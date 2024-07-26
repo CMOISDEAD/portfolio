@@ -35,12 +35,12 @@ export const Sidebar = () => {
         <div className="flex flex-col gap-4 justify-center content-center items-center h-full text-center">
           <User />
           <div className="my-3 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-foreground to-primary">
-            Navegacion
+            Navegation
           </div>
           <Links
             routes={routes}
-            className="transition-colors ease-in-out hover:text-focus"
-            classActive="text-primary-300"
+            className="transition-colors ease-in-out hover:text-primary"
+            classActive="text-primary"
           />
           <div className="my-6 mt-4 text-center">
             <div className="my-5 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-foreground to-primary">
