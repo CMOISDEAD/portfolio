@@ -13,13 +13,21 @@ export const projects = [
         tech: ["React", "Electron", "Prisma", "Redux", "TailwindCSS", "Sass"],
       },
       {
+        title: "Vans-Inspired Sneaker Promotion Page",
+        image: "assets/projects/sneakers.png",
+        description:
+          "An innovative and visually striking web page designed to promote Vans-inspired sneakers. This project showcases a modern and underground aesthetic, featuring bold typography and dynamic elements. Utilizing React and Tailwind CSS, the page highlights the unique style and comfort of the sneakers with a captivating 3D model integration. The design includes custom fonts and advanced CSS techniques, ensuring an engaging and memorable user experience.",
+        year: "2024",
+        repo: "https://github.com/CMOISDEAD/snickers",
+        link: "https://snickers-ten.vercel.app/",
+        tech: ["React", "Electron", "Threejs", "TailwindCSS", "Sass"],
+      },
+      {
         title: "SwimSchool Manager",
         image: "assets/projects/dashboard.png",
         description:
           "Development of a comprehensive web application for managing swimming schools. The platform streamlines the registration and tracking of students, instructors, and administrative staff, and facilitates the organization and management of events, competitions, and classes. A complete system designed to optimize management and enhance communication in swimming schools.",
         year: "2024",
-        // repo: "https://github.com/CMOISDEAD/doomguy",
-        // link: "https://doomguy.vercel.app/",
         tech: ["React.js", "Astro", "SEO", "TailwindCSS"],
       },
       {
