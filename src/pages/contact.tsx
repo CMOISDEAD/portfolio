@@ -13,11 +13,11 @@ export const Contact = () => {
 
       <Navigation />
 
-      <section className="flex w-full flex-1 items-end p-16 text-xs">
+      <section className="flex w-full flex-1 items-end p-8 text-xs md:p-16">
         <ul className="space-y-8">
           <li>
-            <div className="flex gap-8 text-xl">
-              <p className="w-28 font-thin">Github</p>
+            <div className="flex gap-4 text-lg md:gap-8 md:text-xl">
+              <p className="font-thin md:w-28">Github</p>
               <Link
                 to="https://github.com/CMOISDEAD"
                 target="_blank"
@@ -28,8 +28,8 @@ export const Contact = () => {
             </div>
           </li>
           <li>
-            <div className="flex gap-8 text-xl">
-              <p className="w-28 font-thin">Email</p>
+            <div className="flex gap-4 text-lg md:gap-8 md:text-xl">
+              <p className="font-thin md:w-28">Email</p>
               <Link
                 to="mailto:camiloesteban661@gmail.com"
                 target="_blank"

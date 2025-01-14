@@ -29,12 +29,15 @@ export const WorkCard = ({ id, year, title, description, skills }: Props) => {
           delay: id * 0.1,
         },
       }}
-      className="flex w-[40rem] flex-shrink-0 gap-4 p-4"
+      className="flex w-80 flex-shrink-0 gap-4 md:w-[40rem] md:p-4"
     >
-      <p className="text-5xl font-light">{year}</p>
+      <p className="hidden text-5xl font-light md:block">{year}</p>
       <div className="flex flex-col justify-between gap-4">
-        <h3 className="text-xl font-bold">{title}</h3>
-        <p className="text-xs">{description}</p>
+        <h3 className="text-xl font-bold md:hidden">
+          {title} - {year}
+        </h3>
+        <h3 className="hidden text-xl font-bold md:block">{title}</h3>
+        <p className="text-xs md:text-sm">{description}</p>
         <div className="flex content-center items-center gap-4 text-xs italic">
           {skills.map((skill, i) => (
             <p key={i}>{skill}</p>

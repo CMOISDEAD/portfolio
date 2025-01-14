@@ -10,25 +10,25 @@ export const Home = () => {
 
       <Navigation />
 
-      <section className="flex w-full flex-1 items-center justify-between p-16">
+      <section className="flex w-full flex-1 flex-col items-center justify-between gap-8 p-16 text-center md:flex-row">
         <div className="flex flex-col items-center justify-center gap-4">
-          <FunctionSquare className="h-8 w-8" />
-          <p className="w-96">
+          <FunctionSquare className="hidden h-8 w-8 md:block" />
+          <p className="w-80 text-sm md:w-96 md:text-base">
             Fullstack developer passionate to create innovative and usefull web
             experiences.
           </p>
         </div>
 
         <div className="flex flex-col items-center justify-center gap-4">
-          <SquareCode className="h-8 w-8" />
-          <p className="w-96">
+          <SquareCode className="hidden h-8 w-8 md:block" />
+          <p className="w-80 text-sm md:w-96 md:text-base">
             Specialized in React, Next.js, Node.js, and MongoDB.
           </p>
         </div>
 
         <div className="flex flex-col items-center justify-center gap-4">
-          <FunctionSquare className="h-8 w-8" />
-          <p className="w-96">
+          <FunctionSquare className="hidden h-8 w-8 md:block" />
+          <p className="w-80 text-sm md:w-96 md:text-base">
             Always looking for new challenges to learn and grow as a developer.
           </p>
         </div>
