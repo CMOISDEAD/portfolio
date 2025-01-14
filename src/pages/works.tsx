@@ -4,10 +4,19 @@ import { Navigation } from "@/components/ui/navigation";
 import { WorkCard } from "@/components/works/workcard";
 
 import works from "@/data/works";
+import { Helmet } from "react-helmet";
 
 export const Works = () => {
   return (
     <AnimatedLayout>
+      <Helmet>
+        <title>Works - Camilo Davila;</title>
+        <meta
+          name="description"
+          content="See some experiences I've been through in my career."
+        />
+      </Helmet>
+
       <Header
         title="Works"
         description="See some experiences I've been through in my career."

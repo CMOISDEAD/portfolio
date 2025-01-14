@@ -2,10 +2,19 @@ import { AnimatedLayout } from "@/components/layout/animated";
 import { Header } from "@/components/ui/header";
 import { Link } from "@/components/ui/link";
 import { Navigation } from "@/components/ui/navigation";
+import { Helmet } from "react-helmet";
 
 export const Contact = () => {
   return (
     <AnimatedLayout>
+      <Helmet>
+        <title>Contact - Camilo Davila;</title>
+        <meta
+          name="description"
+          content="Contact me for any inquiries or collaborations."
+        />
+      </Helmet>
+
       <Header
         title="Contact"
         description="Contact me for any inquiries or collaborations."
