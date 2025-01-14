@@ -1,0 +1,18 @@
+export default [
+  {
+    id: 0,
+    title: "Full Stack Developer",
+    description:
+      "Desarrollo de un sistema de administración web para una academia de natación (en desarrollo). La aplicación gestiona estudiantes, cronogramas, estadísticas y competencias, utilizando React en el frontend, Express.js con Node.js en el backend, autenticación con JWT, manejo de estado con Redux, peticiones con Axios y base de datos MongoDB.Se implementó una arquitectura basada en componentes reutilizables para facilitar el mantenimiento y la escalabilidad.",
+    skills: ["React", "Expres.js", "JWT", "MongoDB"],
+    year: "2024",
+  },
+  {
+    id: 1,
+    title: "Desarrollador Frontend",
+    description:
+      "Desarrollo de una plataforma web interactiva para la exhibición de deportistas, utilizando un mapa 3D como interfaz principal. El proyecto abarcó desde la concepción del diseño hasta la implementación completa del front-end, incluyendo la integración de información multimedia (fotos, biografías, etc.) y la optimización para una experiencia de usuario fluida. Presentado a un jurado recibiendo criticas favorables.",
+    skills: ["React", "Mapbox", "TailwindCSS"],
+    year: "2023",
+  },
+];
