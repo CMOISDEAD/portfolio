@@ -1,0 +1,14 @@
+{
+  "language": {
+    "en": "Inglés",
+    "es": "Español",
+    "de": "Alemán"
+  },
+  "navigation": {
+    "home": "inicio",
+    "works": "trabajos",
+    "projects": "projectos",
+    "about": "sobre mi",
+    "contact": "contacto"
+  }
+}

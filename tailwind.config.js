@@ -5,6 +5,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        // TODO: add more colors like `hover` `borders` `focus` etc.
         foreground: "#e4e4e7",
         background: "#27272a",
       },

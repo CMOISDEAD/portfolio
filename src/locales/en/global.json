@@ -1,0 +1,14 @@
+{
+  "language": {
+    "en": "English",
+    "es": "Spanish",
+    "de": "German"
+  },
+  "navigation": {
+    "home": "home",
+    "works": "works",
+    "projects": "projects",
+    "about": "about",
+    "contact": "contact"
+  }
+}

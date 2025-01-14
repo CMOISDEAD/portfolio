@@ -3,6 +3,7 @@ import { motion, useAnimate } from "motion/react";
 import { Link } from "@/components/ui/link";
 import { Topbar } from "@/components/ui/topbar";
 import { useTheme } from "next-themes";
+import { useTranslation } from "react-i18next";
 
 const links = [
   {
@@ -26,6 +27,7 @@ const links = [
 export const Navigation = () => {
   const [word, setWord] = useState<string | null>(null);
   const [scope, animate] = useAnimate();
+  const [t] = useTranslation("global");
   const { theme } = useTheme();
 
   useEffect(() => {
@@ -34,7 +36,7 @@ export const Navigation = () => {
       backgroundColor: "#0000000",
       color: theme === "dark" ? "#27272a" : "#e4e4e7",
     });
-  }, [theme]);
+  }, [theme, animate, scope]);
 
   const onMouseEnter = (word: string) => {
     animate(scope.current, {
@@ -68,10 +70,12 @@ export const Navigation = () => {
               <li key={i}>
                 <Link
                   to={path}
-                  onMouseOver={() => onMouseEnter(name)}
+                  onMouseOver={() =>
+                    onMouseEnter(t(`navigation.${name.toLowerCase()}`))
+                  }
                   onMouseOut={onMouseOut}
                 >
-                  {`0${i + 1}. ${name}`}
+                  {`0${i + 1}. ${t(`navigation.${name.toLowerCase()}`)}`}
                 </Link>
               </li>
             ))}
@@ -91,9 +95,7 @@ export const Navigation = () => {
               }}
               className="text-background/20 dark:text-foreground/20 absolute bottom-0 left-0 right-0 top-0 m-auto flex h-fit w-fit text-9xl font-bold"
             >
-              {word.split("").map((letter, i) => (
-                <motion.li key={i}>{letter}</motion.li>
-              ))}
+              <motion.li>{word}</motion.li>
             </motion.ul>
           )}
         </section>
