@@ -1,6 +1,7 @@
-import { Languages, Moon } from "lucide-react";
+import { Languages, Moon, Sun } from "lucide-react";
 import { useCursor } from "./cursor";
 import { Link } from "./link";
+import { useTheme } from "next-themes";
 
 interface Props {
   onMouseEnter: (word: string) => void;
@@ -9,6 +10,7 @@ interface Props {
 
 export const Topbar = ({ onMouseEnter, onMouseOut }: Props) => {
   const { linkEnter, leave } = useCursor();
+  const { theme, setTheme } = useTheme();
 
   return (
     <>
@@ -17,7 +19,7 @@ export const Topbar = ({ onMouseEnter, onMouseOut }: Props) => {
           to="/"
           onMouseOver={() => onMouseEnter("Home")}
           onMouseOut={onMouseOut}
-          className="jusitfy-center flex items-center font-sans text-sm mix-blend-color-burn"
+          className="jusitfy-center flex items-center font-sans text-sm"
         >
           00. Home
         </Link>
@@ -26,8 +28,12 @@ export const Topbar = ({ onMouseEnter, onMouseOut }: Props) => {
         <button onMouseOver={() => linkEnter()} onMouseOut={() => leave()}>
           <Languages />
         </button>
-        <button onMouseOver={() => linkEnter()} onMouseOut={() => leave()}>
-          <Moon />
+        <button
+          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          onMouseOver={() => linkEnter()}
+          onMouseOut={() => leave()}
+        >
+          {theme === "dark" ? <Moon /> : <Sun />}
         </button>
       </div>
     </>

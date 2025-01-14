@@ -16,7 +16,7 @@ export const AnimatedLayout = ({ children }: { children: React.ReactNode }) => {
         y: 100,
       }}
       transition={{ duration: 0.3 }}
-      className="relative flex h-full flex-col items-center justify-between rounded bg-gray-200 shadow-xl"
+      className="relative flex h-full flex-col items-center justify-between"
     >
       {children}
     </motion.div>

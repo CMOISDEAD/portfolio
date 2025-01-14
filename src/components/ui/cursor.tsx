@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { useTheme } from "next-themes";
 import { createContext, useContext, useEffect, useState } from "react";
 
 type CursorContextType = {
@@ -32,6 +33,7 @@ const Cursor: React.FC<{ variant: "default" | "text" | "link" }> = ({
   variant,
 }) => {
   const [coords, setCoords] = useState({ x: 0, y: 0 });
+  const { theme } = useTheme();
 
   useEffect(() => {
     const mouseMove = (e: MouseEvent) =>
@@ -41,13 +43,19 @@ const Cursor: React.FC<{ variant: "default" | "text" | "link" }> = ({
   }, []);
 
   const variants = {
-    default: { x: coords.x - 16, y: coords.y - 16, width: 32, height: 32 },
+    default: {
+      x: coords.x - 16,
+      y: coords.y - 16,
+      width: 32,
+      height: 32,
+      backgroundColor: theme === "dark" ? "#27272a" : "#e4e4e7",
+    },
     text: {
       x: coords.x - 75,
       y: coords.y - 75,
       width: 150,
       height: 150,
-      backgroundColor: "#fff",
+      backgroundColor: "#e4e4e7",
       mixBlendMode: "difference",
     },
     link: {
@@ -56,7 +64,7 @@ const Cursor: React.FC<{ variant: "default" | "text" | "link" }> = ({
       width: 80,
       height: 80,
       backgroundColor: "#ffffff00",
-      border: "1px solid #fff",
+      border: "1px solid #e4e4e7",
       mixBlendMode: "difference",
     },
   };
@@ -66,7 +74,7 @@ const Cursor: React.FC<{ variant: "default" | "text" | "link" }> = ({
       // @ts-expect-error `mixBlendMode` is not a valid prop...
       variants={variants}
       animate={variant}
-      className="pointer-events-none fixed left-0 top-0 hidden rounded-full bg-neutral-900 sm:block"
+      className="pointer-events-none fixed left-0 top-0 hidden rounded-full sm:block"
     />
   );
 };
