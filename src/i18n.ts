@@ -22,7 +22,7 @@ import about_de from "@/locales/de/about.json";
 import work_de from "@/locales/de/work.json";
 
 i18next.init({
-  lng: "en",
+  lng: navigator.language || "en",
   interpolation: {
     escapeValue: false,
   },
@@ -33,7 +33,7 @@ i18next.init({
       contact: contact_es,
       projects: projects_es,
       about: about_es,
-      work: work_es,
+      works: work_es,
     },
     en: {
       global: global_en,
@@ -41,7 +41,7 @@ i18next.init({
       contact: contact_en,
       projects: projects_en,
       about: about_en,
-      work: work_en,
+      works: work_en,
     },
     de: {
       global: global_de,
@@ -49,7 +49,7 @@ i18next.init({
       contact: contact_de,
       projects: projects_de,
       about: about_de,
-      work: work_de,
+      works: work_de,
     },
   },
 });

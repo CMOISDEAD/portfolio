@@ -3,8 +3,11 @@ import { Header } from "@/components/ui/header";
 import { Link } from "@/components/ui/link";
 import { Navigation } from "@/components/ui/navigation";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 
 export const Contact = () => {
+  const [t] = useTranslation("contact");
+
   return (
     <AnimatedLayout>
       <Helmet>
@@ -15,10 +18,7 @@ export const Contact = () => {
         />
       </Helmet>
 
-      <Header
-        title="Contact"
-        description="Contact me for any inquiries or collaborations."
-      />
+      <Header title={t("title")} description={t("description")} />
 
       <Navigation />
 
@@ -38,7 +38,7 @@ export const Contact = () => {
           </li>
           <li>
             <div className="flex gap-4 text-lg md:gap-8 md:text-xl">
-              <p className="font-thin md:w-28">Email</p>
+              <p className="font-thin md:w-28">{t("email")}</p>
               <Link
                 to="mailto:camiloesteban661@gmail.com"
                 target="_blank"

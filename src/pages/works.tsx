@@ -3,10 +3,22 @@ import { Header } from "@/components/ui/header";
 import { Navigation } from "@/components/ui/navigation";
 import { WorkCard } from "@/components/works/workcard";
 
-import works from "@/data/works";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
+
+interface Work {
+  id: number;
+  title: string;
+  description: string;
+  skills: string[];
+  year: string;
+}
 
 export const Works = () => {
+  const [t] = useTranslation("works");
+
+  const works: Work[] = t("works", { returnObjects: true }) as Work[];
+
   return (
     <AnimatedLayout>
       <Helmet>
@@ -17,10 +29,7 @@ export const Works = () => {
         />
       </Helmet>
 
-      <Header
-        title="Works"
-        description="See some experiences I've been through in my career."
-      />
+      <Header title={t("title")} description={t("description")} />
 
       <Navigation />
 
