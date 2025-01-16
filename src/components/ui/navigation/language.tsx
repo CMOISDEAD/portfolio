@@ -19,7 +19,7 @@ export const LanguageSwitcher = () => {
   return (
     <div className="relative">
       <button
-        className="text-foreground dark:text-background flex items-center gap-2 p-2 focus:outline-none"
+        className="flex items-center gap-2 p-2 text-foreground focus:outline-none dark:text-background"
         onMouseOver={linkEnter}
         onMouseLeave={leave}
         onClick={toggleMenu}
@@ -29,7 +29,7 @@ export const LanguageSwitcher = () => {
       </button>
       {open && (
         <div
-          className="bg-background dark:bg-foreground dark:border-foreground absolute right-0 mt-2 w-32 rounded border shadow"
+          className="absolute right-0 z-20 mt-2 w-32 rounded border bg-background shadow dark:border-foreground dark:bg-foreground"
           onMouseLeave={() => setOpen(false)}
         >
           <ul className="py-1">

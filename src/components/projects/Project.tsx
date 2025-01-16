@@ -29,7 +29,7 @@ export const Project = ({
       <motion.div
         animate={{
           width: active === index ? "40rem" : "18rem",
-          height: active === index ? "40rem" : "24rem",
+          height: active === index ? "50rem" : "24rem",
         }}
         className="project-card flex-basis-[0rem] group h-96 w-72 flex-shrink-0 snap-center overflow-hidden"
       >

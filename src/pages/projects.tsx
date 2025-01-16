@@ -41,7 +41,7 @@ export const Projects = () => {
         <Navigation />
         <div
           ref={scrollContainer}
-          className="scrollbar-hide h-[50vh] overflow-x-scroll whitespace-nowrap md:h-[60vh] lg:h-[70vh]"
+          className="scrollbar-hide h-[50vh] overflow-y-hidden overflow-x-scroll whitespace-nowrap md:h-[60vh] lg:h-[80vh]"
         >
           <section className="flex">
             {[...projects, ...projects].map((project, i) => (
