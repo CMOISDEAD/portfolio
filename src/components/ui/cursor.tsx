@@ -74,7 +74,7 @@ const Cursor: React.FC<{ variant: "default" | "text" | "link" }> = ({
       // @ts-expect-error `mixBlendMode` is not a valid prop...
       variants={variants}
       animate={variant}
-      className="pointer-events-none fixed left-0 top-0 hidden rounded-full sm:block"
+      className="pointer-events-none fixed left-0 top-0 z-[100] hidden rounded-full sm:block"
     />
   );
 };

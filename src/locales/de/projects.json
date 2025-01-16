@@ -1,1 +1,70 @@
-{}
+{
+  "projects": [
+    {
+      "id": 0,
+      "title": "Schwimmschul-Software",
+      "description": "Software zur Verwaltung einer Schwimmschule.",
+      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "id": 1,
+      "title": "Restaurantverwaltungssystem",
+      "description": "Ein System zur Bearbeitung von Bestellungen, Reservierungen und Kundenfeedback für Restaurants.",
+      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "id": 2,
+      "title": "E-Commerce-Plattform",
+      "description": "Vollständige Plattform für Online-Shopping mit Inventar- und Zahlungsintegration.",
+      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Aufgabenmanagement-Tool",
+      "description": "Anwendung zur Organisation von Aufgaben mit Funktionen wie Drag-and-Drop und Benachrichtigungen.",
+      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Online-Lernportal",
+      "description": "Plattform zum Hosten und Verwalten von Online-Kursen, einschließlich Videovorträgen.",
+      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Fitness-Tracker-App",
+      "description": "Web-App zum Aufzeichnen von Workouts, Verfolgen von Fortschritten und Teilen von Erfolgen.",
+      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Blog-Plattform",
+      "description": "Ein Multi-User-Blogging-System mit Analyse- und Benutzerkommentarfunktionen.",
+      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "id": 7,
+      "title": "Veranstaltungsmanagementsystem",
+      "description": "Ein Tool zum Erstellen und Verwalten von Veranstaltungen, einschließlich Registrierung und Teilnehmerverfolgung.",
+      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "id": 8,
+      "title": "Immobilienplattform",
+      "description": "Online-Marktplatz für Immobilienangebote und Kommunikation zwischen Maklern und Kunden.",
+      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "id": 9,
+      "title": "Jobsuch-App",
+      "description": "Plattform für Arbeitssuchende, um sich zu bewerben, und für Unternehmen, Stellenangebote zu veröffentlichen.",
+      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "id": 10,
+      "title": "Online-Abstimmungssystem",
+      "description": "Eine sichere und effiziente Abstimmungsplattform für Organisationen und Gemeinschaften.",
+      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, useAnimate } from "motion/react";
 import { Link } from "@/components/ui/link";
-import { Topbar } from "@/components/ui/topbar";
+import { Topbar } from "@/components/ui/navigation/topbar";
 import { useTheme } from "next-themes";
 import { useTranslation } from "react-i18next";
 
@@ -93,7 +93,7 @@ export const Navigation = () => {
               transition={{
                 duration: 0.2,
               }}
-              className="text-background/20 dark:text-foreground/20 absolute bottom-0 left-0 right-0 top-0 m-auto flex h-fit w-fit text-9xl font-bold"
+              className="absolute bottom-0 left-0 right-0 top-0 m-auto flex h-fit w-fit text-9xl font-bold text-background/20 dark:text-foreground/20"
             >
               <motion.li>{word}</motion.li>
             </motion.ul>

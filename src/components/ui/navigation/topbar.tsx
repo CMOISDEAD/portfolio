@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "@/components/ui/link";
-import { LanguageSwitcher } from "@/components/ui/language";
-import { ThemeSwitcher } from "./theme";
+import { LanguageSwitcher } from "@/components/ui/navigation/language";
+import { ThemeSwitcher } from "@/components/ui/navigation/theme";
 
 interface Props {
   onMouseEnter: (word: string) => void;

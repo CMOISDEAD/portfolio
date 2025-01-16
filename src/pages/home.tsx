@@ -1,6 +1,6 @@
 import { AnimatedLayout } from "@/components/layout/animated";
 import { Header } from "@/components/ui/header";
-import { Navigation } from "@/components/ui/navigation";
+import { Navigation } from "@/components/ui/navigation/globalNavigation";
 import { FunctionSquare, SquareCode } from "lucide-react";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
