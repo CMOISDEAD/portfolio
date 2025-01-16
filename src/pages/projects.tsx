@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet";
-import { motion } from "motion/react";
 import { AnimatedLayout } from "@/components/layout/animated";
 import { Project } from "@/components/projects/Project";
 import { Navigation } from "@/components/ui/navigation/projectsNavigation";
