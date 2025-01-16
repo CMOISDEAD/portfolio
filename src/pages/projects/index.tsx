@@ -56,11 +56,11 @@ export const Projects = () => {
           alt="test"
           src={projects[active].image}
           layoutId="project-image"
-          className="h-fit w-2/5 object-cover"
+          className="hidden h-fit w-2/5 object-cover md:block"
           transition={{ ease: "easeIn" }}
         />
 
-        <div className="flex h-full w-full flex-grow flex-col justify-between">
+        <div className="flex h-full w-full flex-grow flex-col justify-between gap-4">
           <p className="w-full">
             {projects.map((project, i) => (
               <Link
@@ -68,14 +68,14 @@ export const Projects = () => {
                 to={`${i}`}
                 onMouseEnter={() => onHover(i)}
                 onMouseLeave={leave}
-                className="text-inactive text-6xl font-bold transition-colors hover:text-foreground hover:dark:text-background lg:text-7xl"
+                className="text-inactive text-5xl font-bold transition-colors hover:text-foreground hover:dark:text-background md:text-7xl"
               >
                 {project.title}
                 {i === projects.length - 1 ? "" : ", "}
               </Link>
             ))}
           </p>
-          <h3 className="text-center text-[2rem] font-extrabold uppercase md:text-9xl">
+          <h3 className="text-center text-5xl font-extrabold uppercase md:text-9xl">
             CamiloDavila
           </h3>
         </div>
