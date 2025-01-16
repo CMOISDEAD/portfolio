@@ -25,7 +25,6 @@ export const LanguageSwitcher = () => {
         onClick={toggleMenu}
       >
         <Languages />
-        <span className="hidden sm:inline">{t(`language.${lang}`)}</span>
       </button>
       {open && (
         <div

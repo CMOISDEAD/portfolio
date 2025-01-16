@@ -30,23 +30,10 @@ const links = [
 ];
 
 export const Navigation = () => {
-  const [scope, animate] = useAnimate();
   const [t] = useTranslation("global");
-  const { theme } = useTheme();
-
-  useEffect(() => {
-    animate(scope.current, {
-      height: "fit-content",
-      backgroundColor: "#0000000",
-      color: theme === "dark" ? "#27272a" : "#e4e4e7",
-    });
-  }, [theme, animate, scope]);
 
   return (
-    <section
-      ref={scope}
-      className="flex w-full items-center justify-between gap-4 p-8"
-    >
+    <section className="sticky top-0 flex w-full items-center justify-between gap-4 px-6 py-8">
       <div className="hidden md:block" />
       <ul className="flex w-full max-w-6xl flex-1 justify-between text-sm">
         {links.map(({ name, path }, i) => (
