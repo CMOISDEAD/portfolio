@@ -47,9 +47,7 @@ export const Navigation = () => {
       ref={scope}
       className="flex w-full items-center justify-between gap-4 p-8"
     >
-      <div className="flex-shrink-0">
-        <h1 className="text-lg font-extrabold">CD</h1>
-      </div>
+      <div className="hidden md:block" />
       <ul className="flex w-full max-w-6xl flex-1 justify-between text-sm">
         {links.map(({ name, path }, i) => (
           <li key={i}>

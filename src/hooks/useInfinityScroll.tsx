@@ -35,16 +35,15 @@ export const useInfiniteScroll = () => {
       let closestId: number | null = null;
       let closestDistance = Infinity;
 
-      container
-        .querySelectorAll<HTMLElement>(".project-card")
-        .forEach((el, index) => {
-          const elCenter = el.offsetLeft + el.offsetWidth / 2;
-          const distance = Math.abs(containerCenter - elCenter);
-          if (distance < closestDistance) {
-            closestDistance = distance;
-            closestId = index;
-          }
-        });
+      container.querySelectorAll<HTMLElement>(".project-card").forEach((el) => {
+        const elCenter = el.offsetLeft + el.offsetWidth / 2;
+        const distance = Math.abs(containerCenter - elCenter);
+        const projectId = parseInt(el.dataset.id || "0");
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestId = projectId;
+        }
+      });
 
       setActiveId(closestId);
     };

@@ -24,6 +24,7 @@ export const Project = ({
   onHover,
 }: Props) => {
   const { scrollEnter, leave } = useCursor();
+  const isMobile = window.innerWidth < 768;
 
   useEffect(() => {
     if (active === index) onHover(title);
@@ -38,9 +39,10 @@ export const Project = ({
       className="z-10 h-fit cursor-none snap-start"
     >
       <motion.div
+        data-id={id}
         animate={{
-          width: active === index ? "50rem" : "18rem",
-          height: active === index ? "50rem" : "24rem",
+          width: !isMobile && active === id ? "50rem" : "18rem",
+          height: !isMobile && active === id ? "50rem" : "24rem",
         }}
         className="project-card flex-basis-[0rem] group flex h-96 w-72 flex-shrink-0 flex-col justify-center gap-4 overflow-hidden"
       >
