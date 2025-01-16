@@ -2,69 +2,52 @@
   "projects": [
     {
       "id": 0,
-      "title": "Swimming School Software",
-      "description": "Software to manage a swimming school.",
-      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
+      "title": "Librarian",
+      "description": "A desktop application built with web technologies for managing book collections. Librarian offers an intuitive interface to add, edit, and organize books, authors, and categories, making it an essential tool for book enthusiasts and libraries alike.",
+      "image": "/images/librarian.webp",
+      "link": "https://github.com/CMOISDEAD"
     },
     {
       "id": 1,
-      "title": "Restaurant Management System",
-      "description": "A system to handle orders, reservations, and customer feedback for restaurants.",
-      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
+      "title": "Doomguy",
+      "description": "A lightweight, no-frills alternative to bloated postman applications. Doomguy focuses on simplicity and efficiency, providing only the essential tools needed for testing and managing APIs seamlessly.",
+      "image": "/images/doomguy.webp",
+      "link": "https://github.com/CMOISDEAD"
     },
     {
       "id": 2,
-      "title": "E-Commerce Platform",
-      "description": "Full-stack platform for online shopping with inventory and payment integration.",
-      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
+      "title": "Doomdraw",
+      "description": "A straightforward digital sketchbook designed for basic sketching and creative exploration. Doomdraw prioritizes simplicity, offering a clutter-free space for your ideas to take shape.",
+      "image": "/images/doomdraw.webp",
+      "link": "https://github.com/CMOISDEAD"
     },
     {
       "id": 3,
-      "title": "Task Management Tool",
-      "description": "Application to organize tasks with features like drag-and-drop and notifications.",
-      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
+      "title": "Scheduler",
+      "description": "An ultra-minimalistic scheduling tool tailored for students. Scheduler helps users stay organized with an effortless design that keeps distractions to a minimum while ensuring productivity.",
+      "image": "/images/schedule.webp",
+      "link": "https://github.com/CMOISDEAD"
     },
     {
       "id": 4,
-      "title": "Online Learning Portal",
-      "description": "Platform for hosting and managing online courses, including video lectures.",
-      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
+      "title": "React-Notifications",
+      "description": "A customizable React notification library built to be easy to use and open to contributions. React-Notifications focuses on delivering a flexible system that meets the diverse needs of developers and invites community-driven improvements.",
+      "image": "/images/react-notifications.webp",
+      "link": "https://github.com/CMOISDEAD"
     },
     {
       "id": 5,
-      "title": "Fitness Tracker App",
-      "description": "Web app to log workouts, track progress, and share achievements.",
-      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
+      "title": "Ticketery",
+      "description": "A comprehensive full-stack web application for event ticket sales. Ticketery includes features like user management, refund processing, email integration, and advanced sales functionalities, making it the ultimate ticketing solution.",
+      "image": "/images/ticket.webp",
+      "link": "https://github.com/CMOISDEAD"
     },
     {
       "id": 6,
-      "title": "Blog Platform",
-      "description": "A multi-user blogging system with analytics and user comment capabilities.",
-      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
-    },
-    {
-      "id": 7,
-      "title": "Event Management System",
-      "description": "A tool to create and manage events, including registration and attendee tracking.",
-      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
-    },
-    {
-      "id": 8,
-      "title": "Real Estate Platform",
-      "description": "Online marketplace for real estate listings and communication between agents and clients.",
-      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
-    },
-    {
-      "id": 9,
-      "title": "Job Search App",
-      "description": "Platform for job seekers to apply for jobs and companies to post job openings.",
-      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
-    },
-    {
-      "id": 10,
-      "title": "Online Voting System",
-      "description": "A secure and efficient voting platform for organizations and communities.",
-      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
+      "title": "Tourist",
+      "description": "A work-in-progress tourism application designed to assist travelers with route planning and provide relevant information along the journey. Tourist aims to be the perfect companion for exploring new destinations.",
+      "image": "/images/tourism.webp",
+      "link": "https://github.com/CMOISDEAD"
     }
   ]
 }

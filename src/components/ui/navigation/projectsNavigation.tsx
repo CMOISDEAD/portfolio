@@ -48,7 +48,7 @@ export const Navigation = () => {
       className="flex w-full items-center justify-between gap-4 p-8"
     >
       <div className="flex-shrink-0">
-        <h1 className="text-lg font-bold">CD</h1>
+        <h1 className="text-lg font-extrabold">CD</h1>
       </div>
       <ul className="flex w-full max-w-6xl flex-1 justify-between text-sm">
         {links.map(({ name, path }, i) => (

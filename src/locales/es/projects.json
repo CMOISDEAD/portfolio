@@ -2,69 +2,52 @@
   "projects": [
     {
       "id": 0,
-      "title": "Software para Escuela de Natación",
-      "description": "Software para gestionar una escuela de natación.",
-      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
+      "title": "Librarian",
+      "description": "Una aplicación de escritorio construida con tecnologías web para gestionar colecciones de libros. Librarian ofrece una interfaz intuitiva para agregar, editar y organizar libros, autores y categorías, convirtiéndose en una herramienta esencial para amantes de los libros y bibliotecas por igual.",
+      "image": "/images/librarian.webp",
+      "link": "https://github.com/CMOISDEAD"
     },
     {
       "id": 1,
-      "title": "Sistema de Gestión de Restaurantes",
-      "description": "Un sistema para manejar pedidos, reservas y comentarios de clientes en restaurantes.",
-      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
+      "title": "Doomguy",
+      "description": "Una alternativa ligera y sin complicaciones a aplicaciones de postman saturadas. Doomguy se centra en la simplicidad y eficiencia, ofreciendo solo las herramientas esenciales necesarias para probar y gestionar APIs de forma fluida.",
+      "image": "/images/doomguy.webp",
+      "link": "https://github.com/CMOISDEAD"
     },
     {
       "id": 2,
-      "title": "Plataforma de Comercio Electrónico",
-      "description": "Plataforma de desarrollo completo para compras en línea con integración de inventario y pagos.",
-      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
+      "title": "Doomdraw",
+      "description": "Un cuaderno digital sencillo diseñado para bocetos básicos y exploración creativa. Doomdraw prioriza la simplicidad, ofreciendo un espacio sin distracciones para que tus ideas tomen forma.",
+      "image": "/images/doomdraw.webp",
+      "link": "https://github.com/CMOISDEAD"
     },
     {
       "id": 3,
-      "title": "Herramienta de Gestión de Tareas",
-      "description": "Aplicación para organizar tareas con características como arrastrar y soltar, y notificaciones.",
-      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
+      "title": "Scheduler",
+      "description": "Una herramienta de programación ultra minimalista diseñada para estudiantes. Scheduler ayuda a los usuarios a mantenerse organizados con un diseño simple que minimiza distracciones mientras asegura la productividad.",
+      "image": "/images/schedule.webp",
+      "link": "https://github.com/CMOISDEAD"
     },
     {
       "id": 4,
-      "title": "Portal de Aprendizaje en Línea",
-      "description": "Plataforma para alojar y gestionar cursos en línea, incluyendo videoclases.",
-      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
+      "title": "React-Notifications",
+      "description": "Una librería de notificaciones personalizable para React, diseñada para ser fácil de usar y abierta a contribuciones. React-Notifications se enfoca en ofrecer un sistema flexible que satisfaga las diversas necesidades de los desarrolladores e invite a mejoras impulsadas por la comunidad.",
+      "image": "/images/react-notifications.webp",
+      "link": "https://github.com/CMOISDEAD"
     },
     {
       "id": 5,
-      "title": "Aplicación de Seguimiento de Fitness",
-      "description": "Aplicación web para registrar entrenamientos, seguir progresos y compartir logros.",
-      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
+      "title": "Ticketery",
+      "description": "Una aplicación web full-stack integral para la venta de boletos de eventos. Ticketery incluye características como gestión de usuarios, procesamiento de reembolsos, integración de correos electrónicos y funcionalidades avanzadas de ventas, convirtiéndose en la solución definitiva para la tiquetería.",
+      "image": "/images/ticket.webp",
+      "link": "https://github.com/CMOISDEAD"
     },
     {
       "id": 6,
-      "title": "Plataforma de Blogs",
-      "description": "Un sistema de blogs multiusuario con capacidades de análisis y comentarios de usuarios.",
-      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
-    },
-    {
-      "id": 7,
-      "title": "Sistema de Gestión de Eventos",
-      "description": "Una herramienta para crear y gestionar eventos, incluyendo registro y seguimiento de asistentes.",
-      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
-    },
-    {
-      "id": 8,
-      "title": "Plataforma de Bienes Raíces",
-      "description": "Mercado en línea para listados de propiedades inmobiliarias y comunicación entre agentes y clientes.",
-      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
-    },
-    {
-      "id": 9,
-      "title": "Aplicación de Búsqueda de Empleo",
-      "description": "Plataforma para que los buscadores de empleo apliquen a trabajos y las empresas publiquen ofertas de empleo.",
-      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
-    },
-    {
-      "id": 10,
-      "title": "Sistema de Votación en Línea",
-      "description": "Una plataforma de votación segura y eficiente para organizaciones y comunidades.",
-      "image": "https://m.media-amazon.com/images/I/81udF-4Zo8L._AC_UF894,1000_QL80_.jpg"
+      "title": "Tourist",
+      "description": "Una aplicación de turismo en desarrollo, diseñada para ayudar a los viajeros con la planificación de rutas y proporcionar información relevante durante el trayecto. Tourist aspira a ser el compañero perfecto para explorar nuevos destinos.",
+      "image": "/images/tourism.webp",
+      "link": "https://github.com/CMOISDEAD"
     }
   ]
 }

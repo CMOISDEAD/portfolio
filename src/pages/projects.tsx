@@ -12,6 +12,7 @@ interface Project {
   title: string;
   description: string;
   image: string;
+  link: string;
 }
 
 export const Projects = () => {
@@ -41,60 +42,25 @@ export const Projects = () => {
         <Navigation />
         <div
           ref={scrollContainer}
-          className="scrollbar-hide h-[50vh] overflow-y-hidden overflow-x-scroll whitespace-nowrap md:h-[60vh] lg:h-[80vh]"
+          className="scrollbar-hide flex h-[50vh] overflow-y-hidden overflow-x-scroll whitespace-nowrap md:h-[60vh] lg:h-[80vh]"
         >
-          <section className="flex">
-            {[...projects, ...projects].map((project, i) => (
-              <Project
-                {...project}
-                onHover={onHover}
-                active={activeId}
-                index={i}
-                key={i}
-              />
-            ))}
-          </section>
+          {[...projects, ...projects, ...projects].map((project, i) => (
+            <Project
+              {...project}
+              onHover={onHover}
+              active={activeId}
+              index={i}
+              key={i}
+            />
+          ))}
         </div>
       </div>
 
       <section className="absolute bottom-0 flex w-full flex-1 justify-center overflow-hidden">
-        <h3 className="text-nowrap text-center text-4xl font-bold uppercase md:text-8xl lg:text-[12rem]">
-          {word && (
-            <motion.ul
-              variants={animations.container}
-              animate="visible"
-              initial="hidden"
-            >
-              {word.split("").map((letter, i) => (
-                <motion.li
-                  key={i}
-                  variants={animations.letter}
-                  className="inline-block"
-                >
-                  {letter}
-                </motion.li>
-              ))}
-            </motion.ul>
-          )}
+        <h3 className="text-nowrap text-center text-4xl font-bold uppercase md:text-8xl lg:text-[18rem]">
+          {word}
         </h3>
       </section>
     </AnimatedLayout>
   );
 };
-
-const animations = {
-  container: {
-    hidden: { y: "-100vw" },
-    visible: {
-      y: 0,
-      transition: {
-        when: "beforeChildren",
-        staggerChildren: 0.05,
-      },
-    },
-  },
-  letter: {
-    hidden: { y: -10, opacity: 0 },
-    visible: { y: 0, opacity: 1 },
-  },
-} as const;
