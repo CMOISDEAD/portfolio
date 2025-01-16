@@ -4,14 +4,12 @@ import { useTranslation } from "react-i18next";
 import { useCursor } from "@/components/ui/cursor";
 
 export const LanguageSwitcher = () => {
-  const [lang, setLang] = useState("en");
   const [open, setOpen] = useState(false);
   const [t, i18n] = useTranslation("global");
   const { linkEnter, leave } = useCursor();
 
   const toggleMenu = () => setOpen(!open);
   const handleLangChange = (value: string) => {
-    setLang(value);
     i18n.changeLanguage(value);
     setOpen(false);
   };

@@ -1,6 +1,3 @@
-import { useEffect } from "react";
-import { useAnimate } from "motion/react";
-import { useTheme } from "next-themes";
 import { useTranslation } from "react-i18next";
 import { Link } from "@/components/ui/link";
 import { LanguageSwitcher } from "./language";
