@@ -1,4 +1,6 @@
 {
+  "title": "projects",
+  "description": "A showcase of my full-stack journey — from responsive front-end experiences to scalable back-end solutions. Each project represents my passion for clean code and innovative problem-solving.",
   "projects": [
     {
       "id": 0,

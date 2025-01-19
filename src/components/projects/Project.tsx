@@ -1,63 +1,48 @@
+import { Link } from "@/components/ui/link";
 import { motion } from "motion/react";
-import { useEffect } from "react";
-import { Link } from "react-router";
-import { useCursor } from "../ui/cursor";
 
-interface Props {
+interface Project {
   id: number;
   title: string;
   description: string;
   image: string;
-  index: number;
-  active: number | null;
   link: string;
-  onHover: (word: string | null) => void;
 }
 
-export const Project = ({
-  active,
-  id,
-  index,
-  title,
-  image,
-  link,
-  onHover,
-}: Props) => {
-  const { scrollEnter, leave } = useCursor();
-  const isMobile = window.innerWidth < 768;
+interface Props {
+  project: Project;
+}
 
-  useEffect(() => {
-    if (active === index) onHover(title);
-  }, [active, index, title, onHover]);
+export const Project = ({ project }: Props) => {
+  const { id, title, image } = project;
 
   return (
-    <Link
-      onMouseEnter={scrollEnter}
-      onMouseLeave={leave}
-      to={link}
-      target="_blank"
-      className="z-10 h-fit cursor-none snap-start"
-    >
-      <motion.div
-        data-id={id}
-        animate={{
-          width: !isMobile && active === id ? "50rem" : "18rem",
-          height: !isMobile && active === id ? "50rem" : "24rem",
-        }}
-        className="project-card flex-basis-[0rem] group flex h-96 w-72 flex-shrink-0 flex-col justify-center gap-4 overflow-hidden"
-      >
-        <div>
-          <p>0{id}.</p>
-          <h3>{title}</h3>
-        </div>
-        <picture className="h-full w-full overflow-hidden">
-          <img
+    <Link to={`${id}`}>
+      <div className="max-w-xl md:w-[36rem]">
+        <picture className="block max-w-[36rem] overflow-hidden">
+          <motion.img
+            initial={{
+              transform: "scale(1.1) rotate(2deg)",
+            }}
+            whileInView={{
+              transform: "scale(1) rotate(0deg)",
+            }}
+            viewport={{
+              once: true,
+            }}
             src={image}
-            alt={`Project ${id} - ${title} thumnail by CMOISDEAD`}
-            className="h-full w-full object-cover"
+            alt={`Project ${title}`}
+            className="h-full w-full object-cover transition-transform duration-500 ease-in-out"
           />
         </picture>
-      </motion.div>
+        <div className="flex justify-between gap-4 px-4 py-6">
+          <p className="text-xl md:text-3xl lg:text-4xl">(2024)</p>
+          <div className="text-end">
+            <p className="text-xs md:text-sm">Application</p>
+            <h3 className="sm:text-sm md:text-base lg:text-lg">{title}</h3>
+          </div>
+        </div>
+      </div>
     </Link>
   );
 };

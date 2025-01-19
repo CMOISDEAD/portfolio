@@ -13,12 +13,12 @@ export const Topbar = ({ onMouseEnter, onMouseOut }: Props) => {
 
   return (
     <>
-      <button className="absolute left-0 top-0 m-auto w-fit p-10">
+      <button className="absolute left-0 top-0 m-auto w-fit p-4">
         <Link
           to="/"
           onMouseOver={() => onMouseEnter(t("navigation.home"))}
           onMouseOut={onMouseOut}
-          className="jusitfy-center flex items-center font-sans text-sm"
+          className="jusitfy-center flex items-center font-sans text-sm md:text-base lg:text-lg"
         >
           00. {t("navigation.home")}
         </Link>

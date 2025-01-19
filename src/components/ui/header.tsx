@@ -34,11 +34,11 @@ export const Header = ({ title, description }: Props) => {
   };
 
   return (
-    <section className="flex flex-1 flex-col items-center justify-center py-16">
+    <header className="flex flex-1 flex-col items-center justify-center">
       <div
         onMouseEnter={textEnter}
         onMouseLeave={leave}
-        className="text-center text-[2rem] font-extrabold uppercase md:text-[12rem]"
+        className="text-center text-6xl font-extrabold uppercase md:text-8xl lg:text-[12rem]"
       >
         <motion.ul
           variants={containerVariant}
@@ -59,6 +59,6 @@ export const Header = ({ title, description }: Props) => {
       {description && (
         <p className="text-center text-xs md:text-sm">{description}</p>
       )}
-    </section>
+    </header>
   );
 };

@@ -1,8 +1,15 @@
 import { motion } from "motion/react";
 
-export const AnimatedLayout = ({ children }: { children: React.ReactNode }) => {
+export const AnimatedLayout = ({
+  children,
+  ref,
+}: {
+  children: React.ReactNode;
+  ref?: React.RefObject<HTMLDivElement>;
+}) => {
   return (
     <motion.div
+      ref={ref}
       initial={{
         opacity: 0,
         y: -100,
