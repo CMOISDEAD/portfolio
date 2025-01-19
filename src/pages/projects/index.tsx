@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { Header } from "@/components/ui/header";
 import { Navigation } from "@/components/ui/navigation/globalNavigation";
 import { useRef } from "react";
+import { AnimatedLayout } from "@/components/layout/animated";
 
 interface Project {
   id: number;
@@ -15,26 +16,15 @@ interface Project {
 }
 
 export const Projects = () => {
-  const container = useRef<HTMLDivElement>(null);
   const { t } = useTranslation("projects");
+  const container = useRef<HTMLDivElement>(null);
 
   const projects = t("projects", {
     returnObjects: true,
   }) as Project[];
 
   return (
-    <motion.div
-      ref={container}
-      initial={{
-        opacity: 0,
-        y: -100,
-      }}
-      animate={{
-        opacity: 1,
-        y: 0,
-      }}
-      className="flex h-full flex-col items-center justify-between overflow-y-auto"
-    >
+    <AnimatedLayout ref={container}>
       <div className="flex min-h-screen w-full flex-col items-center justify-center">
         <Helmet>
           <title>Projects</title>
@@ -43,24 +33,26 @@ export const Projects = () => {
             content="See some projects I've been working on."
           />
         </Helmet>
+
         <Header title={t("title")} />
+
+        <Navigation container={container} />
+
         <div className="flex max-w-5xl flex-1 flex-col items-center justify-evenly gap-8 text-center">
           <p className="sm:text-2xl md:text-3xl lg:text-4xl">
             {t("description")}
           </p>
           <p className="animate-bounce text-sm md:text-base lg:text-lg">
-            Scroll Down
+            {t("scroll")}
           </p>
         </div>
       </div>
-
-      <Navigation container={container} />
 
       <div className="flex min-h-screen flex-wrap gap-8">
         {projects.map((project) => (
           <Project key={project.id} project={project} />
         ))}
       </div>
-    </motion.div>
+    </AnimatedLayout>
   );
 };

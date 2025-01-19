@@ -1,13 +1,14 @@
-import { AnimatedLayout } from "@/components/layout/animated";
-import { Header } from "@/components/ui/header";
-import { Navigation } from "@/components/ui/navigation/globalNavigation";
-import { FunctionSquare, SquareCode } from "lucide-react";
+import { useEffect } from "react";
 import { Helmet } from "react-helmet";
+import useMeasure from "react-use-measure";
+import { FunctionSquare } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { animate, motion, useMotionValue } from "motion/react";
+import { Header } from "@/components/ui/header";
+import { AnimatedLayout } from "@/components/layout/animated";
+import { Navigation } from "@/components/ui/navigation/globalNavigation";
 
 export const Home = () => {
-  const [t] = useTranslation("home");
-
   return (
     <AnimatedLayout>
       <Helmet>
@@ -22,28 +23,48 @@ export const Home = () => {
 
       <Navigation />
 
-      <section className="flex w-full flex-1 flex-col items-center justify-between gap-8 p-16 text-center md:flex-row">
-        <div className="flex flex-col items-center justify-center gap-4">
-          <FunctionSquare className="hidden h-8 w-8 md:block" />
-          <p className="w-80 text-sm md:w-96 md:text-base">
-            {t("features.one")}
-          </p>
-        </div>
-
-        <div className="flex flex-col items-center justify-center gap-4">
-          <SquareCode className="hidden h-8 w-8 md:block" />
-          <p className="w-80 text-sm md:w-96 md:text-base">
-            {t("features.two")}
-          </p>
-        </div>
-
-        <div className="flex flex-col items-center justify-center gap-4">
-          <FunctionSquare className="hidden h-8 w-8 md:block" />
-          <p className="w-80 text-sm md:w-96 md:text-base">
-            {t("features.three")}
-          </p>
-        </div>
-      </section>
+      <Carousel />
     </AnimatedLayout>
+  );
+};
+
+const Carousel = () => {
+  const [t] = useTranslation("home");
+  const [ref, { width }] = useMeasure();
+  const features = t("features", { returnObjects: true }) as string[];
+  const duplicated = [...features, ...features, ...features];
+
+  const x = useMotionValue(0);
+
+  useEffect(() => {
+    const finalPos = -width / 3 - 12;
+    const controls = animate(x, [0, finalPos], {
+      ease: "linear",
+      duration: 5,
+      repeat: Infinity,
+      repeatType: "loop",
+      repeatDelay: 0,
+    });
+
+    return controls.stop;
+  }, [x, width]);
+
+  return (
+    <section className="flex w-full max-w-7xl flex-1 items-end justify-center gap-8 overflow-hidden py-16 md:flex-row">
+      <motion.div ref={ref} style={{ x }} className="flex w-full gap-6">
+        {duplicated.map((feature, i) => (
+          <Card key={i} feature={feature} />
+        ))}
+      </motion.div>
+    </section>
+  );
+};
+
+const Card = ({ feature }: { feature: string }) => {
+  return (
+    <div className="flex h-36 flex-col items-center justify-center gap-4 rounded border border-inactive/20 px-10 py-5 shadow">
+      <FunctionSquare className="hidden h-8 w-8 md:block" />
+      <p className="w-full text-sm md:w-80 md:text-base">{feature}</p>
+    </div>
   );
 };

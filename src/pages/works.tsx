@@ -33,7 +33,7 @@ export const Works = () => {
 
       <Navigation />
 
-      <section className="mx-auto flex w-full flex-1 space-x-8 overflow-x-auto overflow-y-hidden p-8">
+      <section className="mx-auto flex w-full flex-1 items-end space-x-8 overflow-x-auto overflow-y-hidden p-8">
         {works.map((work) => (
           <WorkCard {...work} key={work.id} />
         ))}

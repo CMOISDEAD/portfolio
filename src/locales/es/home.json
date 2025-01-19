@@ -1,7 +1,7 @@
 {
-  "features": {
-    "one": "Desarrollador fullstack apasionado por crear experiencias web innovadoras y útiles.",
-    "two": "Especializado en React, Next.js, Node.js y MongoDB.",
-    "three": "Siempre estoy buscando nuevos desafíos y oportunidades para aprender."
-  }
+  "features": [
+    "Desarrollador fullstack apasionado por crear experiencias web innovadoras y útiles.",
+    "Especializado en React, Next.js, Node.js y MongoDB.",
+    "Siempre estoy buscando nuevos desafíos y oportunidades para aprender."
+  ]
 }

@@ -34,11 +34,11 @@ interface Props {
 }
 
 export const Navigation = ({ container }: Props) => {
+  const [t] = useTranslation("global");
   const [word, setWord] = useState<string | null>(null);
   const [scope, animate] = useAnimate();
   const [hidden, setHidden] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [t] = useTranslation("global");
   const { theme } = useTheme();
   const { scrollY } = useScroll({
     container,
