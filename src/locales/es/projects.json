@@ -7,49 +7,49 @@
       "id": 0,
       "title": "Librarian",
       "description": "Una aplicación de escritorio construida con tecnologías web para gestionar colecciones de libros. Librarian ofrece una interfaz intuitiva para agregar, editar y organizar libros, autores y categorías, convirtiéndose en una herramienta esencial para amantes de los libros y bibliotecas por igual.",
-      "image": "/images/librarian.webp",
+      "image": "/images/projects/librarian.webp",
       "link": "https://github.com/CMOISDEAD"
     },
     {
       "id": 1,
       "title": "Doomguy",
       "description": "Una alternativa ligera y sin complicaciones a aplicaciones de postman saturadas. Doomguy se centra en la simplicidad y eficiencia, ofreciendo solo las herramientas esenciales necesarias para probar y gestionar APIs de forma fluida.",
-      "image": "/images/doomguy.webp",
+      "image": "/images/projects/doomguy.webp",
       "link": "https://github.com/CMOISDEAD"
     },
     {
       "id": 2,
       "title": "Doomdraw",
       "description": "Un cuaderno digital sencillo diseñado para bocetos básicos y exploración creativa. Doomdraw prioriza la simplicidad, ofreciendo un espacio sin distracciones para que tus ideas tomen forma.",
-      "image": "/images/doomdraw.webp",
+      "image": "/images/projects/doomdraw.webp",
       "link": "https://github.com/CMOISDEAD"
     },
     {
       "id": 3,
       "title": "Scheduler",
       "description": "Una herramienta de programación ultra minimalista diseñada para estudiantes. Scheduler ayuda a los usuarios a mantenerse organizados con un diseño simple que minimiza distracciones mientras asegura la productividad.",
-      "image": "/images/schedule.webp",
+      "image": "/images/projects/schedule.webp",
       "link": "https://github.com/CMOISDEAD"
     },
     {
       "id": 4,
       "title": "React-Notifications",
       "description": "Una librería de notificaciones personalizable para React, diseñada para ser fácil de usar y abierta a contribuciones. React-Notifications se enfoca en ofrecer un sistema flexible que satisfaga las diversas necesidades de los desarrolladores e invite a mejoras impulsadas por la comunidad.",
-      "image": "/images/react-notifications.webp",
+      "image": "/images/projects/react-notifications.webp",
       "link": "https://github.com/CMOISDEAD"
     },
     {
       "id": 5,
       "title": "Ticketery",
       "description": "Una aplicación web full-stack integral para la venta de boletos de eventos. Ticketery incluye características como gestión de usuarios, procesamiento de reembolsos, integración de correos electrónicos y funcionalidades avanzadas de ventas, convirtiéndose en la solución definitiva para la tiquetería.",
-      "image": "/images/ticket.webp",
+      "image": "/images/projects/ticket.webp",
       "link": "https://github.com/CMOISDEAD"
     },
     {
       "id": 6,
       "title": "Tourist",
       "description": "Una aplicación de turismo en desarrollo, diseñada para ayudar a los viajeros con la planificación de rutas y proporcionar información relevante durante el trayecto. Tourist aspira a ser el compañero perfecto para explorar nuevos destinos.",
-      "image": "/images/tourism.webp",
+      "image": "/images/projects/tourism.webp",
       "link": "https://github.com/CMOISDEAD"
     }
   ]

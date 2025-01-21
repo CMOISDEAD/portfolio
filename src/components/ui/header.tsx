@@ -35,10 +35,10 @@ export const Header = ({ title, description }: Props) => {
 
   return (
     <header className="flex flex-1 flex-col items-center justify-center">
-      <div
+      <h1
         onMouseEnter={textEnter}
         onMouseLeave={leave}
-        className="text-center text-6xl font-extrabold uppercase md:text-8xl lg:text-[12rem]"
+        className="text-nowrap text-center text-5xl font-extrabold uppercase md:text-8xl lg:text-[12rem]"
       >
         <motion.ul
           variants={containerVariant}
@@ -55,7 +55,7 @@ export const Header = ({ title, description }: Props) => {
             </motion.li>
           ))}
         </motion.ul>
-      </div>
+      </h1>
       {description && (
         <p className="text-center text-xs md:text-sm">{description}</p>
       )}

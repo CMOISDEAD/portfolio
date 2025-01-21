@@ -2,29 +2,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "@/components/ui/link";
 import { LanguageSwitcher } from "./language";
 import { ThemeSwitcher } from "./theme";
-
-const links = [
-  {
-    name: "Home",
-    path: "/",
-  },
-  {
-    name: "Works",
-    path: "/works",
-  },
-  {
-    name: "Projects",
-    path: "/projects",
-  },
-  {
-    name: "About",
-    path: "/about",
-  },
-  {
-    name: "Contact",
-    path: "/contact",
-  },
-];
+import { links } from "./links";
 
 export const Navigation = () => {
   const [t] = useTranslation("global");

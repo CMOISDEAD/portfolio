@@ -29,7 +29,7 @@ export const LanguageSwitcher = () => {
           className="absolute right-0 z-20 mt-2 w-32 rounded border bg-background shadow dark:border-foreground dark:bg-foreground"
           onMouseLeave={() => setOpen(false)}
         >
-          <ul className="py-1">
+          <ul className="py-1 [&>*]:cursor-pointer">
             <li className="px-4 py-2" onClick={() => handleLangChange("en")}>
               {t("language.en")}
             </li>

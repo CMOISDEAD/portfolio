@@ -27,7 +27,7 @@ export const Link = ({
       onMouseLeave={leave}
       onMouseOver={onMouseOver}
       onMouseOut={onMouseOut}
-      className={`${className} cursor-none`}
+      className={className}
       target={target}
     >
       {children}

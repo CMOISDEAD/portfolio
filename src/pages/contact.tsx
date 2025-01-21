@@ -38,7 +38,7 @@ export const Contact = () => {
           </li>
           <li>
             <div className="flex gap-4 text-lg md:gap-8 md:text-xl">
-              <p className="font-thin md:w-28">{t("email")}</p>
+              <p className="font-thin md:w-28">Email</p>
               <Link
                 to="mailto:camiloesteban661@gmail.com"
                 target="_blank"

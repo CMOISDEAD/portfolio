@@ -1,7 +1,6 @@
 import { Helmet } from "react-helmet";
 import { Project } from "@/components/projects/Project";
 import { useTranslation } from "react-i18next";
-import { motion } from "motion/react";
 import { Header } from "@/components/ui/header";
 import { Navigation } from "@/components/ui/navigation/globalNavigation";
 import { useRef } from "react";

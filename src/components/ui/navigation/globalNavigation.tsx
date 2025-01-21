@@ -6,28 +6,11 @@ import {
   useScroll,
 } from "motion/react";
 import { Link } from "@/components/ui/link";
-import { Topbar } from "@/components/ui/navigation/topbar";
 import { useTheme } from "next-themes";
 import { useTranslation } from "react-i18next";
-
-const links = [
-  {
-    name: "Works",
-    path: "/works",
-  },
-  {
-    name: "Projects",
-    path: "/projects",
-  },
-  {
-    name: "About",
-    path: "/about",
-  },
-  {
-    name: "Contact",
-    path: "/contact",
-  },
-];
+import { links } from "./links";
+import { LanguageSwitcher } from "./language";
+import { ThemeSwitcher } from "./theme";
 
 interface Props {
   container?: React.RefObject<HTMLDivElement>;
@@ -79,7 +62,19 @@ export const Navigation = ({ container }: Props) => {
 
   return (
     <>
-      <Topbar onMouseEnter={onMouseEnter} onMouseOut={onMouseOut} />
+      <Link
+        to="/"
+        onMouseOver={() => onMouseEnter(t("navigation.home"))}
+        onMouseOut={onMouseOut}
+        className="absolute left-5 top-5 z-20 flex w-fit text-sm md:text-base lg:text-lg"
+      >
+        00. {t("navigation.home")}
+      </Link>
+
+      <div className="absolute right-5 top-5 z-20 flex w-fit items-center justify-center gap-4">
+        <LanguageSwitcher />
+        <ThemeSwitcher />
+      </div>
 
       <motion.nav
         ref={container}

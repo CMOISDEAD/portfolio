@@ -13,7 +13,7 @@ export const Topbar = ({ onMouseEnter, onMouseOut }: Props) => {
 
   return (
     <>
-      <button className="absolute left-0 top-0 m-auto w-fit p-4">
+      <button className="absolute left-0 top-0 z-20 m-auto w-fit p-4">
         <Link
           to="/"
           onMouseOver={() => onMouseEnter(t("navigation.home"))}
@@ -23,7 +23,7 @@ export const Topbar = ({ onMouseEnter, onMouseOut }: Props) => {
           00. {t("navigation.home")}
         </Link>
       </button>
-      <div className="absolute right-0 top-0 m-auto flex w-fit items-center justify-center gap-4 p-10">
+      <div className="absolute right-0 top-0 z-20 m-auto flex w-fit items-center justify-center gap-4 p-10">
         <LanguageSwitcher />
         <ThemeSwitcher />
       </div>

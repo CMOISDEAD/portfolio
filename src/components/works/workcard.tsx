@@ -29,10 +29,10 @@ export const WorkCard = ({ id, year, title, description, skills }: Props) => {
           delay: id * 0.1,
         },
       }}
-      className="flex w-80 flex-shrink-0 gap-4 md:w-[40rem] md:p-4"
+      className="flex h-56 w-80 flex-shrink-0 gap-4 md:w-[40rem] md:p-4"
     >
       <p className="hidden text-5xl font-light md:block">{year}</p>
-      <div className="flex flex-col justify-between gap-4">
+      <div className="flex h-full flex-col justify-between gap-4">
         <h3 className="text-xl font-bold md:hidden">
           {title} - {year}
         </h3>
