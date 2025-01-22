@@ -80,6 +80,7 @@ export const Navigation = ({ container }: Props) => {
         ref={container}
         animate={{
           opacity: hidden ? 0 : 1,
+          visibility: hidden ? "hidden" : "visible",
         }}
         transition={{
           duration: 0.35,
@@ -89,7 +90,7 @@ export const Navigation = ({ container }: Props) => {
       >
         <section
           ref={scope}
-          className="group flex h-fit w-full content-center items-center justify-center px-6"
+          className="group flex h-fit w-full content-center items-center justify-center px-16"
         >
           <ul className="z-10 flex w-full justify-between gap-4 text-sm md:text-base lg:text-lg">
             {links.map(({ name, path }, i) => (

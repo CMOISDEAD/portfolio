@@ -23,7 +23,6 @@
 
 ::-webkit-scrollbar-thumb {
   background-color: #52525b; /* Base scroll thumb color */
-  border-radius: 6px; /* Smooth corners */
 }
 
 ::-webkit-scrollbar-thumb:hover {

@@ -1,8 +1,8 @@
 export const links = [
-  {
-    name: "Home",
-    path: "/",
-  },
+  // {
+  //   name: "Home",
+  //   path: "/",
+  // },
   {
     name: "Works",
     path: "/works",

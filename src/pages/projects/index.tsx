@@ -6,12 +6,14 @@ import { Navigation } from "@/components/ui/navigation/globalNavigation";
 import { useRef } from "react";
 import { AnimatedLayout } from "@/components/layout/animated";
 
+//TODO: duplicated
 interface Project {
   id: number;
   title: string;
   description: string;
   image: string;
   link: string;
+  year: number;
 }
 
 export const Projects = () => {
