@@ -5,52 +5,123 @@
   "projects": [
     {
       "id": 0,
-      "title": "Librarian",
-      "description": "Eine Desktop-Anwendung, die mit Webtechnologien entwickelt wurde, um Buchsammlungen zu verwalten. Librarian bietet eine intuitive Benutzeroberfläche zum Hinzufügen, Bearbeiten und Organisieren von Büchern, Autoren und Kategorien – ein unverzichtbares Werkzeug für Buchliebhaber und Bibliotheken.",
-      "image": "/images/projects/librarian.webp",
-      "link": "https://github.com/CMOISDEAD"
+      "title": "Digitale Galerie",
+      "description": "Ein konzeptionelles Projekt, das auf einem modernen und minimalistischen Design basiert und klassische Kunst mit digitaler Interaktivität kombiniert. Erkunden Sie eine Sammlung ikonischer Gemälde in einer virtuellen Galerie mit flüssigen Animationen, Drag-Gesten und einem immersiven Benutzererlebnis. Entwickelt mit React, Tailwind CSS, Framer Motion und use-gesture.",
+      "image": "/images/projects/gallery.webp",
+      "link": "https://digital-gallery-delta.vercel.app/",
+      "year": 2025
     },
     {
       "id": 1,
-      "title": "Doomguy",
-      "description": "Eine schlanke und einfache Alternative zu überladenen Postman-Anwendungen. Doomguy konzentriert sich auf Einfachheit und Effizienz, indem es nur die wesentlichen Werkzeuge für die nahtlose Verwaltung und Prüfung von APIs bietet.",
-      "image": "/images/projects/doomguy.webp",
-      "link": "https://github.com/CMOISDEAD"
+      "title": "Sportgemeinschaft",
+      "description": "Interaktive Webplattform zur Präsentation von Sportlern, die eine 3D-Karte als Hauptschnittstelle verwendet. Das Projekt umfasste alles von der Konzeption des Designs bis zur vollständigen Front-End-Implementierung, integrierte Multimedia-Informationen (Fotos, Biografien usw.) und optimierte die Benutzererfahrung.",
+      "image": "/images/projects/comunidad.webp",
+      "link": "https://comunidad-xi.vercel.app",
+      "year": 2024
     },
     {
       "id": 2,
-      "title": "Doomdraw",
-      "description": "Ein unkompliziertes digitales Skizzenbuch, das für einfaches Zeichnen und kreative Erkundungen konzipiert wurde. Doomdraw legt Wert auf Einfachheit und bietet einen übersichtlichen Raum, in dem Ihre Ideen Gestalt annehmen können.",
-      "image": "/images/projects/doomdraw.webp",
-      "link": "https://github.com/CMOISDEAD"
+      "title": "Devtab, developer's new tab",
+      "description": "Eine Browsererweiterung, die Ihre neue Tab-Seite in ein entwicklerfreundliches Dashboard verwandelt. Devtab bietet schnellen Zugriff auf Coding-Ressourcen, Produktivitätstools und inspirierende Zitate und ist damit der perfekte Begleiter für Entwickler.",
+      "image": "/images/projects/devtab.webp",
+      "link": "https://github.com/CMOISDEAD/devtab",
+      "year": 2024
     },
     {
       "id": 3,
-      "title": "Scheduler",
-      "description": "Ein extrem minimalistisch gestaltetes Planungstool, das speziell für Studierende entwickelt wurde. Scheduler hilft den Nutzern, organisiert zu bleiben, mit einem einfachen Design, das Ablenkungen minimiert und die Produktivität sicherstellt.",
-      "image": "/images/projects/schedule.webp",
-      "link": "https://github.com/CMOISDEAD"
+      "title": "Fotografie-Portfolio",
+      "description": "Ein minimalistisches Fotografie-Portfolio, das die Schönheit der Einfachheit zeigt. Das Projekt verfügt über ein sauberes, responsives Layout, das die atemberaubenden Bilder in den Vordergrund stellt und damit die perfekte Plattform für Fotografen bietet, um ihre Arbeit zu präsentieren.",
+      "image": "/images/projects/angeles.webp",
+      "link": "https://portangeles.vercel.app/",
+      "year": 2023
     },
     {
       "id": 4,
-      "title": "React-Notifications",
-      "description": "Eine anpassbare Benachrichtigungsbibliothek für React, die einfach zu verwenden ist und zur Mitwirkung einlädt. React-Notifications bietet ein flexibles System, das die vielfältigen Anforderungen von Entwicklern erfüllt und zur gemeinschaftlichen Verbesserung anregt.",
-      "image": "/images/projects/react-notifications.webp",
-      "link": "https://github.com/CMOISDEAD"
+      "title": "Tourist",
+      "description": "Eine in Arbeit befindliche Tourismusanwendung, die Reisende bei der Routenplanung unterstützt und relevante Informationen während der Reise bereitstellt. Tourist soll der perfekte Begleiter für die Erkundung neuer Ziele sein.",
+      "image": "/images/projects/tourism.webp",
+      "link": "https://github.com/CMOISDEAD/tourism",
+      "year": 2024
     },
     {
       "id": 5,
       "title": "Ticketery",
-      "description": "Eine umfassende Full-Stack-Webanwendung für den Verkauf von Veranstaltungstickets. Ticketery bietet Funktionen wie Benutzermanagement, Rückerstattungsabwicklung, E-Mail-Integration und erweiterte Verkaufsfunktionen – die ultimative Lösung für Ticketing.",
+      "description": "Eine umfassende Full-Stack-Webanwendung für den Verkauf von Veranstaltungstickets. Ticketery umfasst Funktionen wie Benutzerverwaltung, Rückerstattungsabwicklung, E-Mail-Integration und erweiterte Verkaufsfunktionen, was es zur ultimativen Ticketing-Lösung macht.",
       "image": "/images/projects/ticket.webp",
-      "link": "https://github.com/CMOISDEAD"
+      "link": "https://github.com/CMOISDEAD/tickets",
+      "year": 2024
     },
     {
       "id": 6,
-      "title": "Tourist",
-      "description": "Eine sich in Entwicklung befindende Tourismus-App, die Reisende bei der Routenplanung unterstützt und relevante Informationen während der Reise bereitstellt. Tourist zielt darauf ab, der perfekte Begleiter für die Erkundung neuer Reiseziele zu sein.",
-      "image": "/images/projects/tourism.webp",
-      "link": "https://github.com/CMOISDEAD"
+      "title": "Librarian",
+      "description": "Eine Desktop-Anwendung, die mit Webtechnologien für die Verwaltung von Büchersammlungen entwickelt wurde. Librarian bietet eine intuitive Oberfläche zum Hinzufügen, Bearbeiten und Organisieren von Büchern, Autoren und Kategorien und ist damit ein unverzichtbares Werkzeug für Buchliebhaber und Bibliotheken.",
+      "image": "/images/projects/librarian.webp",
+      "link": "https://github.com/CMOISDEAD/librarian",
+      "year": 2024
+    },
+    {
+      "id": 7,
+      "title": "Fluent VSCode",
+      "description": "Diese Seite wurde als Interpretation des Fluent Design-Konzepts für Visual Studio Code erstellt, inspiriert durch dieses Video von @duckc. Entdecken Sie, wie der flüssige Designstil von Microsoft das Aussehen und die Funktionalität von VS Code verändern kann, um ein moderneres und ansprechenderes visuelles Erlebnis zu bieten.",
+      "image": "/images/projects/fluent.webp",
+      "link": "https://fluent-vscode.vercel.app",
+      "year": 2024
+    },
+    {
+      "id": 8,
+      "title": "Sneakers Landing Page",
+      "description": "Eine responsive Landing Page für eine fiktive Sneaker-Marke mit einem sauberen Design und flüssigen Animationen. Das Projekt zeigt meine Front-End-Fähigkeiten und meine Aufmerksamkeit für Details, mit dem Ziel, ein ansprechendes Benutzererlebnis zu schaffen.",
+      "image": "/images/projects/sneakers.webp",
+      "link": "https://snickers-ten.vercel.app",
+      "year": 2023
+    },
+    {
+      "id": 9,
+      "title": "Doomdraw",
+      "description": "Ein einfaches digitales Skizzenbuch für grundlegendes Skizzieren und kreative Erkundung. Doomdraw priorisiert Einfachheit und bietet einen übersichtlichen Raum, in dem Ihre Ideen Gestalt annehmen können.",
+      "image": "/images/projects/doomdraw.webp",
+      "link": "https://doomdraw.vercel.app",
+      "year": 2023
+    },
+    {
+      "id": 10,
+      "title": "Doomguy",
+      "description": "Eine schlanke, schmucklose Alternative zu überladenen Postman-Anwendungen. Doomguy konzentriert sich auf Einfachheit und Effizienz und bietet nur die wesentlichen Tools, die für das nahtlose Testen und Verwalten von APIs benötigt werden.",
+      "image": "/images/projects/doomguy.webp",
+      "link": "https://github.com/CMOISDEAD/doomguy",
+      "year": 2023
+    },
+    {
+      "id": 11,
+      "title": "Velouria",
+      "description": "Ein modernes, minimalistisches Blog-Thema, das Ihre Inhalte stilvoll präsentiert. Velouria bietet ein sauberes, responsives Layout, das den Fokus auf Ihr Schreiben legt, und ist damit die perfekte Wahl für Blogger, die sich abheben möchten.",
+      "image": "/images/projects/velouria.webp",
+      "link": "https://velouria.vercel.app",
+      "year": 2022
+    },
+    {
+      "id": 12,
+      "title": "Scheduler",
+      "description": "Ein ultra-minimalistisches Planungstool, das speziell für Studenten entwickelt wurde. Scheduler hilft Benutzern, organisiert zu bleiben, mit einem mühelosen Design, das Ablenkungen minimiert und die Produktivität sichert.",
+      "image": "/images/projects/schedule.webp",
+      "link": "https://github.com/CMOISDEAD/scheduler",
+      "year": 2022
+    },
+    {
+      "id": 13,
+      "title": "React-Notifications",
+      "description": "Eine anpassbare React-Benachrichtigungsbibliothek, die einfach zu verwenden und offen für Beiträge ist. React-Notifications konzentriert sich auf die Bereitstellung eines flexiblen Systems, das die vielfältigen Bedürfnisse von Entwicklern erfüllt und community-getriebene Verbesserungen einlädt.",
+      "image": "/images/projects/react-notifications.webp",
+      "link": "https://github.com/CMOISDEAD/react-notifications",
+      "year": 2022
+    },
+    {
+      "id": 14,
+      "title": "Sort Visualizer",
+      "description": "Ein visuelles Tool zur Demonstration von Sortieralgorithmen, das Benutzern helfen soll, die Funktionsweise von Sortieralgorithmen zu verstehen. Sort Visualizer bietet ein interaktives Erlebnis, das das Lernen unterhaltsam und ansprechend gestaltet.",
+      "image": "/images/projects/sort.webp",
+      "link": "https://sorted-doom.vercel.app",
+      "year": 2022
     }
   ]
 }
