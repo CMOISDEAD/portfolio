@@ -1,10 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  motion,
-  useAnimate,
-  useMotionValueEvent,
-  useScroll,
-} from "motion/react";
+import { motion, useAnimate } from "motion/react";
 import { Link } from "@/components/ui/link";
 import { useTheme } from "next-themes";
 import { useTranslation } from "react-i18next";
@@ -14,25 +9,14 @@ import { ThemeSwitcher } from "./theme";
 
 interface Props {
   container?: React.RefObject<HTMLDivElement>;
+  hidden?: boolean;
 }
 
-export const Navigation = ({ container }: Props) => {
-  const [t] = useTranslation("global");
-  const [word, setWord] = useState<string | null>(null);
-  const [scope, animate] = useAnimate();
-  const [hidden, setHidden] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
+export const Navigation = ({ container, hidden }: Props) => {
   const { theme } = useTheme();
-  const { scrollY } = useScroll({
-    container,
-  });
-
-  useMotionValueEvent(scrollY, "change", (latest: number) => {
-    if (latest > lastScrollY) setHidden(true);
-    else if (latest < lastScrollY) setHidden(false);
-
-    setLastScrollY(latest);
-  });
+  const [t] = useTranslation("global");
+  const [scope, animate] = useAnimate();
+  const [word, setWord] = useState<string | null>(null);
 
   useEffect(() => {
     animate(scope.current, {
