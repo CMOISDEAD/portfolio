@@ -4,6 +4,7 @@ import { LanguageSwitcher } from "./language";
 import { ThemeSwitcher } from "./theme";
 import { links } from "./links";
 
+// FIX: is used ?
 export const Navigation = () => {
   const [t] = useTranslation("global");
 

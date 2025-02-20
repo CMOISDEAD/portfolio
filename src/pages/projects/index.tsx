@@ -1,10 +1,11 @@
+import { useRef } from "react";
 import { Helmet } from "react-helmet";
 import { Project } from "@/components/projects/Project";
 import { useTranslation } from "react-i18next";
 import { Header } from "@/components/ui/header";
 import { Navigation } from "@/components/ui/navigation/globalNavigation";
-import { useRef } from "react";
 import { AnimatedLayout } from "@/components/layout/animated";
+import projects from "@/data/projects";
 
 //TODO: duplicated
 interface Project {
@@ -19,10 +20,6 @@ interface Project {
 export const Projects = () => {
   const { t } = useTranslation("projects");
   const container = useRef<HTMLDivElement>(null);
-
-  const projects = t("projects", {
-    returnObjects: true,
-  }) as Project[];
 
   return (
     <AnimatedLayout ref={container}>

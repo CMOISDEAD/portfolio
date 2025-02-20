@@ -52,7 +52,7 @@ const Cursor: React.FC<{ variant: "default" | "scroll" | "text" | "link" }> = ({
       y: coords.y - 16,
       width: 32,
       height: 32,
-      backgroundColor: theme === "dark" ? "#27272a" : "#e4e4e7",
+      backgroundColor: theme === "dark" ? "#e4e4e7" : "#27272a",
     },
     text: {
       x: coords.x - 75,

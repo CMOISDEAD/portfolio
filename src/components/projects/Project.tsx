@@ -18,7 +18,7 @@ export const Project = ({ project }: Props) => {
   const { title, image, link, year } = project;
 
   return (
-    <Link to={link}>
+    <Link to={link} target="_blank">
       <div className="max-w-xl md:w-[36rem]">
         <picture className="block max-w-[36rem] overflow-hidden">
           <motion.img

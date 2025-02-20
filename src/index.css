@@ -2,29 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
-/* Minimalist monochrome scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scrollbar Base */
 ::-webkit-scrollbar {
   width: 10px;
-  height: 10px; /* Optional for horizontal scroll */
+  height: 10px;
 }
 
-::-webkit-scrollbar-track {
-  background-color: #27272a; /* Matches Tailwind's zinc background */
+/* 🌙 Dark Mode */
+html[class~="dark"] ::-webkit-scrollbar-track {
+  background-color: #27272a;
 }
 
-::-webkit-scrollbar-thumb {
-  background-color: #52525b; /* Base scroll thumb color */
+html[class~="dark"] ::-webkit-scrollbar-thumb {
+  background-color: #737373; /* Más claro para asegurar visibilidad */
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background-color: #737373; /* Slightly lighter for hover */
+html[class~="dark"] ::-webkit-scrollbar-thumb:hover {
+  background-color: #a1a1aa;
+}
+
+/* ☀️ Light Mode */
+html:not([class~="dark"]) ::-webkit-scrollbar-track {
+  background-color: #e4e4e7;
+}
+
+html:not([class~="dark"]) ::-webkit-scrollbar-thumb {
+  background-color: #71717a;
+}
+
+html:not([class~="dark"]) ::-webkit-scrollbar-thumb:hover {
+  background-color: #52525b;
 }

@@ -38,15 +38,15 @@ export const Navigation = ({ container }: Props) => {
     animate(scope.current, {
       height: "fit-content",
       backgroundColor: "#0000000",
-      color: theme === "dark" ? "#27272a" : "#e4e4e7",
+      color: theme === "light" ? "#27272a" : "#e4e4e7",
     });
   }, [theme, animate, scope]);
 
   const onMouseEnter = (word: string) => {
     animate(scope.current, {
       height: "15vh",
-      backgroundColor: theme === "dark" ? "#27272a" : "#e4e4e7",
-      color: theme === "dark" ? "#e4e4e7" : "#27272a",
+      backgroundColor: theme === "light" ? "#27272a" : "#e4e4e7",
+      color: theme === "light" ? "#e4e4e7" : "#27272a",
     });
     setWord(word);
   };
@@ -120,7 +120,7 @@ export const Navigation = ({ container }: Props) => {
               transition={{
                 duration: 0.2,
               }}
-              className="absolute bottom-0 left-0 right-0 top-0 m-auto flex h-fit w-fit text-9xl font-bold text-background/20 dark:text-foreground/20"
+              className="absolute bottom-0 left-0 right-0 top-0 m-auto flex h-fit w-fit text-9xl font-bold text-foreground/20 dark:text-background/20"
             >
               <motion.li>{word}</motion.li>
             </motion.ul>
