@@ -16,7 +16,7 @@ export const Carousel = () => {
     const finalPos = -width / 3 - 12;
     const controls = animate(x, [0, finalPos], {
       ease: "linear",
-      duration: 5,
+      duration: 12,
       repeat: Infinity,
       repeatType: "loop",
       repeatDelay: 0,
@@ -26,7 +26,11 @@ export const Carousel = () => {
   }, [x, width]);
 
   return (
-    <section className="flex w-full max-w-7xl flex-1 items-end justify-center gap-8 overflow-hidden py-16 md:flex-row">
+    <section className="relative flex w-full max-w-7xl flex-1 items-end justify-center gap-8 overflow-hidden py-16 md:flex-row">
+      <div className="pointer-events-none absolute inset-0 z-10">
+        <div className="absolute left-0 top-0 h-full w-1/4 bg-gradient-to-r from-foreground to-transparent dark:from-background"></div>
+        <div className="absolute right-0 top-0 h-full w-1/4 bg-gradient-to-l from-foreground to-transparent dark:from-background"></div>
+      </div>
       <motion.div ref={ref} style={{ x }} className="flex w-full gap-6">
         {duplicated.map((feature, i) => (
           <Card key={i} feature={feature} />
@@ -38,7 +42,7 @@ export const Carousel = () => {
 
 const Card = ({ feature }: { feature: string }) => {
   return (
-    <div className="flex min-w-fit flex-col items-center justify-center gap-4 rounded border border-inactive/20 p-5 shadow md:min-w-96">
+    <div className="flex min-w-fit flex-col items-center justify-center gap-4 border border-inactive/20 p-5 shadow md:min-w-96">
       <FunctionSquare className="h-8 w-8" />
       <p className="w-60 text-xs md:w-80 md:text-base">{feature}</p>
     </div>

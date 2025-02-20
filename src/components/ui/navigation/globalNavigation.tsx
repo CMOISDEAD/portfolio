@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { motion, useAnimate } from "motion/react";
-import { Link } from "@/components/ui/link";
 import { useTheme } from "next-themes";
 import { useTranslation } from "react-i18next";
 import { links } from "./links";
 import { LanguageSwitcher } from "./language";
 import { ThemeSwitcher } from "./theme";
+import { Link } from "@/components/ui/link";
+import { PackageOpen } from "lucide-react";
 
 interface Props {
   container?: React.RefObject<HTMLDivElement>;
@@ -52,7 +53,7 @@ export const Navigation = ({ container, hidden }: Props) => {
         onMouseOut={onMouseOut}
         className="absolute left-5 top-5 z-20 flex w-fit text-sm md:text-base lg:text-lg"
       >
-        00. {t("navigation.home")}
+        <PackageOpen />
       </Link>
 
       <div className="absolute right-5 top-5 z-20 flex w-fit items-center justify-center gap-4">
@@ -70,7 +71,7 @@ export const Navigation = ({ container, hidden }: Props) => {
           duration: 0.35,
           ease: "easeInOut",
         }}
-        className="absolute bottom-0 left-0 right-0 top-0 z-10 m-auto flex h-fit max-h-[15vh] min-h-[15vh] w-full flex-none items-center justify-center overflow-hidden"
+        className="absolute bottom-0 left-0 right-0 top-0 z-20 m-auto flex h-fit max-h-[15vh] min-h-[15vh] w-full flex-none items-center justify-center overflow-hidden"
       >
         <section
           ref={scope}

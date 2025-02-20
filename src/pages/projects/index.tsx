@@ -59,7 +59,7 @@ export const Projects = () => {
         </div>
       </div>
 
-      <div className="flex min-h-screen flex-wrap gap-8">
+      <div className="flex flex-wrap items-center justify-center gap-8">
         {projects.map((project) => (
           <Project key={project.id} project={project} />
         ))}

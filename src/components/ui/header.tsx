@@ -4,9 +4,10 @@ import { motion } from "motion/react";
 interface Props {
   title: string;
   description?: string;
+  className?: string;
 }
 
-export const Header = ({ title, description }: Props) => {
+export const Header = ({ title, description, className }: Props) => {
   const { textEnter, leave } = useCursor();
 
   const containerVariant = {
@@ -34,7 +35,9 @@ export const Header = ({ title, description }: Props) => {
   };
 
   return (
-    <header className="flex flex-1 flex-col items-center justify-center">
+    <header
+      className={`flex flex-1 flex-col items-center justify-center ${className}`}
+    >
       <h1
         onMouseEnter={textEnter}
         onMouseLeave={leave}
