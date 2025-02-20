@@ -6,7 +6,7 @@ import i18n from "@/i18n";
 
 export const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
-    <ThemeProvider enableSystem attribute="class">
+    <ThemeProvider enableSystem={false} attribute="class">
       <CursorProvider>
         <I18nextProvider i18n={i18n}>
           <AnimatePresence mode="wait">{children}</AnimatePresence>

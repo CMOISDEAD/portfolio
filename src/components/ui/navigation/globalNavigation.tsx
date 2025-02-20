@@ -55,7 +55,7 @@ export const Navigation = ({ container }: Props) => {
     animate(scope.current, {
       height: "fit-content",
       backgroundColor: "#0000000",
-      color: theme === "dark" ? "#27272a" : "#e4e4e7",
+      color: theme === "light" ? "#27272a" : "#e4e4e7",
     });
     setWord(null);
   };
