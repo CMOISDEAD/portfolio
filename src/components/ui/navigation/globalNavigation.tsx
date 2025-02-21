@@ -14,8 +14,8 @@ interface Props {
 }
 
 export const Navigation = ({ container, hidden }: Props) => {
-  const { theme } = useTheme();
   const [t] = useTranslation("global");
+  const { theme } = useTheme();
   const [scope, animate] = useAnimate();
   const [word, setWord] = useState<string | null>(null);
 
@@ -68,7 +68,7 @@ export const Navigation = ({ container, hidden }: Props) => {
           visibility: hidden ? "hidden" : "visible",
         }}
         transition={{
-          duration: 0.35,
+          duration: 0.3,
           ease: "easeInOut",
         }}
         className="absolute bottom-0 left-0 right-0 top-0 z-20 m-auto flex h-fit max-h-[15vh] min-h-[15vh] w-full flex-none items-center justify-center overflow-hidden"
@@ -105,7 +105,7 @@ export const Navigation = ({ container, hidden }: Props) => {
               transition={{
                 duration: 0.2,
               }}
-              className="absolute bottom-0 left-0 right-0 top-0 m-auto flex h-fit w-fit text-9xl font-bold text-foreground/20 dark:text-background/20"
+              className="absolute text-9xl font-bold text-foreground/20 dark:text-background/20"
             >
               <motion.li>{word}</motion.li>
             </motion.ul>

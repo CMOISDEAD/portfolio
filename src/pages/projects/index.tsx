@@ -50,12 +50,10 @@ export const Projects = () => {
         <Navigation container={container} hidden={hidden} />
 
         <div className="flex max-w-5xl flex-1 flex-col items-center justify-evenly gap-8 text-center">
-          <p className="sm:text-2xl md:text-3xl lg:text-4xl">
+          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl">
             {t("description")}
           </p>
-          <p className="animate-bounce text-sm md:text-base lg:text-lg">
-            {t("scroll")}
-          </p>
+          <p className="text-sm md:text-base lg:text-lg">{t("scroll")}</p>
         </div>
       </div>
 
