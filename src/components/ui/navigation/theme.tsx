@@ -1,5 +1,4 @@
 import { useTheme } from "next-themes";
-import { Moon, Sun } from "lucide-react";
 import { useCursor } from "@/components/ui/cursor";
 
 export const ThemeSwitcher = () => {
@@ -12,7 +11,7 @@ export const ThemeSwitcher = () => {
       onMouseOver={() => linkEnter()}
       onMouseOut={() => leave()}
     >
-      {theme === "dark" ? <Moon /> : <Sun />}
+      {theme}
     </button>
   );
 };

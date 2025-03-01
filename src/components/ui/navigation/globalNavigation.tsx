@@ -6,7 +6,6 @@ import { links } from "./links";
 import { LanguageSwitcher } from "./language";
 import { ThemeSwitcher } from "./theme";
 import { Link } from "@/components/ui/link";
-import { PackageOpen } from "lucide-react";
 
 interface Props {
   container?: React.RefObject<HTMLDivElement>;
@@ -53,7 +52,7 @@ export const Navigation = ({ container, hidden }: Props) => {
         onMouseOut={onMouseOut}
         className="absolute left-5 top-5 z-20 flex w-fit text-sm md:text-base lg:text-lg"
       >
-        <PackageOpen />
+        ~
       </Link>
 
       <div className="absolute right-5 top-5 z-20 flex w-fit items-center justify-center gap-4">

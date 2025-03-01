@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Languages } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useCursor } from "@/components/ui/cursor";
 
@@ -22,7 +21,7 @@ export const LanguageSwitcher = () => {
         onMouseLeave={leave}
         onClick={toggleMenu}
       >
-        <Languages />
+        lang
       </button>
       {open && (
         <div
