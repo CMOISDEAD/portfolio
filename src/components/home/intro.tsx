@@ -54,7 +54,7 @@ export const IntroAnimation = () => {
             variants={textVariants}
             className="flex space-x-4 text-center text-lg uppercase text-background dark:text-foreground sm:text-xl md:text-2xl"
           >
-            <motion.h1 className="font-bold">Camilo Dávila</motion.h1>
+            <motion.h1 className="font-bold">Camilo Davila</motion.h1>
             <motion.span className="font-extralight italic">
               Fullstack Developer
             </motion.span>

@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import useMeasure from "react-use-measure";
-import { FunctionSquare } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { animate, motion, useMotionValue } from "motion/react";
 
@@ -43,7 +42,7 @@ export const Carousel = () => {
 const Card = ({ feature }: { feature: string }) => {
   return (
     <div className="flex min-w-fit flex-col items-center justify-center gap-4 border border-inactive/20 p-5 shadow md:min-w-96">
-      <FunctionSquare className="h-8 w-8" />
+      <p>{"{ }"}</p>
       <p className="w-60 text-xs md:w-80 md:text-base">{feature}</p>
     </div>
   );
