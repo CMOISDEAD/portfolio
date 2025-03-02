@@ -4,9 +4,17 @@
   "scroll": "Desplázate hacia abajo",
   "projects": [
     {
+      "id": 15,
+      "title": "Mapa Antiguo",
+      "description": "Un mapa interactivo de civilizaciones antiguas, con información detallada sobre eventos históricos, culturas y monumentos. El proyecto busca educar a los usuarios sobre la rica historia de las civilizaciones antiguas y sus contribuciones al mundo.",
+      "image": "/images/projects/ancient.webp",
+      "link": "https://ancient-map.vercel.app",
+      "year": 2025
+    },
+    {
       "id": 0,
-      "title": "Galeria Digital",
-      "description": "Un proyecto conceptual basado en un diseño moderno y minimalista, que combina arte clásico con interactividad digital. Explora una colección de pinturas icónicas en una galería virtual, con animaciones fluidas, gestos de arrastre y una experiencia de usuario envolvente. Desarrollado con React, Tailwind CSS, Framer Motion y use-gesture.",
+      "title": "Galería Digital",
+      "description": "Un proyecto conceptual basado en un diseño moderno y minimalista, que combina arte clásico con interactividad digital. Explora una colección de pinturas icónicas en una galería virtual, con animaciones fluidas, gestos de arrastre y una experiencia de usuario inmersiva. Desarrollado con React, Tailwind CSS, Framer Motion y use-gesture.",
       "image": "/images/projects/gallery.webp",
       "link": "https://digital-gallery-delta.vercel.app/",
       "year": 2025
@@ -14,31 +22,31 @@
     {
       "id": 1,
       "title": "Comunidad Deportiva",
-      "description": "interactive web platform for showcasing athletes, using a 3D map as the main interface. The project included everything from design conception to full front-end implementation, integrating multimedia information (photos, biographies, etc.) and optimizing for a smooth user experience.",
+      "description": "Plataforma web interactiva para mostrar atletas, utilizando un mapa 3D como interfaz principal. El proyecto incluyó todo, desde la concepción del diseño hasta la implementación completa del front-end, integrando información multimedia (fotos, biografías, etc.) y optimizando para una experiencia de usuario fluida.",
       "image": "/images/projects/comunidad.webp",
       "link": "https://comunidad-xi.vercel.app",
       "year": 2024
     },
     {
       "id": 2,
-      "title": "Devtab, developer's new tab",
-      "description": "A browser extension that transforms your new tab page into a developer-friendly dashboard. Devtab offers quick access to coding resources, productivity tools, and inspirational quotes, making it the perfect companion for developers.",
+      "title": "Devtab, nueva pestaña para desarrolladores",
+      "description": "Una extensión de navegador que transforma tu página de nueva pestaña en un panel de control amigable para desarrolladores. Devtab ofrece acceso rápido a recursos de codificación, herramientas de productividad y citas inspiradoras, convirtiéndose en el compañero perfecto para desarrolladores.",
       "image": "/images/projects/devtab.webp",
       "link": "https://github.com/CMOISDEAD/devtab",
       "year": 2024
     },
     {
       "id": 3,
-      "title": "Photography Portfolio",
-      "description": "A minimalist photography portfolio designed to showcase the beauty of simplicity. The project features a clean, responsive layout that puts the focus on the stunning visuals, making it the perfect platform for photographers to display their work.",
+      "title": "Portafolio de Fotografía",
+      "description": "Un portafolio de fotografía minimalista diseñado para mostrar la belleza de la simplicidad. El proyecto presenta un diseño limpio y responsivo que pone el foco en los impresionantes visuales, convirtiéndolo en la plataforma perfecta para que los fotógrafos muestren su trabajo.",
       "image": "/images/projects/angeles.webp",
       "link": "https://portangeles.vercel.app/",
       "year": 2023
     },
     {
       "id": 4,
-      "title": "Tourist",
-      "description": "A work-in-progress tourism application designed to assist travelers with route planning and provide relevant information along the journey. Tourist aims to be the perfect companion for exploring new destinations.",
+      "title": "Turista",
+      "description": "Una aplicación de turismo en desarrollo diseñada para ayudar a los viajeros con la planificación de rutas y proporcionar información relevante durante el viaje. Turista aspira a ser el compañero perfecto para explorar nuevos destinos.",
       "image": "/images/projects/tourism.webp",
       "link": "https://github.com/CMOISDEAD/tourism",
       "year": 2024
@@ -46,31 +54,31 @@
     {
       "id": 5,
       "title": "Ticketery",
-      "description": "A comprehensive full-stack web application for event ticket sales. Ticketery includes features like user management, refund processing, email integration, and advanced sales functionalities, making it the ultimate ticketing solution.",
+      "description": "Una aplicación web completa de full-stack para la venta de entradas a eventos. Ticketery incluye características como gestión de usuarios, procesamiento de reembolsos, integración de correo electrónico y funcionalidades avanzadas de ventas, convirtiéndola en la solución definitiva de venta de entradas.",
       "image": "/images/projects/ticket.webp",
       "link": "https://github.com/CMOISDEAD/tickets",
       "year": 2024
     },
     {
       "id": 6,
-      "title": "Librarian",
-      "description": "A desktop application built with web technologies for managing book collections. Librarian offers an intuitive interface to add, edit, and organize books, authors, and categories, making it an essential tool for book enthusiasts and libraries alike.",
+      "title": "Bibliotecario",
+      "description": "Una aplicación de escritorio construida con tecnologías web para gestionar colecciones de libros. Bibliotecario ofrece una interfaz intuitiva para añadir, editar y organizar libros, autores y categorías, convirtiéndola en una herramienta esencial tanto para entusiastas de los libros como para bibliotecas.",
       "image": "/images/projects/librarian.webp",
       "link": "https://github.com/CMOISDEAD/librarian",
       "year": 2024
     },
     {
       "id": 7,
-      "title": "Fluent VSCode",
-      "description": "This page was created as an interpretation of the Fluent Design concept applied to Visual Studio Code, inspired by this video by @duckc. Explore how Microsoft's fluid design style can transform the look and functionality of VS Code, providing a more modern and engaging visual experience.",
+      "title": "VSCode Fluido",
+      "description": "Esta página fue creada como una interpretación del concepto de Diseño Fluido aplicado a Visual Studio Code, inspirado en este video de @duckc. Explora cómo el estilo de diseño fluido de Microsoft puede transformar la apariencia y funcionalidad de VS Code, proporcionando una experiencia visual más moderna y atractiva.",
       "image": "/images/projects/fluent.webp",
       "link": "https://fluent-vscode.vercel.app",
       "year": 2024
     },
     {
       "id": 8,
-      "title": "Sneakers landing page",
-      "description": "A responsive landing page for a fictional sneaker brand, featuring a clean design and smooth animations. The project showcases my front-end skills and attention to detail, with a focus on creating an engaging user experience.",
+      "title": "Página de aterrizaje de zapatillas",
+      "description": "Una página de aterrizaje responsiva para una marca ficticia de zapatillas, con un diseño limpio y animaciones suaves. El proyecto muestra mis habilidades de front-end y atención al detalle, con un enfoque en crear una experiencia de usuario atractiva.",
       "image": "/images/projects/sneakers.webp",
       "link": "https://snickers-ten.vercel.app",
       "year": 2023
@@ -78,7 +86,7 @@
     {
       "id": 9,
       "title": "Doomdraw",
-      "description": "A straightforward digital sketchbook designed for basic sketching and creative exploration. Doomdraw prioritizes simplicity, offering a clutter-free space for your ideas to take shape.",
+      "description": "Un cuaderno de bocetos digital sencillo diseñado para dibujos básicos y exploración creativa. Doomdraw prioriza la simplicidad, ofreciendo un espacio libre de desorden para que tus ideas tomen forma.",
       "image": "/images/projects/doomdraw.webp",
       "link": "https://doomdraw.vercel.app",
       "year": 2023
@@ -86,7 +94,7 @@
     {
       "id": 10,
       "title": "Doomguy",
-      "description": "A lightweight, no-frills alternative to bloated postman applications. Doomguy focuses on simplicity and efficiency, providing only the essential tools needed for testing and managing APIs seamlessly.",
+      "description": "Una alternativa ligera y sin adornos a las aplicaciones sobrecargadas tipo postman. Doomguy se centra en la simplicidad y la eficiencia, proporcionando sólo las herramientas esenciales necesarias para probar y gestionar APIs sin problemas.",
       "image": "/images/projects/doomguy.webp",
       "link": "https://github.com/CMOISDEAD/doomguy",
       "year": 2023
@@ -94,15 +102,15 @@
     {
       "id": 11,
       "title": "Velouria",
-      "description": "A modern, minimalist blog theme designed to showcase your content in style. Velouria offers a clean, responsive layout that puts the focus on your writing, making it the perfect choice for bloggers who want to stand out.",
+      "description": "Un tema de blog moderno y minimalista diseñado para mostrar tu contenido con estilo. Velouria ofrece un diseño limpio y responsivo que pone el foco en tu escritura, convirtiéndolo en la elección perfecta para blogueros que quieren destacar.",
       "image": "/images/projects/velouria.webp",
       "link": "https://velouria.vercel.app",
       "year": 2022
     },
     {
       "id": 12,
-      "title": "Scheduler",
-      "description": "An ultra-minimalistic scheduling tool tailored for students. Scheduler helps users stay organized with an effortless design that keeps distractions to a minimum while ensuring productivity.",
+      "title": "Planificador",
+      "description": "Una herramienta de programación ultra-minimalista diseñada para estudiantes. El Planificador ayuda a los usuarios a mantenerse organizados con un diseño sin esfuerzo que mantiene las distracciones al mínimo mientras asegura la productividad.",
       "image": "/images/projects/schedule.webp",
       "link": "https://github.com/CMOISDEAD/scheduler",
       "year": 2022
@@ -110,15 +118,15 @@
     {
       "id": 13,
       "title": "React-Notifications",
-      "description": "A customizable React notification library built to be easy to use and open to contributions. React-Notifications focuses on delivering a flexible system that meets the diverse needs of developers and invites community-driven improvements.",
+      "description": "Una biblioteca de notificaciones de React personalizable, construida para ser fácil de usar y abierta a contribuciones. React-Notifications se centra en ofrecer un sistema flexible que satisfaga las diversas necesidades de los desarrolladores e invita a mejoras impulsadas por la comunidad.",
       "image": "/images/projects/react-notifications.webp",
       "link": "https://github.com/CMOISDEAD/react-notifications",
       "year": 2022
     },
     {
       "id": 14,
-      "title": "Sort Visualizer",
-      "description": "A visual sorting algorithm demonstration tool designed to help users understand the inner workings of sorting algorithms. Sort Visualizer offers an interactive experience that makes learning fun and engaging.",
+      "title": "Visualizador de Ordenamiento",
+      "description": "Una herramienta de demostración visual de algoritmos de ordenamiento diseñada para ayudar a los usuarios a entender el funcionamiento interno de los algoritmos de ordenamiento. El Visualizador de Ordenamiento ofrece una experiencia interactiva que hace que el aprendizaje sea divertido y atractivo.",
       "image": "/images/projects/sort.webp",
       "link": "https://sorted-doom.vercel.app",
       "year": 2022

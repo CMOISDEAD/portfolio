@@ -4,6 +4,14 @@
   "scroll": "Scroll down",
   "projects": [
     {
+      "id": 15,
+      "title": "Ancient Map",
+      "description": "A interactive map of ancient civilizations, featuring detailed information about historical events, cultures, and landmarks. The project aims to educate users about the rich history of ancient civilizations and their contributions to the world.",
+      "image": "/images/projects/ancient.webp",
+      "link": "https://ancient-map.vercel.app",
+      "year": 2025
+    },
+    {
       "id": 0,
       "title": "Digital Gallery",
       "description": "A conceptual project based on a modern and minimalist design, combining classical art with digital interactivity. Explore a collection of iconic paintings in a virtual gallery, featuring fluid animations, drag gestures, and an immersive user experience. Developed with React, Tailwind CSS, Framer Motion, and use-gesture.",

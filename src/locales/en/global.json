@@ -1,8 +1,8 @@
 {
   "language": {
-    "en": "English",
-    "es": "Spanish",
-    "de": "German"
+    "en-US": "English",
+    "es-ES": "Spanish",
+    "de-DE": "German"
   },
   "navigation": {
     "home": "home",

@@ -21,7 +21,7 @@ export const LanguageSwitcher = () => {
         onMouseLeave={leave}
         onClick={toggleMenu}
       >
-        lang
+        {i18n.language}
       </button>
       {open && (
         <div
@@ -29,14 +29,14 @@ export const LanguageSwitcher = () => {
           onMouseLeave={() => setOpen(false)}
         >
           <ul className="py-1 [&>*]:cursor-pointer">
-            <li className="px-4 py-2" onClick={() => handleLangChange("en")}>
-              {t("language.en")}
+            <li className="px-4 py-2" onClick={() => handleLangChange("en-US")}>
+              {t("language.en-US")}
             </li>
-            <li className="px-4 py-2" onClick={() => handleLangChange("es")}>
-              {t("language.es")}
+            <li className="px-4 py-2" onClick={() => handleLangChange("es-ES")}>
+              {t("language.es-ES")}
             </li>
-            <li className="px-4 py-2" onClick={() => handleLangChange("de")}>
-              {t("language.de")}
+            <li className="px-4 py-2" onClick={() => handleLangChange("de-DE")}>
+              {t("language.de-DE")}
             </li>
           </ul>
         </div>

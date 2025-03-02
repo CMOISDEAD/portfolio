@@ -4,6 +4,7 @@
   "works": [
     {
       "id": 0,
+      "image": "/images/projects/comunidad.webp",
       "title": "Full Stack Developer",
       "description": "Development of a web administration system for a swimming academy (in progress). The application manages students, schedules, statistics, and competitions using React on the frontend, Express.js with Node.js on the backend, JWT authentication, state management with Redux, requests with Axios, and MongoDB database. A reusable component-based architecture was implemented to facilitate maintenance and scalability.",
       "skills": [
@@ -17,6 +18,7 @@
     {
       "id": 1,
       "title": "Frontend Developer",
+      "image": "/images/projects/comunidad.webp",
       "description": "Development of an interactive web platform for showcasing athletes, using a 3D map as the main interface. The project included everything from design conception to full front-end implementation, integrating multimedia information (photos, biographies, etc.) and optimizing for a smooth user experience. Presented to a panel and received positive feedback.",
       "skills": [
         "React",
