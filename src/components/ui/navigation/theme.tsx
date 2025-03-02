@@ -11,7 +11,7 @@ export const ThemeSwitcher = () => {
       onMouseOver={() => linkEnter()}
       onMouseOut={() => leave()}
     >
-      {theme}
+      {theme === "dark" ? "0x00" : "0xFF"}
     </button>
   );
 };
