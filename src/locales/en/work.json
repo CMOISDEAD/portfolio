@@ -3,9 +3,28 @@
   "description": "See some experiences I've been through in my career.",
   "works": [
     {
-      "id": 0,
+      "id": 2,
+      "title": "Agrobiológicos del Quindío",
+      "subtitle": "Full Stack Developer",
+      "image": "/images/projects/agrobiologicos.webp",
+      "link": "https://agrobiologicosquindio.com",
+      "description": "Complete development of the website for Agrobiológicos del Quindío, a modern and scalable landing page with multiple sections and contact methods. I implemented a product catalog with a shopping cart (without online payments), using Next.js and static content generation with ISR to optimize performance. Additionally, I developed a CMS in Strapi for dynamic content management, integrating a MySQL database and Cloudinary for image storage. I configured a VPS, managed domains, and optimized the server to ensure efficient and secure deployment.",
+      "skills": [
+        "Next.js",
+        "Strapi",
+        "ISR",
+        "MySQL",
+        "Cloudinary",
+        "VPS Management"
+      ],
+      "year": "2025"
+    },
+    {
+      "id": 1,
       "image": "/images/projects/comunidad.webp",
-      "title": "Full Stack Developer",
+      "link": "https://comunidad-xi.vercel.app",
+      "title": "Academia de Natación",
+      "subtitle": "Full Stack Developer",
       "description": "Development of a web administration system for a swimming academy (in progress). The application manages students, schedules, statistics, and competitions using React on the frontend, Express.js with Node.js on the backend, JWT authentication, state management with Redux, requests with Axios, and MongoDB database. A reusable component-based architecture was implemented to facilitate maintenance and scalability.",
       "skills": [
         "React",
@@ -16,9 +35,11 @@
       "year": "2024"
     },
     {
-      "id": 1,
-      "title": "Frontend Developer",
+      "id": 0,
+      "title": "Comunidad Deportiva",
+      "subtitle": "Frontend Developer",
       "image": "/images/projects/comunidad.webp",
+      "link": "https://comunidad-xi.vercel.app",
       "description": "Development of an interactive web platform for showcasing athletes, using a 3D map as the main interface. The project included everything from design conception to full front-end implementation, integrating multimedia information (photos, biographies, etc.) and optimizing for a smooth user experience. Presented to a panel and received positive feedback.",
       "skills": [
         "React",

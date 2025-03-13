@@ -9,6 +9,7 @@ import { useTranslation } from "react-i18next";
 interface Work {
   id: number;
   title: string;
+  subtitle: string;
   description: string;
   skills: string[];
   year: string;

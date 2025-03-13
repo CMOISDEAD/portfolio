@@ -4,12 +4,20 @@ interface Props {
   id: number;
   year: string;
   title: string;
+  subtitle: string;
   image?: string;
   description: string;
   skills: string[];
 }
 
-export const WorkCard = ({ id, year, title, description, skills }: Props) => {
+export const WorkCard = ({
+  id,
+  year,
+  title,
+  subtitle,
+  description,
+  skills,
+}: Props) => {
   return (
     <motion.div
       initial={{
@@ -34,10 +42,17 @@ export const WorkCard = ({ id, year, title, description, skills }: Props) => {
     >
       <p className="hidden text-5xl font-light md:block">{year}</p>
       <div className="flex h-full flex-col justify-between gap-4">
-        <h3 className="text-xl font-bold md:hidden">
+        <h2 className="text-xl font-bold md:hidden">
           {title} - {year}
-        </h3>
-        <h3 className="hidden text-xl font-bold md:block">{title}</h3>
+        </h2>
+        <div>
+          <h2 className="hidden text-base font-bold sm:text-lg md:block md:text-xl">
+            {title}
+          </h2>
+          <h3 className="hidden text-sm font-bold sm:text-base md:block">
+            {subtitle}
+          </h3>
+        </div>
         <p className="text-xs md:text-sm">{description}</p>
         <div className="flex content-center items-center gap-4 text-xs italic">
           {skills.map((skill, i) => (

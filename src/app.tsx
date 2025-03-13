@@ -7,6 +7,7 @@ import { Contact } from "@/pages/contact";
 import { Route, Routes, useLocation } from "react-router";
 import { Providers } from "@/components/layout/providers";
 import { Project } from "./pages/projects/project";
+import { Work } from "./pages/works/works";
 
 export const App = () => {
   const location = useLocation();
@@ -20,7 +21,10 @@ export const App = () => {
             <Route index element={<Projects />} />
             <Route path=":index" element={<Project />} />
           </Route>
-          <Route path="/works" element={<Works />} />
+          <Route path="/works">
+            <Route index element={<Works />} />
+            <Route path=":index" element={<Work />} />
+          </Route>
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Route>

@@ -3,9 +3,28 @@
   "description": "Mira algunas experiencias por las que he pasado en mi carrera.",
   "works": [
     {
-      "id": 0,
-      "title": "Desarrollador Full Stack",
+      "id": 2,
+      "title": "Agrobiológicos del Quindío",
+      "subtitle": "Desarrollador Full Stack",
+      "image": "/images/projects/agrobiologicos.webp",
+      "link": "https://agrobiologicosquindio.com",
+      "description": "Desarrollo completo de la página web para la empresa Agrobiológicos del Quindío, una landing page moderna y escalable con múltiples secciones y métodos de contacto. Implementé un catálogo de productos con carrito de compras sin pagos en línea, utilizando Next.js y generación de contenido estático con ISR para optimizar el rendimiento. Además, desarrollé un CMS en Strapi para la gestión de contenido dinámico, integrando una base de datos MySQL y Cloudinary para almacenamiento de imágenes. Configuré un VPS, administré dominios y optimicé el servidor para garantizar un despliegue eficiente y seguro.",
+      "skills": [
+        "Next.js",
+        "Strapi",
+        "ISR",
+        "MySQL",
+        "Cloudinary",
+        "VPS Management"
+      ],
+      "year": "2025"
+    },
+    {
+      "id": 1,
+      "title": "Academia de Natación",
+      "subtitle": "Desarrollador Full Stack",
       "image": "/images/projects/comunidad.webp",
+      "link": "https://github.com/CMOISDEAD",
       "description": "Desarrollo de un sistema de administración web para una academia de natación (en desarrollo). La aplicación gestiona estudiantes, cronogramas, estadísticas y competencias, utilizando React en el frontend, Express.js con Node.js en el backend, autenticación con JWT, manejo de estado con Redux, peticiones con Axios y base de datos MongoDB. Se implementó una arquitectura basada en componentes reutilizables para facilitar el mantenimiento y la escalabilidad.",
       "skills": [
         "React",
@@ -16,9 +35,11 @@
       "year": "2024"
     },
     {
-      "id": 1,
-      "title": "Desarrollador Frontend",
+      "id": 0,
+      "title": "Comunidad Deportiva",
+      "subtitle": "Desarrollador Frontend",
       "image": "/images/projects/comunidad.webp",
+      "link": "https://comunidad-xi.vercel.app",
       "description": "Desarrollo de una plataforma web interactiva para la exhibición de deportistas, utilizando un mapa 3D como interfaz principal. El proyecto abarcó desde la concepción del diseño hasta la implementación completa del front-end, incluyendo la integración de información multimedia (fotos, biografías, etc.) y la optimización para una experiencia de usuario fluida. Presentado a un jurado recibiendo críticas favorables.",
       "skills": [
         "React",
