@@ -17,7 +17,7 @@ export function Skills({ className }: { className?: string }) {
         {skills.map((skill) => (
           <span
             key={skill}
-            className="rounded-full bg-stone-200 dark:bg-stone-700 px-3 py-1 text-xs text-stone-700 dark:text-stone-300"
+            className="bg-stone-200 dark:bg-stone-700 px-3 py-1 text-xs text-stone-700 dark:text-stone-300"
           >
             {skill}
           </span>

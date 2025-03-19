@@ -39,8 +39,15 @@ export function Social() {
           <Linkedin className="h-4 w-4" />
         </Link>
       </Button>
-      <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full">
-        <FileText className="h-4 w-4" />
+      <Button
+        asChild
+        variant="ghost"
+        size="icon"
+        className="h-8 w-8 rounded-full"
+      >
+        <Link href="/cv.pdf" target="_blank">
+          <FileText className="h-4 w-4" />
+        </Link>
       </Button>
       <ThemeSwitcher />
     </>
