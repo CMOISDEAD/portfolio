@@ -8,7 +8,7 @@ import Link from "next/link";
 export default function Siderbar() {
   return (
     <aside className="w-full border-b border-stone-200 dark:border-stone-700 bg-stone-100 dark:bg-stone-800 p-6 lg:sticky lg:top-0 lg:h-screen lg:w-72 lg:border-b-0 lg:border-r lg:p-8 xl:w-80">
-      <div className="flex flex-col items-center justify-between lg:h-full">
+      <div className="flex gap-2 flex-col items-center justify-between lg:h-full">
         <div className="flex w-full flex-row items-center gap-4 lg:flex-col lg:items-center lg:gap-6">
           <div className="relative h-20 w-20 shrink-0 overflow-hidden sm:h-24 sm:w-24 lg:h-32 lg:w-32">
             <Image
@@ -31,7 +31,7 @@ export default function Siderbar() {
           <div className="ml-auto flex flex-col gap-2 lg:ml-0 lg:mt-4 lg:w-full lg:pt-2">
             <div className="flex items-center gap-2 text-stone-700 dark:text-stone-300">
               <MapPin size={16} className="shrink-0" />
-              <span className="text-sm">Armenia, Colombia</span>
+              <span className="text-sm hidden md:block">Armenia, Colombia</span>
             </div>
             <Link
               href="mailto:camiloesteban661@gmail.com"
@@ -39,7 +39,9 @@ export default function Siderbar() {
               className="flex items-center gap-2 text-stone-700 dark:text-stone-300"
             >
               <Mail size={16} className="shrink-0" />
-              <span className="text-sm">camiloesteban661@gmail.com</span>
+              <span className="text-sm hidden md:block">
+                camiloesteban661@gmail.com
+              </span>
             </Link>
             <div className="hidden items-center gap-2 text-stone-700 dark:text-stone-300">
               <Calendar size={16} className="shrink-0" />
