@@ -1,4 +1,7 @@
+"use client";
+
 import { Github, ExternalLink } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 
 const projects = [
@@ -42,47 +45,57 @@ export function Projects() {
       <h2 className="mb-4 font-serif text-sm font-medium uppercase tracking-wider text-stone-500 dark:text-stone-400 sm:mb-6">
         Projects
       </h2>
-
-      <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
-        {projects.map((project, index) => (
-          <div key={index} className="space-y-2">
-            <h3 className="font-serif text-lg font-medium text-stone-800 dark:text-stone-100">
-              {project.title}
-            </h3>
-            <p className="text-sm text-stone-600 dark:text-stone-400">
-              {project.description}
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {project.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full bg-stone-200 dark:bg-stone-700 px-2 py-0.5 text-xs text-stone-700 dark:text-stone-300"
+      <AnimatePresence mode="wait">
+        <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{ staggerChildren: 0.5, delayChildren: 0.2 }}
+              className="space-y-2"
+            >
+              <h3 className="font-serif text-lg font-medium text-stone-800 dark:text-stone-100">
+                {project.title}
+              </h3>
+              <p className="text-sm text-stone-600 dark:text-stone-400">
+                {project.description}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full bg-stone-200 dark:bg-stone-700 px-2 py-0.5 text-xs text-stone-700 dark:text-stone-300"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <div className="mt-3 flex gap-4">
+                <Link
+                  href={project.demo}
+                  target="_blank"
+                  className="flex items-center gap-1 text-xs text-stone-700 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-200"
                 >
-                  {tag}
-                </span>
-              ))}
-            </div>
-            <div className="mt-3 flex gap-4">
-              <Link
-                href={project.demo}
-                target="_blank"
-                className="flex items-center gap-1 text-xs text-stone-700 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-200"
-              >
-                <ExternalLink size={14} />
-                <span>Live Demo</span>
-              </Link>
-              <Link
-                href={project.repo}
-                target="_blank"
-                className="flex items-center gap-1 text-xs text-stone-700 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-200"
-              >
-                <Github size={14} />
-                <span>Repository</span>
-              </Link>
-            </div>
-          </div>
-        ))}
-      </div>
+                  <ExternalLink size={14} />
+                  <span>Live Demo</span>
+                </Link>
+                <Link
+                  href={project.repo}
+                  target="_blank"
+                  className="flex items-center gap-1 text-xs text-stone-700 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-200"
+                >
+                  <Github size={14} />
+                  <span>Repository</span>
+                </Link>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </AnimatePresence>
     </section>
   );
 }

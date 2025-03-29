@@ -1,3 +1,6 @@
+"use client";
+import { motion } from "motion/react";
+
 const education = [
   {
     title: "Computer Science Engineering",
@@ -31,8 +34,13 @@ export function Education() {
 
       <div className="space-y-8 sm:space-y-10">
         {education.map((item, i) => (
-          <div
+          <motion.div
             key={i}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
             className="border-l border-stone-200 dark:border-stone-700 pl-4 sm:pl-6"
           >
             <h3 className="font-serif text-lg font-medium text-stone-800 dark:text-stone-100 sm:text-xl">
@@ -49,7 +57,7 @@ export function Education() {
             <p className="text-sm text-stone-600 dark:text-stone-400">
               {item.description}
             </p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
