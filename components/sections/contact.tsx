@@ -1,7 +1,7 @@
 import SectionHeading from "@/components/section-heading";
-import ContactForm from "@/components/contact-form";
 import SocialLinks from "@/components/social-links";
 import type { LucideIcon } from "lucide-react";
+import CircularText from "../ui/circular-text";
 
 interface SocialLink {
   name: string;
@@ -36,7 +36,11 @@ export default function Contact({ socialLinks }: Props) {
               className="space-y-6"
             />
           </div>
-          <ContactForm />
+          <CircularText
+            text="PORTFOLIO*CAMILO*DAVILA*"
+            onHover="slowDown"
+            spinDuration={20}
+          />
         </div>
       </div>
     </section>

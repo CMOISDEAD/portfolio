@@ -26,8 +26,12 @@ export default function Experience({ experiences }: Props) {
                 <div className="text-zinc-400 text-sm">{exp.period}</div>
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-2">{exp.title}</h3>
-                <div className="text-zinc-400 mb-4">{exp.company}</div>
+                <h3 className="text-xl font-semibold mb-2 capitalize">
+                  {exp.title}
+                </h3>
+                <div className="text-zinc-400 mb-4 capitalize">
+                  {exp.company}
+                </div>
                 <p className="text-zinc-400">{exp.description}</p>
               </div>
             </div>

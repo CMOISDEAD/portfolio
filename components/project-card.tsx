@@ -1,9 +1,10 @@
 "use client";
 
-import { motion } from "motion/react";
-import Image from "next/image";
+import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
+import { useState } from "react";
 
 interface ProjectCardProps {
   title: string;
@@ -21,42 +22,78 @@ export default function ProjectCard({
   tags,
   demoUrl,
 }: ProjectCardProps) {
+  const [isHovered, setIsHovered] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseEnter = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
+  ) => {
+    setIsHovered(true);
+    const rect = e.currentTarget.getBoundingClientRect();
+    setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
+
   return (
-    <motion.div
-      whileHover={{ y: -10 }}
-      transition={{ duration: 0.3 }}
-      className="group"
-    >
-      <div className="relative aspect-[4/3] mb-6 overflow-hidden">
-        <Image
-          src={image || "/placeholder.svg"}
-          alt={title}
-          fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-        <div className="absolute inset-0 bg-black/70 bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100 backdrop-blur-lg">
-          <Link
-            href={demoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-white text-black px-4 py-2 mx-2 flex items-center"
+    <div className="relative">
+      <Link href={demoUrl} target="_blank">
+        <motion.div
+          whileHover={{ y: -10 }}
+          transition={{ duration: 0.3 }}
+          className="group cursor-pointer"
+          onMouseEnter={handleMouseEnter}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <h3 className="text-xl font-semibold mb-2 flex items-center">
+            {title}
+            <ArrowUpRight className="ml-1 h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+          </h3>
+          <p className="text-zinc-400 mb-4">{description}</p>
+          <div className="flex flex-wrap gap-2 mb-4">
+            {tags.map((tag) => (
+              <span
+                key={tag}
+                className="text-xs text-zinc-400 border border-zinc-800 px-3 py-1"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+      </Link>
+
+      <AnimatePresence mode="wait">
+        {isHovered && image && (
+          <motion.div
+            className="hidden md:block absolute pointer-events-none z-50 w-[600px] max-w-[90vw] shadow-xl overflow-hidden"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+              x: position.x,
+              y: position.y - 200,
+            }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ type: "spring", stiffness: 300, damping: 25 }}
           >
-            Demo <ArrowUpRight size={16} className="ml-1" />
-          </Link>
-        </div>
-      </div>
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
-      <p className="text-zinc-400 mb-4">{description}</p>
-      <div className="flex flex-wrap gap-2 mb-4">
-        {tags.map((tag) => (
-          <span
-            key={tag}
-            className="text-xs text-zinc-400 border border-zinc-800 px-3 py-1"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
-    </motion.div>
+            <div className="relative w-full h-[300px]">
+              <Image
+                src={image}
+                alt={`${title} preview`}
+                fill
+                sizes="(max-width: 768px) 90vw, 600px"
+                className="object-cover"
+                priority
+              />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }

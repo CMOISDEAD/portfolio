@@ -30,8 +30,8 @@ export default function MobileNavigation({
 
   return (
     <div className="fixed top-0 left-0 w-full z-50 md:hidden">
-      <div className="flex justify-between items-center p-6 border-b border-zinc-800 bg-black">
-        <div className="text-xl font-bold">Juan Pérez</div>
+      <div className="flex justify-between items-center p-6 border-b border-zinc-800 bg-stone-900">
+        <div className="text-xl font-bold">Camilo Davila</div>
         <Button
           variant="ghost"
           size="icon"
@@ -47,7 +47,7 @@ export default function MobileNavigation({
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="bg-black border-b border-zinc-800 py-4"
+          className="bg-stone-900 border-b border-zinc-800 py-4"
         >
           {navItems.map((item) => (
             <button

@@ -8,8 +8,8 @@ import About from "@/components/sections/about";
 import Projects from "@/components/sections/projects";
 import Skills from "@/components/sections/skills";
 import Experience from "@/components/sections/experience";
-import Testimonials from "@/components/sections/testimonials";
-import Blog from "@/components/sections/blog";
+// import Testimonials from "@/components/sections/testimonials";
+// import Blog from "@/components/sections/blog";
 import Contact from "@/components/sections/contact";
 import Footer from "@/components/footer";
 
@@ -24,12 +24,13 @@ import {
   // blogPosts,
   aboutText,
 } from "@/data/portfolio-data";
+import Crosshair from "@/components/ui/crosshair";
 
 export default function Page() {
   const { activeSection, scrollToSection } = useActiveSection();
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-stone-900 text-white">
       <SideNavigation
         navItems={navItems}
         socialLinks={socialLinks}
@@ -43,6 +44,7 @@ export default function Page() {
       />
 
       <div className="md:pl-20">
+        <Crosshair color="#ffffff" />
         <Hero
           onContactClick={() => scrollToSection("contact")}
           onProjectsClick={() => scrollToSection("projects")}

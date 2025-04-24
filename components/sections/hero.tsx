@@ -11,7 +11,7 @@ export default function Hero({ onContactClick, onProjectsClick }: Props) {
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col justify-center px-6 md:px-20 lg:px-32"
+      className="min-h-screen flex flex-col justify-center m-6 md:px-20 lg:px-32 md:m-0"
     >
       <motion.div
         initial={{ opacity: 0 }}
@@ -19,7 +19,7 @@ export default function Hero({ onContactClick, onProjectsClick }: Props) {
         transition={{ duration: 1 }}
         className="max-w-4xl"
       >
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-tighter mb-6">
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-tighter mb-6 serif uppercase">
           Camilo Davila
         </h1>
         <div className="w-16 h-[1px] bg-white mb-8"></div>
@@ -32,7 +32,7 @@ export default function Hero({ onContactClick, onProjectsClick }: Props) {
           <motion.button
             whileHover={{ x: 5 }}
             onClick={onContactClick}
-            className="group flex items-center text-white text-lg"
+            className="group flex items-center text-white text-lg cursor-pointer"
           >
             <span className="mr-2 border-b border-white pb-1 group-hover:border-transparent transition-colors">
               Contact Me
@@ -44,7 +44,7 @@ export default function Hero({ onContactClick, onProjectsClick }: Props) {
           <motion.button
             whileHover={{ x: 5 }}
             onClick={onProjectsClick}
-            className="group flex items-center text-zinc-400 hover:text-white text-lg"
+            className="group flex items-center text-zinc-400 hover:text-white text-lg cursor-pointer"
           >
             <span className="mr-2 border-b border-transparent pb-1">
               Look Projects
