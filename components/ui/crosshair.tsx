@@ -38,6 +38,7 @@ const Crosshair: React.FC<CrosshairProps> = ({
   useEffect(() => {
     const handleMouseMove = (ev: Event) => {
       const mouseEvent = ev as MouseEvent;
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       mouse = getMousePos(mouseEvent, containerRef?.current);
       if (containerRef?.current) {
         const bounds = containerRef.current.getBoundingClientRect();
@@ -79,6 +80,7 @@ const Crosshair: React.FC<CrosshairProps> = ({
       { opacity: 0 },
     );
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const onMouseMove = (_ev: Event) => {
       renderedStyles.tx.previous = renderedStyles.tx.current = mouse.x;
       renderedStyles.ty.previous = renderedStyles.ty.current = mouse.y;
