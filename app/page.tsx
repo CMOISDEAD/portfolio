@@ -45,7 +45,7 @@ export default function Page() {
         <Contact />
         <Footer />
       </main>
-      <Crosshair color="#ffffff" />
+      <Crosshair />
     </div>
   );
 }
