@@ -12,7 +12,11 @@ export default function ContactForm() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <form className="space-y-8">
+      <form
+        className="space-y-8"
+        method="POST"
+        action="https://formspree.io/f/mwpbbryy"
+      >
         <div className="grid w-full items-center gap-3">
           <Label htmlFor="name">Name</Label>
           <Input id="name" name="name" placeholder="Your Name" />
