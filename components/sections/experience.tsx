@@ -13,26 +13,28 @@ interface Props {
 
 export default function Experience({ experiences }: Props) {
   return (
-    <section
-      id="experience"
-      className="px-6 md:px-20 lg:px-32 py-20 border-t border-zinc-900"
-    >
+    <section id="experience" className="py-20 border-t border-muted">
       <div className="max-w-4xl mx-auto">
-        <SectionHeading title="Experience" />
+        <SectionHeading
+          title="Experience"
+          description="My professional journey so far"
+        />
         <div className="space-y-20">
           {experiences.map((exp, index) => (
             <div key={index} className="grid md:grid-cols-[200px_1fr] gap-8">
               <div>
-                <div className="text-zinc-400 text-sm">{exp.period}</div>
+                <div className="text-muted-foreground text-sm">
+                  {exp.period}
+                </div>
               </div>
               <div>
                 <h3 className="text-xl font-semibold mb-2 capitalize">
                   {exp.title}
                 </h3>
-                <div className="text-zinc-400 mb-4 capitalize">
+                <div className="text-muted-foreground mb-4 capitalize">
                   {exp.company}
                 </div>
-                <p className="text-zinc-400">{exp.description}</p>
+                <p className="text-muted-foreground">{exp.description}</p>
               </div>
             </div>
           ))}

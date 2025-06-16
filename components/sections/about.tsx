@@ -13,7 +13,7 @@ interface Props {
 
 export default function About({ paragraphs }: Props) {
   return (
-    <section id="about" className="container mx-auto">
+    <section id="about" className="py-20">
       <TextReveal className="">{paragraphs.join(" ")}</TextReveal>
     </section>
   );

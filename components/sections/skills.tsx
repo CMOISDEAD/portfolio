@@ -1,23 +1,15 @@
 import SectionHeading from "@/components/section-heading";
 import SkillBar from "@/components/skill-bar";
+import { skillBars as skills } from "@/data/portfolio-data";
 
-interface Skill {
-  name: string;
-  percentage: number;
-}
-
-interface Props {
-  skills: Skill[];
-}
-
-export default function Skills({ skills }: Props) {
+export default function Skills() {
   return (
-    <section
-      id="skills"
-      className="px-6 md:px-20 lg:px-32 py-20 border-t border-zinc-900"
-    >
+    <section id="skills" className="py-20 border-t border-muted">
       <div className="max-w-4xl mx-auto">
-        <SectionHeading title="Skills" />
+        <SectionHeading
+          title="Skills"
+          description="My technical skills and expertise"
+        />
         <div className="space-y-10">
           {skills.map((skill, index) => (
             <SkillBar

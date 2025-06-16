@@ -3,6 +3,7 @@
 import Link from "next/link";
 import ProjectCard from "@/components/project-card";
 import SectionHeading from "@/components/section-heading";
+import { ArrowRight } from "lucide-react";
 
 interface Project {
   title: string;
@@ -19,12 +20,12 @@ interface Props {
 
 export default function Projects({ projects }: Props) {
   return (
-    <section
-      id="projects"
-      className="px-6 md:px-20 lg:px-32 py-20 border-t border-zinc-900"
-    >
+    <section id="projects" className="py-20 border-t border-muted">
       <div className="max-w-6xl mx-auto">
-        <SectionHeading title="Projects" />
+        <SectionHeading
+          title="Projects"
+          description="Here are some of my recent projects that showcase my skills and creativity. (HOVER THE CARDS...)"
+        />
         <div className="grid md:grid-cols-2 gap-12">
           {projects.map((project, index) => (
             <ProjectCard
@@ -43,12 +44,12 @@ export default function Projects({ projects }: Props) {
             href="https://github.com/CMOISDEAD"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center text-zinc-400 hover:text-white text-lg"
+            className="group inline-flex items-center text-muted-foreground hover:text-foreground text-sm"
           >
             <span className="mr-2 group-hover:mr-4 transition-all">
               See more projects on GitHub
             </span>
-            <span>→</span>
+            <ArrowRight className="size-4" />
           </Link>
         </div>
       </div>

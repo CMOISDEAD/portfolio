@@ -1,35 +1,20 @@
 import SectionHeading from "@/components/section-heading";
 import SocialLinks from "@/components/social-links";
-import type { LucideIcon } from "lucide-react";
 import CircularText from "../ui/circular-text";
+import ContactForm from "../contact-form";
 
-interface SocialLink {
-  name: string;
-  url: string;
-  icon: LucideIcon;
-  username?: string;
-}
-
-interface Props {
-  socialLinks: SocialLink[];
-}
-
-export default function Contact({ socialLinks }: Props) {
+export default function Contact() {
   return (
-    <section
-      id="contact"
-      className="px-6 md:px-20 lg:px-32 py-20 border-t border-zinc-900"
-    >
+    <section id="contact" className="py-20 border-t border-muted">
       <div className="max-w-6xl mx-auto">
         <SectionHeading title="Contact" />
-        <div className="grid md:grid-cols-2 gap-16">
+        <div className="grid md:grid-cols-2 gap-16 pb-20">
           <div>
-            <p className="text-zinc-400 mb-10 text-lg">
+            <p className="text-muted-foreground mb-10 text-lg">
               Interested in working together or have any questions? Fill out the
               form or contact me directly through the following channels:
             </p>
             <SocialLinks
-              links={socialLinks}
               direction="vertical"
               showLabels={true}
               iconSize={20}
@@ -42,6 +27,7 @@ export default function Contact({ socialLinks }: Props) {
             spinDuration={20}
           />
         </div>
+        <ContactForm />
       </div>
     </section>
   );

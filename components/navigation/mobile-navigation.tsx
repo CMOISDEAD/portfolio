@@ -31,7 +31,7 @@ export default function MobileNavigation({
   return (
     <div className="fixed top-0 left-0 w-full z-50 md:hidden">
       <div className="flex justify-between items-center p-6 border-b border-zinc-800 bg-stone-900">
-        <div className="text-xl font-bold">Camilo Davila</div>
+        <div className="text-xl font-bold">CD</div>
         <Button
           variant="ghost"
           size="icon"

@@ -1,3 +1,4 @@
+import { socialLinks } from "@/data/portfolio-data";
 import type { LucideIcon } from "lucide-react";
 
 interface SocialLink {
@@ -8,7 +9,7 @@ interface SocialLink {
 }
 
 interface SocialLinksProps {
-  links: SocialLink[];
+  links?: SocialLink[];
   direction?: "horizontal" | "vertical";
   showLabels?: boolean;
   iconSize?: number;
@@ -16,7 +17,7 @@ interface SocialLinksProps {
 }
 
 export default function SocialLinks({
-  links,
+  links = socialLinks,
   direction = "horizontal",
   showLabels = false,
   iconSize = 20,
@@ -32,7 +33,7 @@ export default function SocialLinks({
           href={link.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-zinc-500 hover:text-white transition-colors flex items-center w-fit"
+          className="text-muted-foreground hover:text-white transition-colors flex items-center w-fit"
         >
           {link.icon && (
             <link.icon size={iconSize} className={showLabels ? "mr-3" : ""} />

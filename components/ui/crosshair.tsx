@@ -212,13 +212,11 @@ const Crosshair: React.FC<CrosshairProps> = ({
       </svg>
       <div
         ref={lineHorizontalRef}
-        className={`absolute w-full h-px pointer-events-none opacity-0 transform translate-y-1/2`}
-        style={{ background: color }}
+        className="absolute w-full h-px pointer-events-none opacity-0 transform translate-y-1/2 bg-foreground"
       ></div>
       <div
         ref={lineVerticalRef}
-        className={`absolute h-full w-px pointer-events-none opacity-0 transform translate-x-1/2`}
-        style={{ background: color }}
+        className="absolute h-full w-px pointer-events-none opacity-0 transform translate-x-1/2 bg-foreground"
       ></div>
     </div>
   );

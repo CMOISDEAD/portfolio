@@ -53,12 +53,12 @@ export default function ProjectCard({
             {title}
             <ArrowUpRight className="ml-1 h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
           </h3>
-          <p className="text-zinc-400 mb-4">{description}</p>
+          <p className="text-muted-foreground mb-4">{description}</p>
           <div className="flex flex-wrap gap-2 mb-4">
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="text-xs text-zinc-400 border border-zinc-800 px-3 py-1"
+                className="text-xs text-muted-foreground border border-muted px-3 py-1"
               >
                 {tag}
               </span>
