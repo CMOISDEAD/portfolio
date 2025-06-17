@@ -13,7 +13,7 @@ interface Props {
 
 export default function Experience({ experiences }: Props) {
   return (
-    <section id="experience" className="py-20 border-t border-muted">
+    <section id="experience" className="py-20 p-3 border-t border-muted">
       <div className="max-w-4xl mx-auto">
         <SectionHeading
           title="Experience"

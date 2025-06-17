@@ -22,7 +22,7 @@ export default function SideNavigation({
   onNavItemClick,
 }: Props) {
   return (
-    <nav className="fixed top-0 left-0 h-full w-20 border-r border-muted hidden md:flex flex-col items-center justify-between py-10 z-50">
+    <nav className="fixed top-0 left-0 h-full w-20 border-r border-muted hidden md:flex flex-col items-center justify-between py-10 z-50 bg-gradient-to-b from-background to-secondary">
       <Link href="/" className="text-2xl font-bold">
         CD
       </Link>

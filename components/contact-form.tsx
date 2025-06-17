@@ -18,13 +18,14 @@ export default function ContactForm() {
         action="https://formspree.io/f/mwpbbryy"
       >
         <div className="grid w-full items-center gap-3">
-          <Label htmlFor="name">Name</Label>
-          <Input id="name" name="name" placeholder="Your Name" />
+          <Label htmlFor="name">Name*</Label>
+          <Input required id="name" name="name" placeholder="Your Name" />
         </div>
 
         <div className="grid w-full items-center gap-3">
-          <Label htmlFor="email">Email</Label>
+          <Label htmlFor="email">Email*</Label>
           <Input
+            required
             id="email"
             name="email"
             type="email"
@@ -33,8 +34,9 @@ export default function ContactForm() {
         </div>
 
         <div className="grid w-full items-center gap-3">
-          <Label htmlFor="message">Message</Label>
+          <Label htmlFor="message">Message*</Label>
           <Textarea
+            required
             rows={5}
             id="message"
             name="message"

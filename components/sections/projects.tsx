@@ -20,7 +20,7 @@ interface Props {
 
 export default function Projects({ projects }: Props) {
   return (
-    <section id="projects" className="py-20 border-t border-muted">
+    <section id="projects" className="py-20 p-3 border-t border-muted">
       <div className="max-w-6xl mx-auto">
         <SectionHeading
           title="Projects"

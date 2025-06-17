@@ -182,7 +182,7 @@
     left: -50%;
     pointer-events: none;
     user-select: none;
-    background-image: url("http://momentsingraphics.de/Media/BlueNoise/WhiteNoiseDithering.png");
+    background-image: url("/noise.png");
     background-blend-mode: multiply;
     opacity: 0.029;
     animation: noise 8s steps(10) infinite;

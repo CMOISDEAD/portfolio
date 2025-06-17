@@ -36,7 +36,7 @@ export default function Page() {
         onNavItemClick={scrollToSection}
       />
 
-      <main className="pt-20 md:pt-0 md:pl-20 p-6">
+      <main className="pt-20 md:pt-0 md:pl-20">
         <Hero onClickAction={scrollToSection} />
         <About paragraphs={aboutText} skills={skills} />
         <Experience experiences={experiences} />

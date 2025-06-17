@@ -7,7 +7,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-20 border-t border-muted bg-gradient-to-br from-background via-accent to-stone-900/80"
+      className="py-20 p-3 border-t border-muted bg-gradient-to-br from-background via-accent to-stone-900/80"
     >
       <div className="max-w-6xl mx-auto">
         <SectionHeading title="Contact" />
