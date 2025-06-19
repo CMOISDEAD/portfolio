@@ -1,27 +1,14 @@
-"use client";
-
+import { ReactElement, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
-import { useState } from "react";
 
-interface ProjectCardProps {
-  title: string;
-  description: string;
-  image: string;
-  tags: string[];
-  demoUrl: string;
-  repoUrl: string;
+interface Props {
+  children: ReactElement;
+  image?: string;
+  alt?: string;
 }
 
-export default function ProjectCard({
-  title,
-  description,
-  image,
-  tags,
-  demoUrl,
-}: ProjectCardProps) {
+export default function MagicCard({ children, image, alt }: Props) {
   const [isHovered, setIsHovered] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
@@ -48,23 +35,7 @@ export default function ProjectCard({
         onMouseMove={handleMouseMove}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <Link href={demoUrl} target="_blank">
-          <h3 className="text-xl font-semibold mb-2 flex items-center">
-            {title}
-            <ArrowUpRight className="ml-1 h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-          </h3>
-          <p className="text-muted-foreground mb-4">{description}</p>
-          <div className="flex flex-wrap gap-2 mb-4">
-            {tags.map((tag) => (
-              <span
-                key={tag}
-                className="text-xs text-muted-foreground border border-muted px-3 py-1"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </Link>
+        {children}
       </motion.div>
 
       <AnimatePresence mode="wait">
@@ -84,7 +55,7 @@ export default function ProjectCard({
             <div className="relative w-full h-[300px]">
               <Image
                 src={image}
-                alt={`${title} preview`}
+                alt={alt!}
                 fill
                 sizes="(max-width: 768px) 90vw, 600px"
                 className="object-cover"

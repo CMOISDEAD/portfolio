@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import ProjectCard from "@/components/project-card";
 import SectionHeading from "@/components/section-heading";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
+import MagicCard from "../magic_card";
 
 interface Project {
   title: string;
@@ -27,16 +27,32 @@ export default function Projects({ projects }: Props) {
           description="Here are some of my recent projects that showcase my skills and creativity. (HOVER THE CARDS...)"
         />
         <div className="grid md:grid-cols-2 gap-12">
-          {projects.map((project, index) => (
-            <ProjectCard
-              key={index}
-              title={project.title}
-              description={project.description}
+          {projects.map((project, i) => (
+            <MagicCard
+              key={i}
               image={project.image}
-              tags={project.tags}
-              demoUrl={project.demoUrl}
-              repoUrl={project.repoUrl}
-            />
+              alt={`Project image for ${project.title}`}
+            >
+              <Link href={project.demoUrl} target="_blank">
+                <h3 className="text-xl font-semibold mb-2 flex items-center">
+                  {project.title}
+                  <ArrowUpRight className="ml-1 size-5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </h3>
+                <p className="text-muted-foreground mb-4">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-xs text-muted-foreground border border-muted px-3 py-1"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </Link>
+            </MagicCard>
           ))}
         </div>
         <div className="mt-16 text-center">

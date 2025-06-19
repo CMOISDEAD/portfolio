@@ -23,12 +23,6 @@ export const socialLinks = [
     icon: Linkedin,
     username: "linkedin.com/in/camilo-esteban-davila",
   },
-  // {
-  //   name: "Twitter",
-  //   url: "https://twitter.com",
-  //   icon: Twitter,
-  //   username: "twitter.com/cmoisdead",
-  // },
   {
     name: "Email",
     url: "mailto:camiloesteban661@gmail.com",
@@ -100,6 +94,8 @@ export const experiences = [
     company: "Agrobiológicos del Quindío",
     description:
       "Developed a modern and scalable website for Agrobiológicos del Quindío, improving their digital presence and making their products and services more accessible to clients. This platform helped strengthen customer trust by providing clear and updated information about the company, its products, and industry news. The website, built with Next.js using ISR, ensures high performance and fast updates. Integrated with Strapi CMS for seamless content management and deployed on a self-configured VPS for stability and scalability.",
+    image: "/projects/agro.webp",
+    demoUrl: "https://agrobiologicosquindio.com",
   },
   {
     period: "2024",
@@ -107,6 +103,8 @@ export const experiences = [
     company: "Private Client",
     description:
       "Built an interactive web platform to showcase athletes through a 3D map interface, offering an engaging and intuitive way to explore athlete profiles. This project enhanced visibility and accessibility for sports professionals, creating a dynamic user experience. The platform was optimized for mobile devices, ensuring a smooth and visually appealing interface.",
+    image: "/projects/comunidad.webp",
+    demoUrl: "https://comunidad-xi.vercel.app",
   },
   {
     period: "2024",
