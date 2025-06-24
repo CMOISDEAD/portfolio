@@ -1,99 +1,50 @@
 "use client";
 
 import { AnimatePresence, motion } from "motion/react";
-import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef } from "react";
 
-interface ProjectCardProps {
+interface Props {
+  index: number;
   title: string;
   description: string;
   image: string;
   tags: string[];
   demoUrl: string;
   repoUrl: string;
+  action: (index: number) => void;
+  showBackgroundAction: (show: boolean) => void;
 }
 
-export default function ProjectCard({
-  title,
-  description,
-  image,
-  tags,
-  demoUrl,
-}: ProjectCardProps) {
-  const [isHovered, setIsHovered] = useState(false);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+export default function ProjectCard({ index, title, image, action }: Props) {
+  const cardRef = useRef<HTMLDivElement>(null);
 
-  const handleMouseEnter = (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-  ) => {
-    setIsHovered(true);
-    const rect = e.currentTarget.getBoundingClientRect();
-    setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-  };
+  useEffect(() => {
+    const current = cardRef.current;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) action(index);
+      },
+      {
+        threshold: 0.5,
+        rootMargin: "0px",
+      },
+    );
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-  };
+    if (current) observer.observe(current);
+
+    return () => observer.disconnect();
+  }, [index, action]);
 
   return (
-    <div className="relative">
-      <motion.div
-        whileHover={{ y: -10 }}
-        transition={{ duration: 0.3 }}
-        className="group cursor-pointer"
-        onMouseEnter={handleMouseEnter}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <Link href={demoUrl} target="_blank">
-          <h3 className="text-xl font-semibold mb-2 flex items-center">
-            {title}
-            <ArrowUpRight className="ml-1 h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-          </h3>
-          <p className="text-muted-foreground mb-4">{description}</p>
-          <div className="flex flex-wrap gap-2 mb-4">
-            {tags.map((tag) => (
-              <span
-                key={tag}
-                className="text-xs text-muted-foreground border border-muted px-3 py-1"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </Link>
-      </motion.div>
-
-      <AnimatePresence mode="wait">
-        {isHovered && image && (
-          <motion.div
-            className="hidden md:block absolute pointer-events-none z-50 w-[600px] max-w-[90vw] shadow-xl overflow-hidden"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-              x: position.x,
-              y: position.y - 200,
-            }}
-            exit={{ opacity: 0, scale: 0.8 }}
-            transition={{ type: "spring", stiffness: 300, damping: 25 }}
-          >
-            <div className="relative w-full h-[300px]">
-              <Image
-                src={image}
-                alt={`${title} preview`}
-                fill
-                sizes="(max-width: 768px) 90vw, 600px"
-                className="object-cover"
-                priority
-              />
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+    <div
+      ref={cardRef}
+      className="h-screen w-full flex flex-col items-center justify-center gap-8"
+    >
+      <h2 className="text-6xl font-bold">{title}</h2>
+      <div className="relative h-96 w-full aspect-square">
+        <Image fill src={image} alt="" className="object-cover" />
+      </div>
     </div>
   );
 }
