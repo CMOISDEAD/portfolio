@@ -26,7 +26,7 @@ export default function Projects({ projects }: Props) {
       id="projects"
       className="border-t border-muted relative p-4 flex flex-row gap-8"
     >
-      <div className="sticky top-0 left-0 h-screen w-1/4 flex justify-center items-center pl-5">
+      <div className="hidden sticky top-0 left-0 h-screen md:w-1/4 md:flex justify-center items-center pl-5">
         <ul className="space-y-36">
           {projects.map((project, i) => (
             <li

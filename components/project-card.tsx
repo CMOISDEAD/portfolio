@@ -41,7 +41,7 @@ export default function ProjectCard({ index, title, image, action }: Props) {
       ref={cardRef}
       className="h-screen w-full flex flex-col items-center justify-center gap-8"
     >
-      <h2 className="text-6xl font-bold">{title}</h2>
+      <h2 className="text-2xl md:text-6xl font-bold">{title}</h2>
       <div className="relative h-96 w-full aspect-square">
         <Image fill src={image} alt="" className="object-cover" />
       </div>
