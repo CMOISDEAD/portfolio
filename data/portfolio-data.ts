@@ -91,6 +91,15 @@ export const experiences = [
   {
     period: "2025",
     title: "Fullstack Developer",
+    company: "Daidokoro INC",
+    description:
+      "Engineered a comprehensive digital platform for Daidokoro, a specialized carpentry and craftsmanship company, transforming their online presence through a sophisticated web solution that showcases custom woodworking services and artisanal offerings. Built with Next.js using ISR for optimal performance and real-time content delivery, the platform enables stakeholders to instantly update service portfolios, project galleries, and company information through an intuitive backend system. This dynamic architecture supports seamless content management workflows, allowing effortless updates to project showcases and service descriptions without technical intervention. The solution elevates Daidokoro's professional digital presence while positioning them competitively in the artisanal market, effectively communicating their craftsmanship quality to potential clients. Deployed on a robust infrastructure, the platform demonstrates expertise in modern JavaScript frameworks and headless CMS integration while delivering enhanced client engagement and operational efficiency.",
+    image: "/projects/agro.webp",
+    demoUrl: "https://daidokoro-inc.com",
+  },
+  {
+    period: "2025",
+    title: "Fullstack Developer",
     company: "Agrobiológicos del Quindío",
     description:
       "Developed a modern and scalable website for Agrobiológicos del Quindío, improving their digital presence and making their products and services more accessible to clients. This platform helped strengthen customer trust by providing clear and updated information about the company, its products, and industry news. The website, built with Next.js using ISR, ensures high performance and fast updates. Integrated with Strapi CMS for seamless content management and deployed on a self-configured VPS for stability and scalability.",
@@ -105,13 +114,6 @@ export const experiences = [
       "Built an interactive web platform to showcase athletes through a 3D map interface, offering an engaging and intuitive way to explore athlete profiles. This project enhanced visibility and accessibility for sports professionals, creating a dynamic user experience. The platform was optimized for mobile devices, ensuring a smooth and visually appealing interface.",
     image: "/projects/comunidad.webp",
     demoUrl: "https://comunidad-xi.vercel.app",
-  },
-  {
-    period: "2024",
-    title: "Fullstack Developer",
-    company: "swimming Academy",
-    description:
-      "Created a web-based management system that streamlined student administration, scheduling, and competition tracking for a swimming academy. This system optimized internal workflows, reducing manual processes and improving overall efficiency. Developed with React and Express.js, using JWT authentication and MongoDB for data management, ensuring a secure and scalable architecture.",
   },
 ];
 
