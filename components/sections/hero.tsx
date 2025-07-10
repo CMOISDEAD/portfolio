@@ -12,7 +12,7 @@ export default function Hero({ onClickAction }: Props) {
       className="min-h-screen h-full flex flex-col justify-center"
     >
       <section className="flex flex-col justify-center gap-16">
-        <div className="container mx-auto">
+        <div className="container mx-auto p-3 md:p-0">
           <h1 className="w-full text-3xl md:text-8xl lg:text-[8rem] font-bold uppercase my-10">
             Fullstack Developer
           </h1>

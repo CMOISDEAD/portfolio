@@ -93,8 +93,8 @@ export const experiences = [
     title: "Fullstack Developer",
     company: "Daidokoro INC",
     description:
-      "Engineered a comprehensive digital platform for Daidokoro, a specialized carpentry and craftsmanship company, transforming their online presence through a sophisticated web solution that showcases custom woodworking services and artisanal offerings. Built with Next.js using ISR for optimal performance and real-time content delivery, the platform enables stakeholders to instantly update service portfolios, project galleries, and company information through an intuitive backend system. This dynamic architecture supports seamless content management workflows, allowing effortless updates to project showcases and service descriptions without technical intervention. The solution elevates Daidokoro's professional digital presence while positioning them competitively in the artisanal market, effectively communicating their craftsmanship quality to potential clients. Deployed on a robust infrastructure, the platform demonstrates expertise in modern JavaScript frameworks and headless CMS integration while delivering enhanced client engagement and operational efficiency.",
-    image: "/projects/agro.webp",
+      "Developed a comprehensive digital platform for Daidokoro, a specialized carpentry and craftsmanship company, transforming their online presence with a modern web solution. Built with Next.js using ISR for optimal performance, the platform features dynamic content management through an intuitive backend system. This allows stakeholders to easily update service portfolios, project galleries, and company information without technical intervention. The solution elevates Daidokoro's professional digital presence while positioning them competitively in the artisanal market.",
+    image: "/projects/daidokoro.webp",
     demoUrl: "https://daidokoro-inc.com",
   },
   {

@@ -46,19 +46,19 @@ export default function MagicCard({ children, image, alt }: Props) {
             animate={{
               opacity: 1,
               scale: 1,
-              x: position.x,
-              y: position.y - 200,
+              x: position.x + 30,
+              y: position.y - 430,
             }}
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
           >
-            <div className="relative w-full h-[300px]">
+            <div className="relative w-full h-[600px]">
               <Image
                 src={image}
                 alt={alt!}
                 fill
                 sizes="(max-width: 768px) 90vw, 600px"
-                className="object-cover"
+                className="object-contain"
                 priority
               />
             </div>

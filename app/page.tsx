@@ -10,15 +10,14 @@ import Skills from "@/components/sections/skills";
 import Experience from "@/components/sections/experience";
 import Contact from "@/components/sections/contact";
 import Footer from "@/components/footer";
+import Crosshair from "@/components/ui/crosshair";
 
 import {
   navItems,
   skills,
-  projects,
   experiences,
   aboutText,
 } from "@/data/portfolio-data";
-import Crosshair from "@/components/ui/crosshair";
 
 export default function Page() {
   const { activeSection, scrollToSection } = useActiveSection();
@@ -40,7 +39,7 @@ export default function Page() {
         <Hero onClickAction={scrollToSection} />
         <About paragraphs={aboutText} skills={skills} />
         <Experience experiences={experiences} />
-        <Projects projects={projects} />
+        <Projects />
         <Skills />
         <Contact />
         <Footer />

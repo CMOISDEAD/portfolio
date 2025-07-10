@@ -4,27 +4,15 @@ import ProjectCard from "../project-card";
 import { useState } from "react";
 import { AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
+import { projects } from "@/data/portfolio-data";
 
-interface Project {
-  title: string;
-  description: string;
-  image: string;
-  tags: string[];
-  demoUrl: string;
-  repoUrl: string;
-}
-
-interface Props {
-  projects: Project[];
-}
-
-export default function Projects({ projects }: Props) {
+export default function Projects() {
   const [active, setActive] = useState<number>(0);
 
   return (
     <section
       id="projects"
-      className="border-t border-muted relative p-4 flex flex-row gap-8"
+      className="border-t border-muted relative p-0 flex flex-row gap-8"
     >
       <div className="hidden sticky top-0 left-0 h-screen md:w-1/4 md:flex justify-center items-center pl-5">
         <ul className="space-y-36">
@@ -32,7 +20,9 @@ export default function Projects({ projects }: Props) {
             <li
               key={i}
               className={cn(
-                i === active ? "text-blue-500" : "text-muted-foreground",
+                i === active
+                  ? "text-accent-foreground"
+                  : "text-muted-foreground",
                 "text-3xl",
               )}
             >
@@ -52,6 +42,7 @@ export default function Projects({ projects }: Props) {
             <ProjectCard
               key={i}
               index={i}
+              length={projects.length}
               action={(index) => setActive(index)}
               showBackgroundAction={(a) => a}
               {...project}
