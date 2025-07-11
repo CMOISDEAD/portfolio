@@ -3,51 +3,157 @@ import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Label } from "./ui/label";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "./ui/form";
+import { toast } from "sonner";
+import { useState } from "react";
+import { Loader } from "lucide-react";
+
+const FormSchema = z.object({
+  name: z
+    .string()
+    .min(2, {
+      message: "Name must be at least 2 characters.",
+    })
+    .nonempty(),
+  email: z.email().nonempty(),
+  message: z
+    .string()
+    .min(5, {
+      message: "Message must be at least 5 characters.",
+    })
+    .nonempty(),
+});
 
 export default function ContactForm() {
+  const [isLoading, setIsLoading] = useState(false);
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+    defaultValues: {
+      name: "camilo",
+      email: "camilo@gmail.com",
+      message: `test message: ${new Date().toLocaleTimeString()}`,
+    },
+  });
+
+  const onSubmit = async (data: z.infer<typeof FormSchema>) => {
+    try {
+      setIsLoading(true);
+      const response = await fetch("https://formspree.io/f/mwpbbryy", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      if (response.ok) {
+        toast("✅ Message sent successfully!", {
+          description: (
+            <pre className="mt-2 w-full max-w-[320px] rounded-md bg-neutral-950 p-4 overflow-x-auto">
+              <code className="text-white text-sm">
+                {JSON.stringify(data, null, 2)}
+              </code>
+            </pre>
+          ),
+        });
+      } else {
+        throw new Error("Failed to send message");
+      }
+    } catch (error) {
+      console.log(error);
+      toast("🚨 Error sending message", {
+        description: (
+          <pre className="mt-2 w-full max-w-[320px] rounded-md bg-neutral-950 p-4 overflow-x-auto">
+            <code className="text-white text-sm">
+              {JSON.stringify(
+                {
+                  status: "error",
+                  message: "Please try again later or contact us directly.",
+                  error: "0x001e",
+                },
+                null,
+                2,
+              )}
+            </code>
+          </pre>
+        ),
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <form
-        className="space-y-8"
-        method="POST"
-        action="https://formspree.io/f/mwpbbryy"
-      >
-        <div className="grid w-full items-center gap-3">
-          <Label htmlFor="name">Name*</Label>
-          <Input required id="name" name="name" placeholder="Your Name" />
-        </div>
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Name*</FormLabel>
+                <FormControl>
+                  <Input placeholder="Your Name" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-        <div className="grid w-full items-center gap-3">
-          <Label htmlFor="email">Email*</Label>
-          <Input
-            required
-            id="email"
+          <FormField
+            control={form.control}
             name="email"
-            type="email"
-            placeholder="Your Email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Email*</FormLabel>
+                <FormControl>
+                  <Input type="email" placeholder="Your Email" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
-        </div>
 
-        <div className="grid w-full items-center gap-3">
-          <Label htmlFor="message">Message*</Label>
-          <Textarea
-            required
-            rows={5}
-            id="message"
+          <FormField
+            control={form.control}
             name="message"
-            placeholder="Your Message"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Message*</FormLabel>
+                <FormControl>
+                  <Textarea rows={5} placeholder="Your Message" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
-        </div>
 
-        <Button type="submit" className="w-full h-12 mt-4">
-          Send message
-        </Button>
-      </form>
+          <Button
+            type="submit"
+            className="w-full h-12 mt-4"
+            disabled={isLoading}
+          >
+            {isLoading && (
+              <Loader className="size-5 text-accent-foreground animate-spin" />
+            )}
+            Send message
+          </Button>
+        </form>
+      </Form>
     </motion.div>
   );
 }

@@ -7,6 +7,7 @@ import { ThemeSwitcher } from "@/components/theme-switcher";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import ReactLenis from "lenis/react";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -38,6 +39,7 @@ export default function RootLayout({
               {/* <LangSelect /> */}
             </div>
             {children}
+            <Toaster />
           </ThemeProvider>
         </ReactLenis>
       </body>
