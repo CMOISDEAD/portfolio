@@ -39,9 +39,9 @@ export default function ContactForm() {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      name: "camilo",
-      email: "camilo@gmail.com",
-      message: `test message: ${new Date().toLocaleTimeString()}`,
+      name: "",
+      email: "",
+      message: "",
     },
   });
 
