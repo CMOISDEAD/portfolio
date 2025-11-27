@@ -7,7 +7,7 @@ interface Props {
 export function ContactWindow({ toggleWindow }: Props) {
   return (
     <Window
-      title="Contact"
+      title="cat ./contact.txt"
       onClose={() => toggleWindow("contact")}
       defaultPosition={{ x: 1530, y: 350 }}
       defaultSize={{ width: 320, height: 200 }}
@@ -28,7 +28,7 @@ export function ContactWindow({ toggleWindow }: Props) {
             LinkedIn
           </a>
           <a
-            href="#"
+            href="mailto:camiloesteban661@gmail.com"
             className="block text-foreground hover:text-primary underline underline-offset-2"
           >
             Email

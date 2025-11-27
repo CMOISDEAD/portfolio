@@ -33,7 +33,7 @@ export function Window({
     >
       <div className="bg-card border">
         <div className="px-2 py-1 text-sm flex justify-between items-center border-b">
-          <p>{title}</p>
+          <p className="italic">{title}</p>
           <div className="flex gap-2 items-center">
             <Button size="icon-sm" variant="ghost" onClick={handleMinimized}>
               {isMinimized ? (

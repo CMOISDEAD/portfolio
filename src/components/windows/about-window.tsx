@@ -7,7 +7,7 @@ interface Props {
 export function AboutWindow({ toggleWindow }: Props) {
   return (
     <Window
-      title="About"
+      title="whoami"
       onClose={() => toggleWindow("about")}
       defaultPosition={{
         x: 1450,

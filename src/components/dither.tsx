@@ -3,6 +3,7 @@ import { useRef, useEffect, forwardRef } from "react";
 import {
   Canvas,
   useFrame,
+  useLoader,
   useThree,
   type ThreeEvent,
 } from "@react-three/fiber";
@@ -324,6 +325,8 @@ export default function Dither({
   enableMouseInteraction = true,
   mouseRadius = 1,
 }: DitherProps) {
+  const logoTexture = useLoader(THREE.TextureLoader, "/logo.png");
+
   return (
     <Canvas
       className="w-full h-full relative"
@@ -331,6 +334,11 @@ export default function Dither({
       dpr={1}
       gl={{ antialias: true, preserveDrawingBuffer: true }}
     >
+      <mesh position={[0, 0, 0]} scale={[11, 6, 6]}>
+        <planeGeometry args={[1, 1]} />
+        <meshBasicMaterial map={logoTexture} transparent opacity={0.5} />
+      </mesh>
+
       <DitheredWaves
         waveSpeed={waveSpeed}
         waveFrequency={waveFrequency}

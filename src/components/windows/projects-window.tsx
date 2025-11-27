@@ -9,7 +9,7 @@ export function ProjectsWindow({ toggleWindow }: Props) {
 
   return (
     <Window
-      title="Projects"
+      title="~/workspaces/projects/"
       onClose={() => toggleWindow("projects")}
       defaultPosition={{ x: 100, y: 680 }}
       defaultSize={{ width: 1320, height: 200 }}
