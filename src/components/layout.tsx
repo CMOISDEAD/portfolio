@@ -6,9 +6,9 @@ export function Layout() {
   return (
     <div className="h-screen min-h-screen flex flex-col font-mono">
       <header className="h-8 flex items-center justify-between px-4 border-b border-border bg-card">
-        <p className="text-sm font-mono">Camilo Davila</p>
+        <p>CD</p>
         <div className="flex gap-16 items-center justify-center">
-          <nav>
+          <nav className="hidden md:block">
             <ul className="flex gap-4 items-center justify-center">
               <li>
                 <Button asChild variant="link" size="sm">
@@ -36,6 +36,9 @@ export function Layout() {
             })}
           </p>
         </div>
+        <Button variant="ghost" size="icon-sm" className="md:hidden">
+          [x]
+        </Button>
       </header>
       <main className="flex-1 overflow-hidden">
         <Outlet />

@@ -12,28 +12,29 @@ interface Experience {
 
 interface Props {
   toggleWindow: (key: "projects" | "about" | "experience" | "contact") => void;
+  isMobile: boolean;
 }
 
 const experiences: Experience[] = [
   {
-    company: "TechCorp Inc.",
-    role: "Senior Frontend Developer",
-    period: "2022 - Present",
+    company: "Agrobiológicos del Quindío",
+    role: "Full Stack Developer",
+    period: "2025",
     description:
-      "Building scalable interfaces and design systems with focus on performance and accessibility.",
-    tech: ["React", "Next.js", "TypeScript", "TailwindCSS"],
+      "Led the development of a modern and scalable web platform using Next.js, implementing SSR and ISR to improve performance and reduce page-to-page load times. Integrated Strapi CMS on a self-configured Linux VPS, implemented secure authentication with JWT, and managed the database using MySQL for robust data handling.",
+    tech: ["Next.js", "Strapi CMS", "JWT", "MySQL", "VPS", "Linux"],
   },
   {
-    company: "StartupXYZ",
-    role: "Full Stack Developer",
-    period: "2020 - 2022",
+    company: "Private Client",
+    role: "Frontend Developer",
+    period: "2024",
     description:
-      "Developed REST APIs, microservices architecture and real-time features for SaaS platform.",
-    tech: ["Node.js", "PostgreSQL", "Redis", "Docker"],
+      "Developed an interactive web platform for showcasing athletes, featuring a 3D map as the main interface. Built a modern and responsive UI using React and TailwindCSS, integrated Mapbox for 3D navigation, and optimized multimedia content loading to deliver a smooth and accessible user experience.",
+    tech: ["React", "Mapbox", "TailwindCSS"],
   },
 ];
 
-export function ExperienceWindow({ toggleWindow }: Props) {
+export function ExperienceWindow({ toggleWindow, isMobile }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const exp = experiences[currentIndex];
 
@@ -59,15 +60,18 @@ export function ExperienceWindow({ toggleWindow }: Props) {
     <Window
       title="./experience.sh"
       onClose={() => toggleWindow("experience")}
-      defaultPosition={{ x: 300, y: 190 }}
-      defaultSize={{ width: 448, height: 200 }}
+      defaultPosition={isMobile ? { x: 20, y: 20 } : { x: 100, y: 170 }}
+      defaultSize={
+        isMobile ? { width: 320, height: 420 } : { width: 448, height: 450 }
+      }
+      isMobile={isMobile}
     >
-      <div className="text-sm min-h-[220px]">
-        <div className="text-muted-foreground mb-2">
+      <div className="text-sm flex flex-col space-y-2">
+        <div className="text-muted-foreground">
           <span className="text-green-500">~</span> Running experience.sh...
         </div>
 
-        <div className="space-y-1">
+        <div className="space-y-1 flex-1">
           {lines.map((line, i) => (
             <div key={i} className={line === "" ? "h-3" : ""}>
               {line && line.includes(":") ? (
@@ -87,7 +91,7 @@ export function ExperienceWindow({ toggleWindow }: Props) {
         </div>
       </div>
 
-      <div className="flex items-center justify-between border-t text-xs">
+      <div className="flex items-center justify-between border-t text-xs mt-2">
         <span className="text-muted-foreground">
           [{currentIndex + 1}/{experiences.length}]
         </span>

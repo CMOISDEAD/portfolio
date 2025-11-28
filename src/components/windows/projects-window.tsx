@@ -2,17 +2,21 @@ import { Window } from "@/components/windows/window";
 
 interface Props {
   toggleWindow: (key: "projects" | "about" | "experience" | "contact") => void;
+  isMobile: boolean;
 }
 
-export function ProjectsWindow({ toggleWindow }: Props) {
+export function ProjectsWindow({ toggleWindow, isMobile }: Props) {
   const images = Array.from({ length: 12 }, () => "https://placehold.co/150");
 
   return (
     <Window
       title="~/workspaces/projects/"
       onClose={() => toggleWindow("projects")}
-      defaultPosition={{ x: 100, y: 680 }}
-      defaultSize={{ width: 1320, height: 200 }}
+      defaultPosition={isMobile ? { x: 10, y: 380 } : { x: 100, y: 660 }}
+      defaultSize={
+        isMobile ? { width: 355, height: 220 } : { width: 1320, height: 220 }
+      }
+      isMobile={isMobile}
     >
       <div className="overflow-hidden w-full group">
         <div className="flex whitespace-nowrap animate-infinite-scroll pause-child">

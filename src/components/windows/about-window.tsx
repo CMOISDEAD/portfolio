@@ -2,24 +2,21 @@ import { Window } from "@/components/windows/window";
 
 interface Props {
   toggleWindow: (key: "projects" | "about" | "experience" | "contact") => void;
+  isMobile: boolean;
 }
 
-export function AboutWindow({ toggleWindow }: Props) {
+export function AboutWindow({ toggleWindow, isMobile }: Props) {
   return (
     <Window
       title="whoami"
       onClose={() => toggleWindow("about")}
-      defaultPosition={{
-        x: 1450,
-        y: 50,
-      }}
-      defaultSize={{
-        width: 380,
-        height: 300,
-      }}
+      defaultPosition={isMobile ? { x: 10, y: 10 } : { x: 1450, y: 50 }}
+      defaultSize={
+        isMobile ? { width: 350, height: 420 } : { width: 380, height: 415 }
+      }
+      isMobile={isMobile}
     >
       <div className="text-sm text-muted-foreground space-y-3 leading-relaxed p-1">
-        {/* HEADER */}
         <section>
           <h2 className="text-base font-semibold text-foreground">
             Camilo Dávila
@@ -29,7 +26,6 @@ export function AboutWindow({ toggleWindow }: Props) {
           </p>
         </section>
 
-        {/* ABOUT */}
         <section className="space-y-1">
           <p>
             I build intuitive, scalable and high-performance interfaces using{" "}
@@ -44,7 +40,6 @@ export function AboutWindow({ toggleWindow }: Props) {
           </p>
         </section>
 
-        {/* CONTACT */}
         <section className="space-y-1">
           <h3 className="text-sm font-medium text-foreground">Contact</h3>
           <p>
