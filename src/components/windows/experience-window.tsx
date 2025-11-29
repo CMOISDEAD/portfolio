@@ -66,7 +66,7 @@ export function ExperienceWindow({ toggleWindow, isMobile }: Props) {
       }
       isMobile={isMobile}
     >
-      <div className="text-sm flex flex-col space-y-2">
+      <div className="text-sm flex flex-col space-y-2 h-full">
         <div className="text-muted-foreground">
           <span className="text-green-500">~</span> Running experience.sh...
         </div>
@@ -89,19 +89,19 @@ export function ExperienceWindow({ toggleWindow, isMobile }: Props) {
             </div>
           ))}
         </div>
-      </div>
 
-      <div className="flex items-center justify-between border-t text-xs mt-2">
-        <span className="text-muted-foreground">
-          [{currentIndex + 1}/{experiences.length}]
-        </span>
-        <div className="flex gap-3">
-          <Button onClick={handlePrev} variant="ghost" size="sm">
-            [p]rev
-          </Button>
-          <Button onClick={handleNext} variant="ghost" size="sm">
-            [n]ext
-          </Button>
+        <div className="flex items-center justify-between border-t text-xs mt-2">
+          <span className="text-muted-foreground">
+            [{currentIndex + 1}/{experiences.length}]
+          </span>
+          <div className="flex gap-3">
+            <Button onClick={handlePrev} variant="ghost" size="sm">
+              [p]rev
+            </Button>
+            <Button onClick={handleNext} variant="ghost" size="sm">
+              [n]ext
+            </Button>
+          </div>
         </div>
       </div>
     </Window>

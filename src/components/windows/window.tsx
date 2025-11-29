@@ -2,6 +2,7 @@ import { Minus, Plus, X } from "lucide-react";
 import { useCallback, useEffect, useReducer } from "react";
 import { Rnd } from "react-rnd";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface Props {
   children: React.ReactNode;
@@ -129,8 +130,8 @@ export function Window({
       onDragStop={handleDragStop}
       onResizeStop={handleResizeStop}
     >
-      <div className="bg-card border shadow-2xl flex flex-col h-full">
-        <div className="px-3 py-2 text-sm flex justify-between items-center border-b select-none">
+      <div className="bg-card border flex flex-col h-full">
+        <div className="px-3 text-sm flex justify-between items-center border-b select-none">
           <p className="italic font-medium">{title}</p>
           <div className="flex gap-1">
             <Button size="icon-sm" variant="ghost" onClick={handleMinimize}>
@@ -146,9 +147,16 @@ export function Window({
           </div>
         </div>
         <div
-          className={`flex-1 overflow-auto ${state.isMinimized ? "hidden" : "block"}`}
+          className={cn(
+            "flex-1 overflow-auto",
+            state.isMinimized ? "hidden" : "block",
+          )}
         >
-          <div className={isMobile ? "p-4" : "p-5"}>{children}</div>
+          <div
+            className={cn("flex items-center h-full", isMobile ? "p-4" : "p-3")}
+          >
+            {children}
+          </div>
         </div>
       </div>
     </Rnd>
