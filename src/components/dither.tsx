@@ -9,6 +9,7 @@ import {
 } from "@react-three/fiber";
 import { EffectComposer, wrapEffect } from "@react-three/postprocessing";
 import { Effect } from "postprocessing";
+//@ts-ignore
 import * as THREE from "three";
 
 const waveVertexShader = `
