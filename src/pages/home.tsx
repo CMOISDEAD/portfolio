@@ -18,7 +18,6 @@ export function HomePage() {
     setWindows((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
-  // Forzamos que todas las ventanas estén centradas y con tamaño razonable al montar
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -29,6 +28,12 @@ export function HomePage() {
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
+
+  useEffect(() => {
+    if (!isMobile) return;
+
+    setWindows((p) => ({ ...p, contact: false, experience: false }));
+  }, [isMobile]);
 
   return (
     <div className="h-screen w-screen relative overflow-hidden bg-background">

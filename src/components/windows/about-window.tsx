@@ -9,11 +9,12 @@ export function AboutWindow({ toggleWindow, isMobile }: Props) {
   return (
     <Window
       title="whoami"
-      onClose={() => toggleWindow("about")}
-      defaultPosition={isMobile ? { x: 10, y: 10 } : { x: 1450, y: 50 }}
+      anchor="top-right"
+      offset={isMobile ? { x: 10, y: 10 } : { x: 80, y: 40 }}
       defaultSize={
         isMobile ? { width: 350, height: 420 } : { width: 380, height: 415 }
       }
+      onClose={() => toggleWindow("about")}
       isMobile={isMobile}
     >
       <div className="text-sm text-muted-foreground space-y-3 leading-relaxed p-1">

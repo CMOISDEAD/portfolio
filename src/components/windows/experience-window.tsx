@@ -59,11 +59,12 @@ export function ExperienceWindow({ toggleWindow, isMobile }: Props) {
   return (
     <Window
       title="./experience.sh"
-      onClose={() => toggleWindow("experience")}
-      defaultPosition={isMobile ? { x: 20, y: 20 } : { x: 100, y: 170 }}
+      anchor="top-left"
+      offset={isMobile ? { x: 10, y: 10 } : { x: 10, y: 180 }}
       defaultSize={
         isMobile ? { width: 320, height: 420 } : { width: 448, height: 450 }
       }
+      onClose={() => toggleWindow("experience")}
       isMobile={isMobile}
     >
       <div className="text-sm flex flex-col space-y-2 h-full">

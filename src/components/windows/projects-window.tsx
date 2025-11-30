@@ -36,34 +36,26 @@ const projects = [
     image:
       "https://private-user-images.githubusercontent.com/51010598/293121399-838cda5d-d1c5-4e08-80d5-7ee1a66631e0.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjQzODk1OTMsIm5iZiI6MTc2NDM4OTI5MywicGF0aCI6Ii81MTAxMDU5OC8yOTMxMjEzOTktODM4Y2RhNWQtZDFjNS00ZTA4LTgwZDUtN2VlMWE2NjYzMWUwLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTExMjklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUxMTI5VDA0MDgxM1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTBmMzI3ZGY2Mzg4YjUzMGQ5OTg1MmMwZjUzMDVlMzk2MDI3MzI2MmNmZGZkYjA1ZjE1M2EzZTMyOGFmNWEwZTgmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.GDzHQ1ACNh-3j6xtj0Q1WlHm2bD_Typ5aWmvTbg8Pa0",
   },
-
-  {
-    href: "https://github.com/CMOISDEAD",
-    image: "https://placehold.co/150",
-  },
-  {
-    href: "https://github.com/CMOISDEAD",
-    image: "https://placehold.co/150",
-  },
-  {
-    href: "https://github.com/CMOISDEAD",
-    image: "https://placehold.co/150",
-  },
 ];
 
 export function ProjectsWindow({ toggleWindow, isMobile }: Props) {
   return (
     <Window
       title="~/workspaces/projects/"
+      anchor="bottom-left"
+      offset={isMobile ? { x: 0, y: 165 } : { x: 0, y: 220 }}
+      defaultSize={{ width: "100%", height: "17%" }}
       onClose={() => toggleWindow("projects")}
-      defaultPosition={isMobile ? { x: 10, y: 380 } : { x: 10, y: 735 }}
-      defaultSize={
-        isMobile ? { width: 355, height: 220 } : { width: 1890, height: 160 }
-      }
       isMobile={isMobile}
     >
       <div className="overflow-hidden w-full group">
         <div className="flex whitespace-nowrap animate-infinite-scroll pause-child">
+          {projects.map((project, i) => (
+            <CardLink key={i} {...project} />
+          ))}
+          {projects.map((project, i) => (
+            <CardLink key={i} {...project} />
+          ))}
           {projects.map((project, i) => (
             <CardLink key={i} {...project} />
           ))}

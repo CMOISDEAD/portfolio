@@ -9,11 +9,12 @@ export function ContactWindow({ toggleWindow, isMobile }: Props) {
   return (
     <Window
       title="cat ./contact.txt"
-      onClose={() => toggleWindow("contact")}
-      defaultPosition={isMobile ? { x: 30, y: 30 } : { x: 1530, y: 350 }}
+      anchor="top-right"
+      offset={isMobile ? { x: 10, y: 10 } : { x: 50, y: 340 }}
       defaultSize={
         isMobile ? { width: 290, height: 200 } : { width: 320, height: 200 }
       }
+      onClose={() => toggleWindow("contact")}
       isMobile={isMobile}
     >
       <div className="space-y-3 text-sm">

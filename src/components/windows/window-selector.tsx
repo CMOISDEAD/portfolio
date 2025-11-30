@@ -13,7 +13,7 @@ interface Props {
 
 export function WindowSelector({ windows, toggleWindow }: Props) {
   return (
-    <div className="absolute top-2 left-2 md:top-4 md:left-4 z-20 flex flex-wrap md:flex-col gap-2 p-2 md:p-0">
+    <div className="absolute top-2 left-2 md:top-4 md:left-4 z-20 grid grid-cols-2 md:flex-col gap-2 p-2 md:p-0">
       <div className="flex items-center gap-2">
         <Checkbox
           id="about"

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Jacquard+24&display=swap');
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -197,6 +199,10 @@
   }
 }
 
+@theme {
+  --font-gothic: "Jacquard 24"
+}
+
 
 @keyframes infinite-scroll {
   0% {
@@ -204,12 +210,12 @@
   }
 
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-41%);
   }
 }
 
 .animate-infinite-scroll {
-  animation: infinite-scroll 20s linear infinite;
+  animation: infinite-scroll 30s linear infinite;
 }
 
 .group:hover .pause-child {

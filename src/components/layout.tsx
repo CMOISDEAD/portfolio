@@ -6,7 +6,7 @@ export function Layout() {
   return (
     <div className="h-screen min-h-screen flex flex-col font-mono">
       <header className="h-8 flex items-center justify-between px-4 border-b border-border bg-card">
-        <p>CD</p>
+        <div className="size-2 bg-muted-foreground hover:bg-foreground" />
         <div className="flex gap-16 items-center justify-center">
           <nav className="hidden md:block">
             <ul className="flex gap-4 items-center justify-center">
@@ -28,12 +28,14 @@ export function Layout() {
             </ul>
           </nav>
           <p className="text-sm text-muted-foreground">
+            [
             {new Date().toLocaleTimeString("en-US", {
               hour: "2-digit",
               minute: "2-digit",
               second: "2-digit",
               hour12: false,
             })}
+            ]
           </p>
         </div>
         <Button variant="ghost" size="icon-sm" className="md:hidden">

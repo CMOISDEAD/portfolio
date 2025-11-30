@@ -4,11 +4,20 @@ import { Rnd } from "react-rnd";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
+type Anchor =
+  | "top-left"
+  | "top-right"
+  | "bottom-left"
+  | "bottom-right"
+  | "center";
+
 interface Props {
   children: React.ReactNode;
   title: string;
-  defaultPosition?: { x: number; y: number };
+  defaultPosition?: { x: number; y: number }; // opcional si usas anchor
   defaultSize?: { width: number | string; height: number | string };
+  anchor?: Anchor;
+  offset?: { x: number; y: number };
   onClose: () => void;
   isMobile?: boolean;
 }
@@ -37,6 +46,44 @@ type WindowAction =
 
 const MINIMIZED_HEIGHT = 80;
 
+/* --------------------------------------------------------- */
+/*  Calcular posición según anchor                           */
+/* --------------------------------------------------------- */
+function computeAnchoredPosition(
+  anchor: Anchor,
+  offset: { x: number; y: number },
+  size: { width: number | string; height: number | string },
+) {
+  const w = window.innerWidth;
+  const h = window.innerHeight;
+
+  const width =
+    typeof size.width === "string" ? parseInt(size.width) : size.width;
+  const height =
+    typeof size.height === "string" ? parseInt(size.height) : size.height;
+
+  switch (anchor) {
+    case "bottom-left":
+      return { x: offset.x, y: h - height - offset.y };
+
+    case "bottom-right":
+      return { x: w - width - offset.x, y: h - height - offset.y };
+
+    case "top-right":
+      return { x: w - width - offset.x, y: offset.y };
+
+    case "center":
+      return { x: (w - width) / 2, y: (h - height) / 2 };
+
+    case "top-left":
+    default:
+      return { x: offset.x, y: offset.y };
+  }
+}
+
+/* --------------------------------------------------------- */
+/*  Reducer                                                  */
+/* --------------------------------------------------------- */
 function windowReducer(state: WindowState, action: WindowAction): WindowState {
   switch (action.type) {
     case "SET_POSITION":
@@ -73,28 +120,48 @@ function windowReducer(state: WindowState, action: WindowAction): WindowState {
   }
 }
 
+/* --------------------------------------------------------- */
+/*  Window Component                                         */
+/* --------------------------------------------------------- */
 export function Window({
   children,
   title,
   defaultPosition = { x: 20, y: 20 },
   defaultSize = { width: 380, height: 300 },
+  anchor,
+  offset = { x: 20, y: 20 },
   onClose,
   isMobile = false,
 }: Props) {
+  // Posición inicial usando anchor o defaultPosition
+  const initialPosition = anchor
+    ? computeAnchoredPosition(anchor, offset, defaultSize)
+    : defaultPosition;
+
   const [state, dispatch] = useReducer(windowReducer, {
-    position: defaultPosition,
+    position: initialPosition,
     size: defaultSize,
     previousSize: defaultSize,
     isMinimized: false,
   });
 
+  /* --------------------------------------------------------- */
+  /*  RESET al cambiar tamaño móvil, anchor, size, etc.        */
+  /* --------------------------------------------------------- */
   useEffect(() => {
+    const newPosition = anchor
+      ? computeAnchoredPosition(anchor, offset, defaultSize)
+      : defaultPosition;
+
     dispatch({
       type: "RESET",
-      payload: { position: defaultPosition, size: defaultSize },
+      payload: { position: newPosition, size: defaultSize },
     });
-  }, [isMobile, defaultPosition, defaultSize]);
+  }, [isMobile]);
 
+  /* --------------------------------------------------------- */
+  /*  Handlers                                                 */
+  /* --------------------------------------------------------- */
   const handleMinimize = useCallback(() => {
     dispatch({ type: "TOGGLE_MINIMIZE" });
   }, []);
@@ -120,12 +187,14 @@ export function Window({
     [],
   );
 
+  /* --------------------------------------------------------- */
+  /*  Render                                                   */
+  /* --------------------------------------------------------- */
   return (
     <Rnd
       position={state.position}
       size={state.size}
-      enableResizing={!isMobile}
-      className={isMobile ? "touch-none" : ""}
+      // enableResizing={!isMobile}
       bounds="parent"
       onDragStop={handleDragStop}
       onResizeStop={handleResizeStop}
@@ -146,6 +215,7 @@ export function Window({
             </Button>
           </div>
         </div>
+
         <div
           className={cn(
             "flex-1 overflow-auto",
