@@ -1,10 +1,10 @@
-import Dither from "@/components/dither";
+"use client";
+
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Window } from "@/components/windows/window";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowUpRight, X } from "lucide-react";
 import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 interface Project {
   id: string;
@@ -20,7 +20,7 @@ const projects: Project[] = [
     id: "01",
     title: "E-Commerce Platform",
     description:
-      "Full-stack marketplace with real-time inventory management and payment processing",
+      "Full-stack marketplace with real-time inventory management and payment processing. Built with modern technologies for scalability and performance.",
     tech: ["Next.js", "PostgreSQL", "Stripe", "Redis"],
     year: "2025",
     link: "#",
@@ -29,7 +29,7 @@ const projects: Project[] = [
     id: "02",
     title: "Analytics Dashboard",
     description:
-      "Real-time data visualization platform with custom charting and reporting engine",
+      "Real-time data visualization platform with custom charting and reporting engine. Handles millions of data points with smooth interactions.",
     tech: ["React", "D3.js", "Node.js", "ClickHouse"],
     year: "2024",
     link: "#",
@@ -38,7 +38,7 @@ const projects: Project[] = [
     id: "03",
     title: "API Gateway",
     description:
-      "High-performance API management system with rate limiting and authentication",
+      "High-performance API management system with rate limiting and authentication. Designed for microservices architecture.",
     tech: ["Go", "gRPC", "Kubernetes", "Prometheus"],
     year: "2024",
     link: "#",
@@ -47,7 +47,7 @@ const projects: Project[] = [
     id: "04",
     title: "CMS Framework",
     description:
-      "Headless content management system with GraphQL API and visual editor",
+      "Headless content management system with GraphQL API and visual editor. Flexible and developer-friendly.",
     tech: ["TypeScript", "GraphQL", "MongoDB", "AWS"],
     year: "2023",
     link: "#",
@@ -56,48 +56,18 @@ const projects: Project[] = [
     id: "05",
     title: "Mobile Banking App",
     description:
-      "Secure mobile banking solution with biometric authentication and P2P transfers",
+      "Secure mobile banking solution with biometric authentication and P2P transfers. Focused on security and user experience.",
     tech: ["React Native", "Node.js", "PostgreSQL", "Plaid"],
     year: "2023",
     link: "#",
   },
 ];
 
-// Posiciones en cascada para las ventanas
-const getWindowPosition = (index: number) => {
-  const baseX = 40;
-  const baseY = 40;
-  const offsetX = 30;
-  const offsetY = 30;
-
-  return {
-    x: baseX + index * offsetX,
-    y: baseY + index * offsetY,
-  };
-};
-
 export function ProjectPage() {
-  const [openWindows, setOpenWindows] = useState<Set<number>>(new Set());
-
-  const openProjectWindow = (projectIndex: number) => {
-    setOpenWindows((prev) => {
-      const updated = new Set(prev);
-      updated.add(projectIndex);
-      return updated;
-    });
-  };
-
-  const closeProjectWindow = (projectIndex: number) => {
-    setOpenWindows((prev) => {
-      const updated = new Set(prev);
-      updated.delete(projectIndex);
-      return updated;
-    });
-  };
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <main className="flex flex-col md:flex-row h-full">
-      {/* Sidebar izquierdo */}
+    <main className="flex flex-col md:flex-row h-full overflow-auto">
       <div className="hidden bg-card h-1/6 md:h-full md:w-1/6 border-r md:flex flex-col justify-between p-6">
         <div>
           <span className="text-xs text-muted-foreground">/work</span>
@@ -110,151 +80,143 @@ export function ProjectPage() {
         </div>
       </div>
 
-      {/* Lista de proyectos */}
-      <div className="bg-secondary h-3/6 md:h-full md:w-2/6 border-r">
-        <div className="h-full flex flex-col">
-          <div className="p-6 border-b border-border">
-            <h1 className="text-2xl font-light tracking-tight">Projects</h1>
-            <p className="text-muted-foreground text-xs mt-1">Selected work</p>
-          </div>
+      <div className="bg-background md:w-2/6 border-r border-border flex flex-col">
+        <header className="p-6 border-b border-border">
+          <h1 className="text-2xl font-light tracking-tight">Projects</h1>
+          <p className="text-muted-foreground text-xs mt-1">
+            Selected work · {projects.length} projects
+          </p>
+        </header>
 
-          <ScrollArea className="flex-1 overflow-auto">
-            {projects.map((project, index) => (
+        <ScrollArea className="flex-1">
+          <div className="divide-y divide-border">
+            {projects.map((project) => (
               <article
                 key={project.id}
-                className="p-6 border-b border-border hover:bg-muted/50 transition-colors group"
+                onClick={() => setSelectedProject(project)}
+                className={cn(
+                  "p-6 cursor-pointer transition-colors",
+                  "hover:bg-muted/50",
+                  selectedProject?.id === project.id && "bg-muted",
+                )}
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-3 mb-2">
-                      <span className="text-xs text-muted-foreground">
+                      <span className="text-xs text-muted-foreground font-mono">
                         {project.id}
                       </span>
-                      <h2 className="font-medium truncate">{project.title}</h2>
+                      <h2 className="font-medium text-sm">{project.title}</h2>
                     </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                    <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">
                       {project.description}
                     </p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech.map((tech) => (
-                        <Badge variant="secondary" key={tech}>
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
                   </div>
-                  <div className="flex flex-col items-end gap-2">
-                    <span className="text-xs text-muted-foreground">
-                      {project.year}
-                    </span>
-                    {project.link && (
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={() => openProjectWindow(index)}
-                      >
-                        View <ArrowRight className="size-3" />
-                      </Button>
-                    )}
-                  </div>
+                  <span className="text-xs text-muted-foreground shrink-0">
+                    {project.year}
+                  </span>
                 </div>
               </article>
             ))}
-          </ScrollArea>
-
-          <div className="p-4 border-t border-border">
-            <Button variant="link" size="sm">
-              <ArrowLeft className="size-3" /> Back
-            </Button>
           </div>
-        </div>
+        </ScrollArea>
       </div>
 
-      {/* Área de visualización con ventanas */}
-      <div className="relative bg-background grow">
-        <Dither
-          waveColor={[0.5, 0.5, 0.5]}
-          disableAnimation={false}
-          enableMouseInteraction={true}
-          mouseRadius={0.3}
-          colorNum={4}
-          waveAmplitude={0.3}
-          waveFrequency={3}
-          waveSpeed={0.01}
-        />
-        {[...openWindows].map((projectIndex, windowIndex) => (
-          <ProjectWindow
-            key={projectIndex}
-            project={projects[projectIndex]}
-            position={getWindowPosition(windowIndex)}
-            onClose={() => closeProjectWindow(projectIndex)}
+      <div className="bg-secondary/30 flex-1">
+        {selectedProject ? (
+          <ProjectDetail
+            project={selectedProject}
+            onClose={() => setSelectedProject(null)}
           />
-        ))}
+        ) : (
+          <div className="h-full flex items-center justify-center p-6">
+            <div className="text-center">
+              <p className="text-muted-foreground text-sm">
+                Select a project to view details
+              </p>
+            </div>
+          </div>
+        )}
       </div>
     </main>
   );
 }
 
-interface ProjectWindowProps {
+interface ProjectDetailProps {
   project: Project;
-  position: { x: number; y: number };
   onClose: () => void;
 }
 
-function ProjectWindow({ project, position, onClose }: ProjectWindowProps) {
+function ProjectDetail({ project, onClose }: ProjectDetailProps) {
   return (
-    <Window
-      title={project.title}
-      anchor="top-left"
-      offset={position}
-      defaultSize={{
-        width: 350,
-        height: 350,
-      }}
-      onClose={onClose}
-      isMobile={true}
-    >
-      <div className="w-full space-y-3">
-        <img
-          draggable={false}
-          src={`https://placehold.co/400x200?text=${project.title.replace(
-            / /g,
-            "+",
-          )}`}
-          alt={project.title}
-          className="w-full h-28 object-cover rounded-md"
-        />
+    <div className="h-full flex flex-col">
+      <div className="p-6 border-b border-border flex items-center justify-between lg:hidden">
+        <span className="text-xs text-muted-foreground font-mono">
+          {project.id}
+        </span>
+        <button
+          onClick={onClose}
+          className="p-1 hover:bg-muted transition-colors"
+        >
+          <X className="size-4" />
+        </button>
+      </div>
 
-        <div className="space-y-1">
-          <h2 className="text-base font-semibold leading-tight">
+      <div className="flex-1 p-6 lg:p-12 overflow-auto">
+        <div className="max-w-lg">
+          <div className="flex items-center justify-between mb-6">
+            <span className="text-xs text-muted-foreground font-mono hidden lg:block">
+              {project.id}
+            </span>
+            <span className="text-xs text-muted-foreground">
+              {project.year}
+            </span>
+          </div>
+
+          <div className="aspect-video bg-muted mb-8 overflow-hidden">
+            <img
+              src="https://placehold.co/900"
+              alt={project.title}
+              className="w-full h-full object-cover"
+              draggable={false}
+            />
+          </div>
+
+          <h2 className="text-2xl font-light tracking-tight mb-4">
             {project.title}
           </h2>
-
-          <p className="text-xs text-muted-foreground">{project.year}</p>
-
-          <p className="text-sm text-muted-foreground line-clamp-3">
+          <p className="text-muted-foreground leading-relaxed mb-8">
             {project.description}
           </p>
-        </div>
 
-        <div className="flex flex-wrap gap-1">
-          {project.tech.map((tech) => (
-            <span
-              key={tech}
-              className="text-[10px] px-2 py-[2px] rounded-md bg-secondary/60"
+          <div className="mb-8">
+            <h3 className="text-xs text-muted-foreground uppercase tracking-wider mb-3">
+              Technologies
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {project.tech.map((tech) => (
+                <Badge
+                  key={tech}
+                  variant="secondary"
+                  className="rounded-none font-normal"
+                >
+                  {tech}
+                </Badge>
+              ))}
+            </div>
+          </div>
+
+          {project.link && (
+            <a
+              href={project.link}
+              className="inline-flex items-center gap-2 text-sm hover:text-muted-foreground transition-colors group"
             >
-              {tech}
-            </span>
-          ))}
+              View project
+              <ArrowUpRight className="size-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </a>
+          )}
         </div>
-
-        <a
-          href={project.link}
-          className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
-        >
-          View project →
-        </a>
       </div>
-    </Window>
+    </div>
   );
 }

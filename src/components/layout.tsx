@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 export function Layout() {
   return (
     <div className="h-screen min-h-screen flex flex-col font-mono">
-      <header className="h-8 flex items-center justify-between px-4 border-b border-border bg-card">
+      <header className="h-8 flex items-center justify-between px-4 border-b border-border">
         <div className="size-2 bg-muted-foreground hover:bg-foreground" />
         <div className="flex gap-16 items-center justify-center">
           <nav className="hidden md:block">
@@ -45,7 +45,7 @@ export function Layout() {
       <main className="flex-1 overflow-hidden">
         <Outlet />
       </main>
-      <footer className="h-8 flex items-center justify-center px-4 border-t border-border bg-card">
+      <footer className="h-8 flex items-center justify-center px-4 border-t border-border">
         <p className="text-xs text-muted-foreground">
           {new Date().toLocaleDateString("en-US", {
             weekday: "long",

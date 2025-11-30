@@ -46,9 +46,7 @@ type WindowAction =
 
 const MINIMIZED_HEIGHT = 80;
 
-/* --------------------------------------------------------- */
-/*  Calcular posición según anchor                           */
-/* --------------------------------------------------------- */
+// Calcular posición según anchor
 function computeAnchoredPosition(
   anchor: Anchor,
   offset: { x: number; y: number },
@@ -81,9 +79,7 @@ function computeAnchoredPosition(
   }
 }
 
-/* --------------------------------------------------------- */
-/*  Reducer                                                  */
-/* --------------------------------------------------------- */
+// Reducer
 function windowReducer(state: WindowState, action: WindowAction): WindowState {
   switch (action.type) {
     case "SET_POSITION":
@@ -120,9 +116,7 @@ function windowReducer(state: WindowState, action: WindowAction): WindowState {
   }
 }
 
-/* --------------------------------------------------------- */
-/*  Window Component                                         */
-/* --------------------------------------------------------- */
+// Window Component
 export function Window({
   children,
   title,
@@ -145,9 +139,7 @@ export function Window({
     isMinimized: false,
   });
 
-  /* --------------------------------------------------------- */
-  /*  RESET al cambiar tamaño móvil, anchor, size, etc.        */
-  /* --------------------------------------------------------- */
+  // RESET al cambiar tamaño móvil, anchor, size, etc.
   useEffect(() => {
     const newPosition = anchor
       ? computeAnchoredPosition(anchor, offset, defaultSize)
@@ -159,9 +151,7 @@ export function Window({
     });
   }, [isMobile]);
 
-  /* --------------------------------------------------------- */
-  /*  Handlers                                                 */
-  /* --------------------------------------------------------- */
+  // Handlers
   const handleMinimize = useCallback(() => {
     dispatch({ type: "TOGGLE_MINIMIZE" });
   }, []);
@@ -187,9 +177,6 @@ export function Window({
     [],
   );
 
-  /* --------------------------------------------------------- */
-  /*  Render                                                   */
-  /* --------------------------------------------------------- */
   return (
     <Rnd
       position={state.position}
@@ -199,7 +186,7 @@ export function Window({
       onDragStop={handleDragStop}
       onResizeStop={handleResizeStop}
     >
-      <div className="bg-card border flex flex-col h-full">
+      <div className="bg-background border flex flex-col h-full">
         <div className="px-3 text-sm flex justify-between items-center border-b select-none">
           <p className="italic font-medium">{title}</p>
           <div className="flex gap-1">
