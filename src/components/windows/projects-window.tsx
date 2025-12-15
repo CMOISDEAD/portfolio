@@ -7,35 +7,40 @@ interface Props {
 
 const projects = [
   {
-    href: "https://github.com/CMOISDEAD",
+    href: "https://agrobiologicosquindio.com/",
     image:
-      "https://camilodavila.xyz/_next/image?url=%2Fprojects%2Fagro.webp&w=1920&q=75",
+      "/projects/agro.webp",
   },
   {
-    href: "https://github.com/CMOISDEAD",
+    href: "https://comunidad-xi.vercel.app/",
     image:
-      "https://camilodavila.xyz/_next/image?url=%2Fprojects%2Fcomunidad.webp&w=1920&q=75",
+      "/projects/comunidad.webp",
   },
   {
-    href: "https://github.com/CMOISDEAD",
+    href: "https://ancient-map.vercel.app/",
     image:
-      "https://camilodavila.xyz/_next/image?url=%2Fprojects%2Fancient.webp&w=1920&q=75",
+      "/projects/ancient.webp",
   },
   {
-    href: "https://github.com/CMOISDEAD",
+    href: "https://digital-gallery-delta.vercel.app/",
     image:
-      "https://camilodavila.xyz/_next/image?url=%2Fprojects%2Fdigital.webp&w=1920&q=75",
+      "/projects/digital.webp",
   },
   {
-    href: "https://github.com/CMOISDEAD",
+    href: "https://monkey-psi-sen.vercel.app",
     image:
-      "https://private-user-images.githubusercontent.com/51010598/453671916-a1cee972-2e3b-4cd2-88ce-6ca52a3731b6.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjQzODk1NDksIm5iZiI6MTc2NDM4OTI0OSwicGF0aCI6Ii81MTAxMDU5OC80NTM2NzE5MTYtYTFjZWU5NzItMmUzYi00Y2QyLTg4Y2UtNmNhNTJhMzczMWI2LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTExMjklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUxMTI5VDA0MDcyOVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWU5ZmQ4NDQzN2Y0YzQ0NjQ3ZjM1ZDNhYjEyZDYzYzU1YWFhODA5NzU5MmE4ZTgyZDU3ZWY1MzM4NGM3YTg3MGUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.RdkAScYYOMk6ahxSuvLtcwGcS9_PQgL8SwCuA63OoyA",
+      "/projects/monkey.png",
   },
   {
-    href: "https://github.com/CMOISDEAD",
+    href: "https://github.com/CMOISDEAD/dotrs",
     image:
-      "https://private-user-images.githubusercontent.com/51010598/293121399-838cda5d-d1c5-4e08-80d5-7ee1a66631e0.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjQzODk1OTMsIm5iZiI6MTc2NDM4OTI5MywicGF0aCI6Ii81MTAxMDU5OC8yOTMxMjEzOTktODM4Y2RhNWQtZDFjNS00ZTA4LTgwZDUtN2VlMWE2NjYzMWUwLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTExMjklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUxMTI5VDA0MDgxM1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTBmMzI3ZGY2Mzg4YjUzMGQ5OTg1MmMwZjUzMDVlMzk2MDI3MzI2MmNmZGZkYjA1ZjE1M2EzZTMyOGFmNWEwZTgmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.GDzHQ1ACNh-3j6xtj0Q1WlHm2bD_Typ5aWmvTbg8Pa0",
+      "/projects/dotrs.png",
   },
+{
+    href: "https://github.com/CMOISDEAD/balance",
+    image:
+      "/projects/balance.png",
+  }
 ];
 
 export function ProjectsWindow({ toggleWindow, isMobile }: Props) {

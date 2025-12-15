@@ -77,7 +77,6 @@ export function ExperiencePage() {
 
       <ScrollArea className="h-full w-full md:w-2/6 border-r border-border">
         <div className="p-6 md:p-8 lg:p-10">
-          {/* Header */}
           <header className="mb-10 border-b border-border pb-6">
             <h1 className="text-2xl font-medium tracking-tight text-foreground mb-1">
               Camilo Davila
@@ -87,7 +86,6 @@ export function ExperiencePage() {
             </p>
           </header>
 
-          {/* Experience Section */}
           <section className="mb-10">
             <h2 className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-6">
               Experience
@@ -130,9 +128,7 @@ export function ExperiencePage() {
             </div>
           </section>
 
-          <Separator className="my-10" />
 
-          {/* Skills Section */}
           <section className="mb-10">
             <h2 className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-4">
               Skills
@@ -150,7 +146,6 @@ export function ExperiencePage() {
             </div>
           </section>
 
-          {/* Footer */}
           <footer className="pt-6 border-t border-border">
             <p className="text-xs text-muted-foreground font-mono">
               camiloesteban661@gmail.com

@@ -15,53 +15,80 @@ interface Project {
   link?: string;
 }
 
+
 const projects: Project[] = [
   {
     id: "01",
-    title: "E-Commerce Platform",
+    title: "Agrobiológicos Quindío",
     description:
-      "Full-stack marketplace with real-time inventory management and payment processing. Built with modern technologies for scalability and performance.",
-    tech: ["Next.js", "PostgreSQL", "Stripe", "Redis"],
+      "Led the end-to-end development of a scalable production-ready web platform. Implemented SSR and ISR with Next.js to optimize performance and SEO, significantly reducing page load times. Integrated a headless Strapi CMS deployed on a self-managed Linux VPS, secured with JWT-based authentication, and backed by a MySQL database for reliable content and data management.",
+    tech: ["Next.js", "Strapi", "MySQL", "JWT", "Linux VPS"],
     year: "2025",
-    link: "#",
+    link: "https://agrobiologicosquindio.com/",
+    image: "/projects/agro.webp",
   },
   {
     id: "02",
-    title: "Analytics Dashboard",
+    title: "Comunidad XI",
     description:
-      "Real-time data visualization platform with custom charting and reporting engine. Handles millions of data points with smooth interactions.",
-    tech: ["React", "D3.js", "Node.js", "ClickHouse"],
+      "Designed and developed an interactive platform to showcase athletes through an immersive 3D map experience. Built a responsive and accessible UI with React and Tailwind CSS, integrated Mapbox for real-time 3D navigation, and optimized media delivery to ensure smooth performance across devices.",
+    tech: ["React", "Tailwind CSS", "Mapbox", "Three.js"],
     year: "2024",
-    link: "#",
+    link: "https://comunidad-xi.vercel.app/",
+    image: "/projects/comunidad.webp",
   },
   {
     id: "03",
-    title: "API Gateway",
+    title: "Ancient Map",
     description:
-      "High-performance API management system with rate limiting and authentication. Designed for microservices architecture.",
-    tech: ["Go", "gRPC", "Kubernetes", "Prometheus"],
+      "An interactive global 3D map for exploring historical empires and cultures across key moments in time. Focused on spatial storytelling, data visualization, and intuitive exploration using Mapbox and modern web technologies.",
+    tech: ["React", "Mapbox", "WebGL", "TypeScript"],
     year: "2024",
-    link: "#",
+    link: "https://ancient-map.vercel.app/",
+    image: "/projects/ancient.webp",
   },
   {
     id: "04",
-    title: "CMS Framework",
+    title: "Digital Gallery",
     description:
-      "Headless content management system with GraphQL API and visual editor. Flexible and developer-friendly.",
-    tech: ["TypeScript", "GraphQL", "MongoDB", "AWS"],
-    year: "2023",
-    link: "#",
+      "A conceptual and immersive virtual art gallery combining classical paintings with modern digital interaction. Features fluid animations, drag-based navigation, and a minimalist aesthetic, with a strong emphasis on motion design and user experience.",
+    tech: ["React", "Tailwind CSS", "Framer Motion", "use-gesture"],
+    year: "2024",
+    link: "https://digital-gallery-delta.vercel.app/",
+    image: "/projects/digital.webp",
   },
   {
     id: "05",
-    title: "Mobile Banking App",
+    title: "MonkeyType Clone",
     description:
-      "Secure mobile banking solution with biometric authentication and P2P transfers. Focused on security and user experience.",
-    tech: ["React Native", "Node.js", "PostgreSQL", "Plaid"],
-    year: "2023",
+      "A modern typing test application inspired by MonkeyType, featuring code typing modes, customizable keyboard layouts, and detailed performance metrics. Built with a futuristic UI and a strong focus on responsiveness and precision.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    year: "2025",
+    link: "https://monkey-psi-sen.vercel.app",
+    image: "/projects/monkey.png",
+  },
+  {
+    id: "06",
+    title: "dotrs",
+    description:
+      "A minimalist dotfiles manager written in Rust, focused on speed, clarity, and full user control. Designed with a no-bloat philosophy, offering a clean and predictable workflow for managing development environments efficiently.",
+    tech: ["Rust"],
+    year: "2025",
+    link: "https://github.com/CMOISDEAD/dotrs",
+    image: "/projects/dotrs.png",
+  },
+  {
+    id: "07",
+    title: "Balance",
+    description:
+      "A lightweight and minimalist expense tracking mobile app focused on usability and clarity. Built to help users manage daily expenses efficiently through a clean interface and intuitive interactions.",
+    tech: ["Flutter", "Dart"],
+    year: "2024",
     link: "#",
+    image: "/projects/balance.png",
   },
 ];
+;
 
 export function ProjectPage() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -88,8 +115,7 @@ export function ProjectPage() {
           </p>
         </header>
 
-        <ScrollArea className="flex-1">
-          <div className="divide-y divide-border">
+        <ScrollArea className="flex-1 overflow-auto">
             {projects.map((project) => (
               <article
                 key={project.id}
@@ -118,7 +144,6 @@ export function ProjectPage() {
                 </div>
               </article>
             ))}
-          </div>
         </ScrollArea>
       </div>
 
@@ -175,7 +200,7 @@ function ProjectDetail({ project, onClose }: ProjectDetailProps) {
 
           <div className="aspect-video bg-muted mb-8 overflow-hidden">
             <img
-              src="https://placehold.co/900"
+              src={project.image}
               alt={project.title}
               className="w-full h-full object-cover"
               draggable={false}
