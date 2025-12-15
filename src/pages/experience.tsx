@@ -1,5 +1,4 @@
 import Dither from "@/components/dither";
-import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
