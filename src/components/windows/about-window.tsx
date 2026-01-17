@@ -1,5 +1,6 @@
 import { Window } from "@/components/windows/window";
 import { Spoiler } from "spoiled";
+import { Button } from "../ui/button";
 
 interface Props {
   toggleWindow: (key: "projects" | "about" | "experience" | "contact") => void;
@@ -54,10 +55,11 @@ export function AboutWindow({ toggleWindow, isMobile }: Props) {
               +57 <Spoiler>313 389 6428</Spoiler>
             </span>
           </p>
-          <p>
-            Portfolio:{" "}
-            <span className="text-muted-foreground">camilodavila.space</span>
-          </p>
+          <Button size="sm" variant="link" asChild>
+            <a href="/public/cvs/Camilo Davila, Ingles.pdf" target="_blank">
+              CV: 'Camilo Davila.pdf'
+            </a>
+          </Button>
         </section>
       </div>
     </Window>
