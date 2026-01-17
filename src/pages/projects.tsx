@@ -1,13 +1,11 @@
-"use client";
-
+import { useSearchParams } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ArrowUpRight, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface Project {
-  id: string;
   title: string;
   description: string;
   tech: string[];
@@ -16,10 +14,25 @@ interface Project {
   link?: string;
 }
 
-
 const projects: Project[] = [
   {
-    id: "01",
+    title: "Chat Geolocalizado",
+    description:
+      "Led the end-to-end development of a scalable production-ready web platform. Implemented SSR and ISR with Next.js to optimize performance and SEO, significantly reducing page load times. Integrated a headless Strapi CMS deployed on a self-managed Linux VPS, secured with JWT-based authentication, and backed by a MySQL database for reliable content and data management.",
+    tech: [
+      "Next.js",
+      "Nest.js",
+      "Postgres",
+      "WebRTC",
+      "Redis",
+      "JWT",
+      "Linux VPS",
+    ],
+    year: "2026",
+    link: "https://github.com/CMOISDEAD",
+    image: "/projects/geo.png",
+  },
+  {
     title: "Agrobiológicos Quindío",
     description:
       "Led the end-to-end development of a scalable production-ready web platform. Implemented SSR and ISR with Next.js to optimize performance and SEO, significantly reducing page load times. Integrated a headless Strapi CMS deployed on a self-managed Linux VPS, secured with JWT-based authentication, and backed by a MySQL database for reliable content and data management.",
@@ -29,7 +42,6 @@ const projects: Project[] = [
     image: "/projects/agro.webp",
   },
   {
-    id: "02",
     title: "Comunidad XI",
     description:
       "Designed and developed an interactive platform to showcase athletes through an immersive 3D map experience. Built a responsive and accessible UI with React and Tailwind CSS, integrated Mapbox for real-time 3D navigation, and optimized media delivery to ensure smooth performance across devices.",
@@ -39,7 +51,6 @@ const projects: Project[] = [
     image: "/projects/comunidad.webp",
   },
   {
-    id: "03",
     title: "Ancient Map",
     description:
       "An interactive global 3D map for exploring historical empires and cultures across key moments in time. Focused on spatial storytelling, data visualization, and intuitive exploration using Mapbox and modern web technologies.",
@@ -49,7 +60,6 @@ const projects: Project[] = [
     image: "/projects/ancient.webp",
   },
   {
-    id: "04",
     title: "Digital Gallery",
     description:
       "A conceptual and immersive virtual art gallery combining classical paintings with modern digital interaction. Features fluid animations, drag-based navigation, and a minimalist aesthetic, with a strong emphasis on motion design and user experience.",
@@ -59,7 +69,6 @@ const projects: Project[] = [
     image: "/projects/digital.webp",
   },
   {
-    id: "05",
     title: "MonkeyType Clone",
     description:
       "A modern typing test application inspired by MonkeyType, featuring code typing modes, customizable keyboard layouts, and detailed performance metrics. Built with a futuristic UI and a strong focus on responsiveness and precision.",
@@ -69,7 +78,6 @@ const projects: Project[] = [
     image: "/projects/monkey.png",
   },
   {
-    id: "06",
     title: "dotrs",
     description:
       "A minimalist dotfiles manager written in Rust, focused on speed, clarity, and full user control. Designed with a no-bloat philosophy, offering a clean and predictable workflow for managing development environments efficiently.",
@@ -79,7 +87,6 @@ const projects: Project[] = [
     image: "/projects/dotrs.png",
   },
   {
-    id: "07",
     title: "Balance",
     description:
       "A lightweight and minimalist expense tracking mobile app focused on usability and clarity. Built to help users manage daily expenses efficiently through a clean interface and intuitive interactions.",
@@ -89,10 +96,24 @@ const projects: Project[] = [
     image: "/projects/balance.png",
   },
 ];
-;
 
 export function ProjectPage() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    const project = searchParams.get("project");
+
+    if (!project) return;
+
+    const item = projects.find((p) => p.title === project);
+    setSelectedProject(item || null);
+  }, []);
+
+  useEffect(() => {
+    if (!selectedProject) return;
+    setSearchParams(`?project=${selectedProject.title}`);
+  }, [selectedProject]);
 
   return (
     <main className="flex flex-col md:flex-row h-full overflow-auto">
@@ -110,41 +131,43 @@ export function ProjectPage() {
 
       <div className="bg-background md:w-2/6 border-r border-border flex flex-col">
         <header className="p-6 border-b border-border">
-          <h1 className="text-2xl font-light tracking-tight">Projects</h1>
+          <h1 className="text-2xl font-medium tracking-tight text-foreground mb-1">
+            Projects
+          </h1>
           <p className="text-muted-foreground text-xs mt-1">
             Selected work · {projects.length} projects
           </p>
         </header>
 
         <ScrollArea className="flex-1 overflow-auto">
-            {projects.map((project) => (
-              <article
-                key={project.id}
-                onClick={() => setSelectedProject(project)}
-                className={cn(
-                  "p-6 cursor-pointer transition-colors",
-                  "hover:bg-muted/50",
-                  selectedProject?.id === project.id && "bg-muted",
-                )}
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="text-xs text-muted-foreground font-mono">
-                        {project.id}
-                      </span>
-                      <h2 className="font-medium text-sm">{project.title}</h2>
-                    </div>
-                    <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">
-                      {project.description}
-                    </p>
+          {projects.map((project, i) => (
+            <article
+              key={i}
+              onClick={() => setSelectedProject(project)}
+              className={cn(
+                "p-6 cursor-pointer transition-colors",
+                "hover:bg-muted/50",
+                selectedProject?.title === project.title && "bg-muted",
+              )}
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-xs text-muted-foreground font-mono">
+                      {`0${i}`}
+                    </span>
+                    <h2 className="font-medium text-sm">{project.title}</h2>
                   </div>
-                  <span className="text-xs text-muted-foreground shrink-0">
-                    {project.year}
-                  </span>
+                  <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">
+                    {project.description}
+                  </p>
                 </div>
-              </article>
-            ))}
+                <span className="text-xs text-muted-foreground shrink-0">
+                  {project.year}
+                </span>
+              </div>
+            </article>
+          ))}
         </ScrollArea>
       </div>
 
@@ -178,7 +201,7 @@ function ProjectDetail({ project, onClose }: ProjectDetailProps) {
     <div className="h-full flex flex-col">
       <div className="p-6 border-b border-border flex items-center justify-between lg:hidden">
         <span className="text-xs text-muted-foreground font-mono">
-          {project.id}
+          {new Date().toISOString()}
         </span>
         <button
           onClick={onClose}
@@ -188,11 +211,11 @@ function ProjectDetail({ project, onClose }: ProjectDetailProps) {
         </button>
       </div>
 
-      <div className="flex-1 p-6 lg:p-12 overflow-auto">
+      <div className="flex-1 p-6 overflow-auto">
         <div className="max-w-lg">
           <div className="flex items-center justify-between mb-6">
             <span className="text-xs text-muted-foreground font-mono hidden lg:block">
-              {project.id}
+              {new Date().toISOString()}
             </span>
             <span className="text-xs text-muted-foreground">
               {project.year}
@@ -208,12 +231,8 @@ function ProjectDetail({ project, onClose }: ProjectDetailProps) {
             />
           </div>
 
-          <h2 className="text-2xl font-light tracking-tight mb-4">
-            {project.title}
-          </h2>
-          <p className="text-muted-foreground leading-relaxed mb-8">
-            {project.description}
-          </p>
+          <h2 className="text-2xl mb-4">{project.title}</h2>
+          <p className="text-muted-foreground mb-8">{project.description}</p>
 
           <div className="mb-8">
             <h3 className="text-xs text-muted-foreground uppercase tracking-wider mb-3">

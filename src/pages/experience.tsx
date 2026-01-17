@@ -75,82 +75,77 @@ export function ExperiencePage() {
       </div>
 
       <ScrollArea className="h-full w-full md:w-2/6 border-r border-border">
-        <div className="p-6 md:p-8 lg:p-10">
-          <header className="mb-10 border-b border-border pb-6">
-            <h1 className="text-2xl font-medium tracking-tight text-foreground mb-1">
-              Camilo Davila
-            </h1>
-            <p className="text-muted-foreground text-sm">
-              Full Stack Developer
-            </p>
-          </header>
+        <header className="p-6 mb-10 border-b border-border pb-6">
+          <h1 className="text-2xl font-medium tracking-tight text-foreground mb-1">
+            Camilo Davila
+          </h1>
+          <p className="text-muted-foreground text-xs mt-1">
+            Full Stack Developer
+          </p>
+        </header>
 
-          <section className="mb-10">
-            <h2 className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-6">
-              Experience
-            </h2>
-            <div className="space-y-0">
-              {experiences.map((exp, index) => (
-                <article
-                  key={index}
-                  className="group py-5 border-b border-border hover:bg-muted/30 transition-colors -mx-6 px-6 md:-mx-8 md:px-8 lg:-mx-10 lg:px-10"
-                >
-                  <div className="flex flex-col gap-1">
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-foreground font-medium text-sm">
-                        {exp.role}
-                      </h3>
-                      <span className="text-xs text-muted-foreground font-mono">
-                        {exp.period}
-                      </span>
-                    </div>
-                    <p className="text-muted-foreground text-xs">
-                      {exp.company}
-                    </p>
-                    <p className="text-muted-foreground text-xs mt-2 leading-relaxed">
-                      {exp.description}
-                    </p>
-                    <div className="flex flex-wrap gap-1.5 mt-3">
-                      {exp.technologies.map((tech) => (
-                        <Badge
-                          key={tech}
-                          variant="secondary"
-                          className="rounded-none font-normal text-[10px] px-2 py-0.5"
-                        >
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
+        <section className="px-6 mb-10">
+          <h2 className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-6">
+            Experience
+          </h2>
+          <div className="space-y-0">
+            {experiences.map((exp, index) => (
+              <article
+                key={index}
+                className="group py-5 border-b border-border hover:bg-muted/30 transition-colors -mx-6 px-6 md:-mx-8 md:px-8 lg:-mx-10 lg:px-10"
+              >
+                <div className="flex flex-col gap-1">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-foreground font-medium text-sm">
+                      {exp.role}
+                    </h3>
+                    <span className="text-xs text-muted-foreground font-mono">
+                      {exp.period}
+                    </span>
                   </div>
-                </article>
-              ))}
-            </div>
-          </section>
+                  <p className="text-muted-foreground text-xs">{exp.company}</p>
+                  <p className="text-muted-foreground text-xs mt-2 leading-relaxed">
+                    {exp.description}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5 mt-3">
+                    {exp.technologies.map((tech) => (
+                      <Badge
+                        key={tech}
+                        variant="secondary"
+                        className="rounded-none font-normal text-[10px] px-2 py-0.5"
+                      >
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
 
+        <section className="mb-10 p-6">
+          <h2 className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-4">
+            Skills
+          </h2>
+          <div className="flex flex-wrap gap-1.5">
+            {skills.map((skill) => (
+              <Badge
+                key={skill}
+                variant="outline"
+                className="rounded-none font-normal text-[10px] px-2 py-0.5"
+              >
+                {skill}
+              </Badge>
+            ))}
+          </div>
+        </section>
 
-          <section className="mb-10">
-            <h2 className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-4">
-              Skills
-            </h2>
-            <div className="flex flex-wrap gap-1.5">
-              {skills.map((skill) => (
-                <Badge
-                  key={skill}
-                  variant="outline"
-                  className="rounded-none font-normal text-[10px] px-2 py-0.5"
-                >
-                  {skill}
-                </Badge>
-              ))}
-            </div>
-          </section>
-
-          <footer className="pt-6 border-t border-border">
-            <p className="text-xs text-muted-foreground font-mono">
-              camiloesteban661@gmail.com
-            </p>
-          </footer>
-        </div>
+        <footer className="p-6 border-t border-border">
+          <p className="text-xs text-muted-foreground font-mono">
+            camiloesteban661@gmail.com
+          </p>
+        </footer>
       </ScrollArea>
 
       <div className="hidden md:block relative bg-background grow">

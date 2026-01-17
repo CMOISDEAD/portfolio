@@ -1,6 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
-import { Button } from "./ui/button";
-// import { ThemeSwitcher } from "./theme-switcher";
+import { Button } from "@/components/ui/button";
+import { Timer } from "@/components/layout/timer";
 
 export function Layout() {
   return (
@@ -12,31 +12,22 @@ export function Layout() {
             <ul className="flex gap-4 items-center justify-center">
               <li>
                 <Button asChild variant="link" size="sm">
-                  <Link to="/">home</Link>
+                  <Link to="/">/home</Link>
                 </Button>
               </li>
               <li>
                 <Button asChild variant="link" size="sm">
-                  <Link to="/projects">projects</Link>
+                  <Link to="/projects">/projects</Link>
                 </Button>
               </li>
               <li>
                 <Button asChild variant="link" size="sm">
-                  <Link to="/experience">experience</Link>
+                  <Link to="/experience">/experience</Link>
                 </Button>
               </li>
             </ul>
           </nav>
-          <p className="text-sm text-muted-foreground">
-            [
-            {new Date().toLocaleTimeString("en-US", {
-              hour: "2-digit",
-              minute: "2-digit",
-              second: "2-digit",
-              hour12: false,
-            })}
-            ]
-          </p>
+          <Timer />
         </div>
         <Button variant="ghost" size="icon-sm" className="md:hidden">
           [x]

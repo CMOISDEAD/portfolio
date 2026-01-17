@@ -36,7 +36,7 @@ export function HomePage() {
   }, [isMobile]);
 
   return (
-    <div className="h-screen w-screen relative overflow-hidden bg-background">
+    <div className="h-screen w-screen relative overflow-hidden bg-background flex">
       <Dither
         waveColor={[0.5, 0.5, 0.5]}
         disableAnimation={false}

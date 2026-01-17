@@ -7,40 +7,37 @@ interface Props {
 
 const projects = [
   {
+    href: "/projects?project=Chat Geolocalizado",
+    image: "/projects/geo.png",
+  },
+  {
     href: "https://agrobiologicosquindio.com/",
-    image:
-      "/projects/agro.webp",
+    image: "/projects/agro.webp",
   },
   {
     href: "https://comunidad-xi.vercel.app/",
-    image:
-      "/projects/comunidad.webp",
+    image: "/projects/comunidad.webp",
   },
   {
     href: "https://ancient-map.vercel.app/",
-    image:
-      "/projects/ancient.webp",
+    image: "/projects/ancient.webp",
   },
   {
     href: "https://digital-gallery-delta.vercel.app/",
-    image:
-      "/projects/digital.webp",
+    image: "/projects/digital.webp",
   },
   {
     href: "https://monkey-psi-sen.vercel.app",
-    image:
-      "/projects/monkey.png",
+    image: "/projects/monkey.png",
   },
   {
     href: "https://github.com/CMOISDEAD/dotrs",
-    image:
-      "/projects/dotrs.png",
+    image: "/projects/dotrs.png",
   },
-{
+  {
     href: "https://github.com/CMOISDEAD/balance",
-    image:
-      "/projects/balance.png",
-  }
+    image: "/projects/balance.png",
+  },
 ];
 
 export function ProjectsWindow({ toggleWindow, isMobile }: Props) {
@@ -55,9 +52,6 @@ export function ProjectsWindow({ toggleWindow, isMobile }: Props) {
     >
       <div className="overflow-hidden w-full group">
         <div className="flex whitespace-nowrap animate-infinite-scroll pause-child">
-          {projects.map((project, i) => (
-            <CardLink key={i} {...project} />
-          ))}
           {projects.map((project, i) => (
             <CardLink key={i} {...project} />
           ))}

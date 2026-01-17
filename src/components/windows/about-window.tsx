@@ -1,4 +1,5 @@
 import { Window } from "@/components/windows/window";
+import { Spoiler } from "spoiled";
 
 interface Props {
   toggleWindow: (key: "projects" | "about" | "experience" | "contact") => void;
@@ -22,18 +23,16 @@ export function AboutWindow({ toggleWindow, isMobile }: Props) {
           <h2 className="text-base font-semibold text-foreground">
             Camilo Dávila
           </h2>
-          <p className="text-muted-foreground">
-            Fullstack Developer (Frontend-focused)
-          </p>
+          <p className="text-blue-300">Fullstack Developer</p>
         </section>
 
         <section className="space-y-1">
           <p>
             I build intuitive, scalable and high-performance interfaces using{" "}
-            <span className="text-foreground font-medium">React</span>,{" "}
-            <span className="text-foreground font-medium">Next.js</span>,{" "}
-            <span className="text-foreground font-medium">TypeScript</span> and{" "}
-            <span className="text-foreground font-medium">TailwindCSS</span>.
+            <span className="text-blue-300 font-medium">
+              React, Next.js, TypeScript, TailwindCSS
+            </span>
+            .
           </p>
           <p>
             Experience with SSR, ISR, CMS (Strapi), authentication, and
@@ -51,11 +50,13 @@ export function AboutWindow({ toggleWindow, isMobile }: Props) {
           </p>
           <p>
             Phone:{" "}
-            <span className="text-muted-foreground">+57 xxx xxx xxxx</span>
+            <span className="text-muted-foreground">
+              +57 <Spoiler>313 389 6428</Spoiler>
+            </span>
           </p>
           <p>
             Portfolio:{" "}
-            <span className="text-muted-foreground">camilodavila.xyz</span>
+            <span className="text-muted-foreground">camilodavila.space</span>
           </p>
         </section>
       </div>

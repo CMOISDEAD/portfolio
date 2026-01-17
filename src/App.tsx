@@ -2,8 +2,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { HomePage } from "@/pages/home";
 import { Layout } from "@/components/layout";
 import { ThemeProvider } from "@/components/providers/theme-provider";
-import { ProjectPage } from "./pages/projects";
-import { ExperiencePage } from "./pages/experience";
+import { ProjectPage } from "@/pages/projects";
+import { ExperiencePage } from "@/pages/experience";
 
 function App() {
   return (

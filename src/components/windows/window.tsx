@@ -14,7 +14,7 @@ type Anchor =
 interface Props {
   children: React.ReactNode;
   title: string;
-  defaultPosition?: { x: number; y: number }; // opcional si usas anchor
+  defaultPosition?: { x: number; y: number };
   defaultSize?: { width: number | string; height: number | string };
   anchor?: Anchor;
   offset?: { x: number; y: number };
@@ -46,7 +46,7 @@ type WindowAction =
 
 const MINIMIZED_HEIGHT = 80;
 
-// Calcular posición según anchor
+// Calcular posición segun anchor
 function computeAnchoredPosition(
   anchor: Anchor,
   offset: { x: number; y: number },
@@ -116,7 +116,6 @@ function windowReducer(state: WindowState, action: WindowAction): WindowState {
   }
 }
 
-// Window Component
 export function Window({
   children,
   title,
@@ -127,7 +126,6 @@ export function Window({
   onClose,
   isMobile = false,
 }: Props) {
-  // Posición inicial usando anchor o defaultPosition
   const initialPosition = anchor
     ? computeAnchoredPosition(anchor, offset, defaultSize)
     : defaultPosition;
@@ -151,7 +149,6 @@ export function Window({
     });
   }, [isMobile]);
 
-  // Handlers
   const handleMinimize = useCallback(() => {
     dispatch({ type: "TOGGLE_MINIMIZE" });
   }, []);
@@ -187,7 +184,7 @@ export function Window({
       onResizeStop={handleResizeStop}
     >
       <div className="bg-background border flex flex-col h-full">
-        <div className="px-3 text-sm flex justify-between items-center border-b select-none">
+        <header className="px-3 text-sm flex justify-between items-center border-b select-none">
           <p className="italic font-medium">{title}</p>
           <div className="flex gap-1">
             <Button size="icon-sm" variant="ghost" onClick={handleMinimize}>
@@ -201,7 +198,7 @@ export function Window({
               <X className="size-4" />
             </Button>
           </div>
-        </div>
+        </header>
 
         <div
           className={cn(
