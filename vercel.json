@@ -2,9 +2,7 @@
     "rewrites": [
         {
             "source": "/(.*)",
-            "destination": "html/digitalize/index"
+            "destination": "/index.html"
         }
-    ],
-    "cleanUrls": true,
-    "trailingSlash": false
+    ]
 }
