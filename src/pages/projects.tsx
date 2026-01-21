@@ -18,7 +18,7 @@ const projects: Project[] = [
   {
     title: "Chat Geolocalizado",
     description:
-      "Led the end-to-end development of a scalable production-ready web platform. Implemented SSR and ISR with Next.js to optimize performance and SEO, significantly reducing page load times. Integrated a headless Strapi CMS deployed on a self-managed Linux VPS, secured with JWT-based authentication, and backed by a MySQL database for reliable content and data management.",
+      "(WIP) Developed a real-time geolocated video and audio chat platform focused on proximity-based communication. Implemented low-latency WebRTC calls with screen sharing and real-time media controls. Integrated geolocation and interactive maps to enable nearby user discovery, emphasizing scalability, performance, and seamless real-time interaction.",
     tech: [
       "Next.js",
       "Nest.js",
@@ -30,7 +30,7 @@ const projects: Project[] = [
     ],
     year: "2026",
     link: "https://github.com/CMOISDEAD",
-    image: "/projects/geo.png",
+    image: "/projects/ming-room.png",
   },
   {
     title: "Agrobiológicos Quindío",

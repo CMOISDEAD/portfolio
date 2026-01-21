@@ -8,7 +8,7 @@ interface Props {
 const projects = [
   {
     href: "/projects?project=Chat Geolocalizado",
-    image: "/projects/geo.png",
+    image: "/projects/ming-room.png",
   },
   {
     href: "https://agrobiologicosquindio.com/",
