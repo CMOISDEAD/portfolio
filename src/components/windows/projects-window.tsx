@@ -41,11 +41,12 @@ const projects = [
 ];
 
 export function ProjectsWindow({ toggleWindow, isMobile }: Props) {
+
   return (
     <Window
       title="~/workspaces/projects/"
       anchor="bottom-left"
-      offset={isMobile ? { x: 0, y: 165 } : { x: 0, y: 220 }}
+      offset={isMobile ? { x: 0, y: 165 } : { x: 0, y: 225 }}
       defaultSize={{ width: "100%", height: "17%" }}
       onClose={() => toggleWindow("projects")}
       isMobile={isMobile}
