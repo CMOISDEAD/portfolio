@@ -32,17 +32,17 @@ interface WindowState {
 type WindowAction =
   | { type: "SET_POSITION"; payload: { x: number; y: number } }
   | {
-    type: "SET_SIZE";
-    payload: { width: number | string; height: number | string };
-  }
+      type: "SET_SIZE";
+      payload: { width: number | string; height: number | string };
+    }
   | { type: "TOGGLE_MINIMIZE" }
   | {
-    type: "RESET";
-    payload: {
-      position: { x: number; y: number };
-      size: { width: number | string; height: number | string };
+      type: "RESET";
+      payload: {
+        position: { x: number; y: number };
+        size: { width: number | string; height: number | string };
+      };
     };
-  };
 
 const MINIMIZED_HEIGHT = 80;
 
@@ -184,8 +184,8 @@ export function Window({
       onResizeStop={handleResizeStop}
     >
       <div className="bg-background border flex flex-col h-full">
-        <header className="px-3 text-sm flex justify-between items-center border-b select-none">
-          <div className="flex items-center gap-4">
+        <header className="text-sm flex justify-between items-center border-b select-none">
+          <div className="px-3 flex items-center gap-4">
             <div className="size-2 bg-muted-foreground hover:bg-foreground" />
             <p className="font-medium">{title}</p>
           </div>
