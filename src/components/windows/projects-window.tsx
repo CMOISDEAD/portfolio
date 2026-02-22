@@ -7,8 +7,8 @@ interface Props {
 
 const projects = [
   {
-    href: "/projects?project=Chat Geolocalizado",
-    image: "/projects/ming-room.png",
+    href: "https://daidokoro-inc.com/",
+    image: "/projects/daidokoro.webp",
   },
   {
     href: "https://agrobiologicosquindio.com/",
@@ -17,6 +17,10 @@ const projects = [
   {
     href: "https://comunidad-xi.vercel.app/",
     image: "/projects/comunidad.webp",
+  },
+  {
+    href: "/projects?project=Chat Geolocalizado",
+    image: "/projects/ming-room.png",
   },
   {
     href: "https://ancient-map.vercel.app/",
@@ -41,7 +45,6 @@ const projects = [
 ];
 
 export function ProjectsWindow({ toggleWindow, isMobile }: Props) {
-
   return (
     <Window
       title="~/workspaces/projects/"

@@ -6,6 +6,21 @@ const experiences = [
   {
     period: "2025 — Present",
     role: "Full Stack Developer",
+    company: "Daidokoro",
+    description:
+      "Led the development of a modern and scalable web platform for a Miami-based carpentry company, strengthening its digital presence and streamlining client access to precision cutting, edge-banding, lamination, and custom cabinet design services. Built the frontend with Next.js using SSR and ISR to significantly reduce navigation load times. Integrated Strapi CMS on a self-managed Linux VPS, implemented secure JWT authentication, and optimized MySQL queries for efficient management of service content and project galleries.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Strapi CMS",
+      "MySQL",
+      "Linux",
+      "JWT",
+    ],
+  },
+  {
+    period: "2025 — Present",
+    role: "Full Stack Developer",
     company: "Agrobiológicos del Quindío",
     description:
       "Led the development of a modern and scalable web platform, enhancing the company's digital presence and improving client access to products and services. Built the frontend with Next.js, implementing SSR and ISR to reduce navigation load times by 40%. Integrated Strapi CMS on a self-managed Linux VPS, implemented secure authentication with JWT, and optimized MySQL queries for stable and efficient data handling.",

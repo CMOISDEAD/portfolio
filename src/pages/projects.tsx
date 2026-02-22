@@ -16,21 +16,13 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Chat Geolocalizado",
+    title: "Daidokoro",
     description:
-      "(WIP) Developed a real-time geolocated video and audio chat platform focused on proximity-based communication. Implemented low-latency WebRTC calls with screen sharing and real-time media controls. Integrated geolocation and interactive maps to enable nearby user discovery, emphasizing scalability, performance, and seamless real-time interaction.",
-    tech: [
-      "Next.js",
-      "Nest.js",
-      "Postgres",
-      "WebRTC",
-      "Redis",
-      "JWT",
-      "Linux VPS",
-    ],
-    year: "2026",
-    link: "https://github.com/CMOISDEAD",
-    image: "/projects/ming-room.png",
+      "Led the end-to-end development of Daidokoro’s production-ready web platform for its Miami-based operations, delivering a unified experience for precision wood cutting, edge-banding, lamination, and custom 3D cabinet design services. Implemented SSR and ISR with Next.js to enhance performance and SEO, reducing load times and improving service discoverability. Integrated a headless Strapi CMS deployed on a self-managed Linux VPS with JWT-based authentication and a MySQL database, enabling scalable content management, service catalogs, and project galleries tailored to a digital-first carpentry workflow.",
+    tech: ["Next.js", "Strapi", "MySQL", "JWT", "Linux VPS"],
+    year: "2025",
+    link: "https://daidokoro-inc.com/",
+    image: "/projects/daidokoro.webp",
   },
   {
     title: "Agrobiológicos Quindío",
@@ -58,6 +50,23 @@ const projects: Project[] = [
     year: "2024",
     link: "https://ancient-map.vercel.app/",
     image: "/projects/ancient.webp",
+  },
+  {
+    title: "Chat Geolocalizado",
+    description:
+      "(WIP) Developed a real-time geolocated video and audio chat platform focused on proximity-based communication. Implemented low-latency WebRTC calls with screen sharing and real-time media controls. Integrated geolocation and interactive maps to enable nearby user discovery, emphasizing scalability, performance, and seamless real-time interaction.",
+    tech: [
+      "Next.js",
+      "Nest.js",
+      "Postgres",
+      "WebRTC",
+      "Redis",
+      "JWT",
+      "Linux VPS",
+    ],
+    year: "2026",
+    link: "https://github.com/CMOISDEAD",
+    image: "/projects/ming-room.png",
   },
   {
     title: "Digital Gallery",
@@ -254,6 +263,7 @@ function ProjectDetail({ project, onClose }: ProjectDetailProps) {
           {project.link && (
             <a
               href={project.link}
+              target="_blank"
               className="inline-flex items-center gap-2 text-sm hover:text-muted-foreground transition-colors group"
             >
               View project

@@ -17,6 +17,14 @@ interface Props {
 
 const experiences: Experience[] = [
   {
+    company: "Daidokoro",
+    role: "Full Stack Developer",
+    period: "2025",
+    description:
+      "Led the development of a modern and scalable web platform for a Miami-based carpentry company using Next.js, implementing SSR and ISR to improve performance and reduce load times. Integrated Strapi CMS on a self-managed Linux VPS, implemented secure authentication with JWT, and managed the database with MySQL for reliable content, service catalogs, and project galleries.",
+    tech: ["Next.js", "Strapi CMS", "JWT", "MySQL", "VPS", "Linux"],
+  },
+  {
     company: "Agrobiológicos del Quindío",
     role: "Full Stack Developer",
     period: "2025",
