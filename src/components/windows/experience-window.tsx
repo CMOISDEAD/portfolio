@@ -1,4 +1,5 @@
 import { useState } from "react";
+import type { WindowProps } from "@/components/windows/types";
 import { Window } from "@/components/windows/window";
 import { Button } from "@/components/ui/button";
 
@@ -10,10 +11,7 @@ interface Experience {
   tech: string[];
 }
 
-interface Props {
-  toggleWindow: (key: "projects" | "about" | "experience" | "contact") => void;
-  isMobile: boolean;
-}
+type Props = WindowProps;
 
 const experiences: Experience[] = [
   {
@@ -46,14 +44,10 @@ export function ExperienceWindow({ toggleWindow, isMobile }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const exp = experiences[currentIndex];
 
-  const lines = [
-    `company    : ${exp.company}`,
-    `role       : ${exp.role}`,
-    `period     : ${exp.period}`,
-    "",
-    exp.description,
-    "",
-    `stack      : ${exp.tech.join(", ")}`,
+  const fields = [
+    ["company", exp.company],
+    ["role", exp.role],
+    ["period", exp.period],
   ];
 
   const handleNext = () => {
@@ -68,7 +62,7 @@ export function ExperienceWindow({ toggleWindow, isMobile }: Props) {
     <Window
       title="./experience.sh"
       anchor="top-left"
-      offset={isMobile ? { x: 10, y: 10 } : { x: 10, y: 180 }}
+      offset={isMobile ? { x: 10, y: 96 } : { x: 10, y: 180 }}
       defaultSize={
         isMobile ? { width: 320, height: 420 } : { width: 448, height: 450 }
       }
@@ -80,23 +74,16 @@ export function ExperienceWindow({ toggleWindow, isMobile }: Props) {
           <span className="text-green-500">~</span> Running experience.sh...
         </div>
 
-        <div className="space-y-1 flex-1">
-          {lines.map((line, i) => (
-            <div key={i} className={line === "" ? "h-3" : ""}>
-              {line && line.includes(":") ? (
-                <p>
-                  <span className="text-muted-foreground">
-                    {line.split(":")[0]}:
-                  </span>
-                  <span className="text-muted-foreground bg-muted pr-2">
-                    {line.split(":").slice(1).join(":")}
-                  </span>
-                </p>
-              ) : (
-                <span className="text-muted-foreground">{line}</span>
-              )}
-            </div>
+        <div className="space-y-1 flex-1 text-muted-foreground">
+          {fields.map(([label, value]) => (
+            <p key={label}>
+              {label} :<span className="bg-muted pr-2"> {value}</span>
+            </p>
           ))}
+          <p className="pt-3 pb-3">{exp.description}</p>
+          <p>
+            stack :<span className="bg-muted pr-2"> {exp.tech.join(", ")}</span>
+          </p>
         </div>
 
         <div className="flex items-center justify-between border-t text-xs mt-2">

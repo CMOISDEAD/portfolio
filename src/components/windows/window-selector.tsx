@@ -1,14 +1,10 @@
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
+import type { WindowKey } from "@/components/windows/types";
 
 interface Props {
-  windows: {
-    about: boolean;
-    experience: boolean;
-    projects: boolean;
-    contact: boolean;
-  };
-  toggleWindow: (key: any) => void;
+  windows: Record<WindowKey, boolean>;
+  toggleWindow: (key: WindowKey) => void;
 }
 
 export function WindowSelector({ windows, toggleWindow }: Props) {

@@ -1,48 +1,9 @@
+import { Link } from "react-router-dom";
 import { Window } from "@/components/windows/window";
+import type { WindowProps } from "@/components/windows/types";
+import { projects, type Project } from "@/data/projects";
 
-interface Props {
-  toggleWindow: (key: "projects" | "about" | "experience" | "contact") => void;
-  isMobile: boolean;
-}
-
-const projects = [
-  {
-    href: "https://daidokoro-inc.com/",
-    image: "/projects/daidokoro.webp",
-  },
-  {
-    href: "https://agrobiologicosquindio.com/",
-    image: "/projects/agro.webp",
-  },
-  {
-    href: "https://comunidad-xi.vercel.app/",
-    image: "/projects/comunidad.webp",
-  },
-  {
-    href: "/projects?project=Chat Geolocalizado",
-    image: "/projects/ming-room.png",
-  },
-  {
-    href: "https://ancient-map.vercel.app/",
-    image: "/projects/ancient.webp",
-  },
-  {
-    href: "https://digital-gallery-delta.vercel.app/",
-    image: "/projects/digital.webp",
-  },
-  {
-    href: "https://monkey-psi-sen.vercel.app",
-    image: "/projects/monkey.png",
-  },
-  {
-    href: "https://github.com/CMOISDEAD/dotrs",
-    image: "/projects/dotrs.png",
-  },
-  {
-    href: "https://github.com/CMOISDEAD/balance",
-    image: "/projects/balance.png",
-  },
-];
+type Props = WindowProps;
 
 export function ProjectsWindow({ toggleWindow, isMobile }: Props) {
   return (
@@ -56,29 +17,40 @@ export function ProjectsWindow({ toggleWindow, isMobile }: Props) {
     >
       <div className="overflow-hidden w-full group">
         <div className="flex whitespace-nowrap animate-infinite-scroll pause-child">
-          {projects.map((project, i) => (
-            <CardLink key={i} {...project} />
-          ))}
-          {projects.map((project, i) => (
-            <CardLink key={i} {...project} />
-          ))}
-          {projects.map((project, i) => (
-            <CardLink key={i} {...project} />
-          ))}
+          {[0, 1, 2].map((copy) =>
+            projects.map((project) => (
+              <CardLink
+                key={`${copy}-${project.slug}`}
+                project={project}
+                hidden={copy > 0}
+              />
+            )),
+          )}
         </div>
       </div>
     </Window>
   );
 }
 
-function CardLink({ image, href }: { image: string; href: string }) {
+function CardLink({ project, hidden }: { project: Project; hidden: boolean }) {
   return (
-    <a href={href} target="_blank" className="mx-2 size-28 shrink-0">
+    <Link
+      to={`/projects/${project.slug}`}
+      className="mx-2 size-28 shrink-0"
+      aria-hidden={hidden || undefined}
+      tabIndex={hidden ? -1 : undefined}
+      title={project.title}
+    >
       <img
-        src={image}
+        src={project.image}
+        alt={hidden ? "" : `${project.title} preview`}
+        width={112}
+        height={112}
+        loading="lazy"
+        decoding="async"
         className="size-full object-cover select-none pointer-events-none"
         draggable={false}
       />
-    </a>
+    </Link>
   );
 }

@@ -1,27 +1,31 @@
-"use client";
-
 import { useEffect, useState } from "react";
 
 export function Timer() {
-  const [time, setTime] = useState(new Date());
+  // null until mounted so prerendered HTML and hydration agree
+  const [time, setTime] = useState<Date | null>(null);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTime(new Date());
-    }, 1000);
+    const tick = () => setTime(new Date());
+    const timer = setInterval(tick, 1000);
+    const first = setTimeout(tick, 0);
 
-    return () => clearInterval(timer);
+    return () => {
+      clearInterval(timer);
+      clearTimeout(first);
+    };
   }, []);
 
   return (
-    <p className="text-sm text-muted-foreground">
+    <p className="text-sm text-muted-foreground tabular-nums">
       [
-      {time.toLocaleTimeString("en-US", {
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: false,
-      })}
+      {time
+        ? time.toLocaleTimeString("en-US", {
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: false,
+          })
+        : "--:--:--"}
       ]
     </p>
   );

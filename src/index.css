@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Jacquard+24&display=swap");
-
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -209,24 +207,26 @@
     }
 }
 
-@theme {
-    --font-gothic: "Jacquard 24";
-}
-
 @keyframes infinite-scroll {
     0% {
         transform: translateX(0);
     }
 
     100% {
-        transform: translateX(-55%);
+        transform: translateX(calc(-100% / 3));
     }
 }
 
 .animate-infinite-scroll {
-    animation: infinite-scroll 30s linear infinite;
+    animation: infinite-scroll 18s linear infinite;
 }
 
 .group:hover .pause-child {
     animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .animate-infinite-scroll {
+        animation: none;
+    }
 }

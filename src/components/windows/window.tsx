@@ -1,6 +1,6 @@
 import { Minus, Plus, X } from "lucide-react";
-import { useCallback, useEffect, useReducer } from "react";
-import { Rnd } from "react-rnd";
+import { useCallback, useLayoutEffect, useReducer } from "react";
+import { Rnd, type RndDragCallback, type RndResizeCallback } from "react-rnd";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -27,6 +27,7 @@ interface WindowState {
   size: { width: number | string; height: number | string };
   previousSize: { width: number | string; height: number | string };
   isMinimized: boolean;
+  isPositioned: boolean;
 }
 
 type WindowAction =
@@ -109,6 +110,7 @@ function windowReducer(state: WindowState, action: WindowAction): WindowState {
         size: action.payload.size,
         previousSize: action.payload.size,
         isMinimized: false,
+        isPositioned: true,
       };
 
     default:
@@ -126,19 +128,18 @@ export function Window({
   onClose,
   isMobile = false,
 }: Props) {
-  const initialPosition = anchor
-    ? computeAnchoredPosition(anchor, offset, defaultSize)
-    : defaultPosition;
-
+  // The viewport is unknown while prerendering / hydrating, so start from a
+  // deterministic position and place the window before the first paint.
   const [state, dispatch] = useReducer(windowReducer, {
-    position: initialPosition,
+    position: anchor ? offset : defaultPosition,
     size: defaultSize,
     previousSize: defaultSize,
     isMinimized: false,
+    isPositioned: false,
   });
 
   // RESET al cambiar tamaño móvil, anchor, size, etc.
-  useEffect(() => {
+  useLayoutEffect(() => {
     const newPosition = anchor
       ? computeAnchoredPosition(anchor, offset, defaultSize)
       : defaultPosition;
@@ -147,24 +148,19 @@ export function Window({
       type: "RESET",
       payload: { position: newPosition, size: defaultSize },
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isMobile]);
 
   const handleMinimize = useCallback(() => {
     dispatch({ type: "TOGGLE_MINIMIZE" });
   }, []);
 
-  const handleDragStop = useCallback((_e: any, d: { x: number; y: number }) => {
+  const handleDragStop = useCallback<RndDragCallback>((_e, d) => {
     dispatch({ type: "SET_POSITION", payload: { x: d.x, y: d.y } });
   }, []);
 
-  const handleResizeStop = useCallback(
-    (
-      _e: any,
-      _ref: any,
-      ref: HTMLElement,
-      _delta: any,
-      pos: { x: number; y: number },
-    ) => {
+  const handleResizeStop = useCallback<RndResizeCallback>(
+    (_e, _dir, ref, _delta, pos) => {
       dispatch({
         type: "SET_SIZE",
         payload: { width: ref.style.width, height: ref.style.height },
@@ -182,6 +178,10 @@ export function Window({
       bounds="parent"
       onDragStop={handleDragStop}
       onResizeStop={handleResizeStop}
+      className={cn(
+        "transition-opacity duration-300",
+        state.isPositioned ? "opacity-100" : "opacity-0",
+      )}
     >
       <div className="bg-background border flex flex-col h-full">
         <header className="text-sm flex justify-between items-center border-b select-none">
@@ -190,14 +190,24 @@ export function Window({
             <p className="font-medium">{title}</p>
           </div>
           <div className="flex gap-1">
-            <Button size="icon-sm" variant="ghost" onClick={handleMinimize}>
+            <Button
+              size="icon-sm"
+              variant="ghost"
+              onClick={handleMinimize}
+              aria-label={state.isMinimized ? "Restore window" : "Minimize window"}
+            >
               {state.isMinimized ? (
                 <Plus className="size-4" />
               ) : (
                 <Minus className="size-4" />
               )}
             </Button>
-            <Button size="icon-sm" variant="ghost" onClick={onClose}>
+            <Button
+              size="icon-sm"
+              variant="ghost"
+              onClick={onClose}
+              aria-label="Close window"
+            >
               <X className="size-4" />
             </Button>
           </div>

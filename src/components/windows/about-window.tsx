@@ -1,18 +1,17 @@
 import { Window } from "@/components/windows/window";
+import type { WindowProps } from "@/components/windows/types";
 import { Spoiler } from "spoiled";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
+import { SITE } from "@/data/site";
 
-interface Props {
-  toggleWindow: (key: "projects" | "about" | "experience" | "contact") => void;
-  isMobile: boolean;
-}
+type Props = WindowProps;
 
 export function AboutWindow({ toggleWindow, isMobile }: Props) {
   return (
     <Window
       title="whoami"
       anchor="top-right"
-      offset={isMobile ? { x: 10, y: 10 } : { x: 80, y: 40 }}
+      offset={isMobile ? { x: 10, y: 96 } : { x: 80, y: 40 }}
       defaultSize={
         isMobile ? { width: 350, height: 420 } : { width: 380, height: 415 }
       }
@@ -45,9 +44,12 @@ export function AboutWindow({ toggleWindow, isMobile }: Props) {
           <h3 className="text-sm font-medium text-foreground">Contact</h3>
           <p>
             Email:{" "}
-            <span className="text-muted-foreground">
-              camiloesteban661@gmail.com
-            </span>
+            <a
+              href={`mailto:${SITE.email}`}
+              className="text-muted-foreground hover:text-foreground"
+            >
+              {SITE.email}
+            </a>
           </p>
           <p>
             Phone:{" "}
@@ -56,7 +58,7 @@ export function AboutWindow({ toggleWindow, isMobile }: Props) {
             </span>
           </p>
           <Button size="sm" variant="link" asChild>
-            <a href="/public/cvs/Camilo Davila, Ingles.pdf" target="_blank">
+            <a href={SITE.cv.en} target="_blank" rel="noopener">
               CV: 'Camilo Davila.pdf'
             </a>
           </Button>

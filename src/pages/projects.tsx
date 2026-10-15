@@ -1,131 +1,33 @@
-import { useSearchParams } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ArrowUpRight, X } from "lucide-react";
-import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-
-interface Project {
-  title: string;
-  description: string;
-  tech: string[];
-  image: string;
-  year: string;
-  link?: string;
-}
-
-const projects: Project[] = [
-  {
-    title: "Daidokoro",
-    description:
-      "Led the end-to-end development of Daidokoro’s production-ready web platform for its Miami-based operations, delivering a unified experience for precision wood cutting, edge-banding, lamination, and custom 3D cabinet design services. Implemented SSR and ISR with Next.js to enhance performance and SEO, reducing load times and improving service discoverability. Integrated a headless Strapi CMS deployed on a self-managed Linux VPS with JWT-based authentication and a MySQL database, enabling scalable content management, service catalogs, and project galleries tailored to a digital-first carpentry workflow.",
-    tech: ["Next.js", "Strapi", "MySQL", "JWT", "Linux VPS"],
-    year: "2025",
-    link: "https://daidokoro-inc.com/",
-    image: "/projects/daidokoro.webp",
-  },
-  {
-    title: "Agrobiológicos Quindío",
-    description:
-      "Led the end-to-end development of a scalable production-ready web platform. Implemented SSR and ISR with Next.js to optimize performance and SEO, significantly reducing page load times. Integrated a headless Strapi CMS deployed on a self-managed Linux VPS, secured with JWT-based authentication, and backed by a MySQL database for reliable content and data management.",
-    tech: ["Next.js", "Strapi", "MySQL", "JWT", "Linux VPS"],
-    year: "2025",
-    link: "https://agrobiologicosquindio.com/",
-    image: "/projects/agro.webp",
-  },
-  {
-    title: "Comunidad XI",
-    description:
-      "Designed and developed an interactive platform to showcase athletes through an immersive 3D map experience. Built a responsive and accessible UI with React and Tailwind CSS, integrated Mapbox for real-time 3D navigation, and optimized media delivery to ensure smooth performance across devices.",
-    tech: ["React", "Tailwind CSS", "Mapbox", "Three.js"],
-    year: "2024",
-    link: "https://comunidad-xi.vercel.app/",
-    image: "/projects/comunidad.webp",
-  },
-  {
-    title: "Ancient Map",
-    description:
-      "An interactive global 3D map for exploring historical empires and cultures across key moments in time. Focused on spatial storytelling, data visualization, and intuitive exploration using Mapbox and modern web technologies.",
-    tech: ["React", "Mapbox", "WebGL", "TypeScript"],
-    year: "2024",
-    link: "https://ancient-map.vercel.app/",
-    image: "/projects/ancient.webp",
-  },
-  {
-    title: "Chat Geolocalizado",
-    description:
-      "(WIP) Developed a real-time geolocated video and audio chat platform focused on proximity-based communication. Implemented low-latency WebRTC calls with screen sharing and real-time media controls. Integrated geolocation and interactive maps to enable nearby user discovery, emphasizing scalability, performance, and seamless real-time interaction.",
-    tech: [
-      "Next.js",
-      "Nest.js",
-      "Postgres",
-      "WebRTC",
-      "Redis",
-      "JWT",
-      "Linux VPS",
-    ],
-    year: "2026",
-    link: "https://github.com/CMOISDEAD",
-    image: "/projects/ming-room.png",
-  },
-  {
-    title: "Digital Gallery",
-    description:
-      "A conceptual and immersive virtual art gallery combining classical paintings with modern digital interaction. Features fluid animations, drag-based navigation, and a minimalist aesthetic, with a strong emphasis on motion design and user experience.",
-    tech: ["React", "Tailwind CSS", "Framer Motion", "use-gesture"],
-    year: "2024",
-    link: "https://digital-gallery-delta.vercel.app/",
-    image: "/projects/digital.webp",
-  },
-  {
-    title: "MonkeyType Clone",
-    description:
-      "A modern typing test application inspired by MonkeyType, featuring code typing modes, customizable keyboard layouts, and detailed performance metrics. Built with a futuristic UI and a strong focus on responsiveness and precision.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
-    year: "2025",
-    link: "https://monkey-psi-sen.vercel.app",
-    image: "/projects/monkey.png",
-  },
-  {
-    title: "dotrs",
-    description:
-      "A minimalist dotfiles manager written in Rust, focused on speed, clarity, and full user control. Designed with a no-bloat philosophy, offering a clean and predictable workflow for managing development environments efficiently.",
-    tech: ["Rust"],
-    year: "2025",
-    link: "https://github.com/CMOISDEAD/dotrs",
-    image: "/projects/dotrs.png",
-  },
-  {
-    title: "Balance",
-    description:
-      "A lightweight and minimalist expense tracking mobile app focused on usability and clarity. Built to help users manage daily expenses efficiently through a clean interface and intuitive interactions.",
-    tech: ["Flutter", "Dart"],
-    year: "2024",
-    link: "#",
-    image: "/projects/balance.png",
-  },
-];
+import { findProject, projects, type Project } from "@/data/projects";
+import { NotFoundPage } from "@/pages/not-found";
 
 export function ProjectPage() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [searchParams, setSearchParams] = useSearchParams();
+  const { slug } = useParams();
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const selectedProject = findProject(slug);
 
+  // Legacy links used `/projects?project=<title>`. Redirect after hydration so
+  // the prerendered /projects markup still matches.
+  const legacyTitle = searchParams.get("project");
   useEffect(() => {
-    const project = searchParams.get("project");
+    if (!legacyTitle) return;
+    const legacy = projects.find((p) => p.title === legacyTitle);
+    navigate(legacy ? `/projects/${legacy.slug}` : "/projects", {
+      replace: true,
+    });
+  }, [legacyTitle, navigate]);
 
-    if (!project) return;
-
-    const item = projects.find((p) => p.title === project);
-    setSelectedProject(item || null);
-  }, []);
-
-  useEffect(() => {
-    if (!selectedProject) return;
-    setSearchParams(`?project=${selectedProject.title}`);
-  }, [selectedProject]);
+  if (slug && !selectedProject) return <NotFoundPage />;
 
   return (
-    <main className="flex flex-col md:flex-row h-full overflow-auto">
+    <div className="flex flex-col md:flex-row h-full overflow-auto">
       <div className="hidden bg-card h-1/6 md:h-full md:w-1/6 border-r md:flex flex-col justify-between p-6">
         <div>
           <span className="text-xs text-muted-foreground">/work</span>
@@ -140,52 +42,67 @@ export function ProjectPage() {
 
       <div className="bg-background md:w-2/6 border-r border-border flex flex-col">
         <header className="p-6 border-b border-border">
-          <h1 className="text-2xl font-medium tracking-tight text-foreground mb-1">
-            Projects
-          </h1>
+          {selectedProject ? (
+            <p className="text-2xl font-medium tracking-tight text-foreground mb-1">
+              Projects
+            </p>
+          ) : (
+            <h1 className="text-2xl font-medium tracking-tight text-foreground mb-1">
+              Projects
+            </h1>
+          )}
           <p className="text-muted-foreground text-xs mt-1">
             Selected work · {projects.length} projects
           </p>
         </header>
 
         <ScrollArea className="flex-1 overflow-auto">
-          {projects.map((project, i) => (
-            <article
-              key={i}
-              onClick={() => setSelectedProject(project)}
-              className={cn(
-                "p-6 cursor-pointer transition-colors",
-                "hover:bg-muted/50",
-                selectedProject?.title === project.title && "bg-muted",
-              )}
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-xs text-muted-foreground font-mono">
-                      {`0${i}`}
-                    </span>
-                    <h2 className="font-medium text-sm">{project.title}</h2>
-                  </div>
-                  <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">
-                    {project.description}
-                  </p>
-                </div>
-                <span className="text-xs text-muted-foreground shrink-0">
-                  {project.year}
-                </span>
-              </div>
-            </article>
-          ))}
+          <nav aria-label="Projects">
+            <ul>
+              {projects.map((project, i) => (
+                <li key={project.slug}>
+                  <Link
+                    to={`/projects/${project.slug}`}
+                    aria-current={
+                      selectedProject?.slug === project.slug
+                        ? "page"
+                        : undefined
+                    }
+                    className={cn(
+                      "block p-6 transition-colors",
+                      "hover:bg-muted/50",
+                      selectedProject?.slug === project.slug && "bg-muted",
+                    )}
+                  >
+                    <article className="flex items-start justify-between gap-4">
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-3 mb-2">
+                          <span className="text-xs text-muted-foreground font-mono">
+                            {String(i).padStart(2, "0")}
+                          </span>
+                          <h2 className="font-medium text-sm">
+                            {project.title}
+                          </h2>
+                        </div>
+                        <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">
+                          {project.description}
+                        </p>
+                      </div>
+                      <span className="text-xs text-muted-foreground shrink-0">
+                        {project.year}
+                      </span>
+                    </article>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </ScrollArea>
       </div>
 
       <div className="bg-secondary/30 flex-1">
         {selectedProject ? (
-          <ProjectDetail
-            project={selectedProject}
-            onClose={() => setSelectedProject(null)}
-          />
+          <ProjectDetail project={selectedProject} />
         ) : (
           <div className="h-full flex items-center justify-center p-6">
             <div className="text-center">
@@ -196,35 +113,31 @@ export function ProjectPage() {
           </div>
         )}
       </div>
-    </main>
+    </div>
   );
 }
 
-interface ProjectDetailProps {
-  project: Project;
-  onClose: () => void;
-}
-
-function ProjectDetail({ project, onClose }: ProjectDetailProps) {
+function ProjectDetail({ project }: { project: Project }) {
   return (
-    <div className="h-full flex flex-col">
+    <article className="h-full flex flex-col">
       <div className="p-6 border-b border-border flex items-center justify-between lg:hidden">
         <span className="text-xs text-muted-foreground font-mono">
-          {new Date().toISOString()}
+          ~/projects/{project.slug}
         </span>
-        <button
-          onClick={onClose}
+        <Link
+          to="/projects"
+          aria-label="Close project details"
           className="p-1 hover:bg-muted transition-colors"
         >
           <X className="size-4" />
-        </button>
+        </Link>
       </div>
 
       <div className="flex-1 p-6 overflow-auto">
         <div className="max-w-lg">
           <div className="flex items-center justify-between mb-6">
             <span className="text-xs text-muted-foreground font-mono hidden lg:block">
-              {new Date().toISOString()}
+              ~/projects/{project.slug}
             </span>
             <span className="text-xs text-muted-foreground">
               {project.year}
@@ -234,36 +147,38 @@ function ProjectDetail({ project, onClose }: ProjectDetailProps) {
           <div className="aspect-video bg-muted mb-8 overflow-hidden">
             <img
               src={project.image}
-              alt={project.title}
+              alt={`${project.title} screenshot`}
+              width={1600}
+              height={900}
+              decoding="async"
               className="w-full h-full object-cover"
               draggable={false}
             />
           </div>
 
-          <h2 className="text-2xl mb-4">{project.title}</h2>
+          <h1 className="text-2xl mb-4">{project.title}</h1>
           <p className="text-muted-foreground mb-8">{project.description}</p>
 
           <div className="mb-8">
-            <h3 className="text-xs text-muted-foreground uppercase tracking-wider mb-3">
+            <h2 className="text-xs text-muted-foreground uppercase tracking-wider mb-3">
               Technologies
-            </h3>
-            <div className="flex flex-wrap gap-2">
+            </h2>
+            <ul className="flex flex-wrap gap-2">
               {project.tech.map((tech) => (
-                <Badge
-                  key={tech}
-                  variant="secondary"
-                  className="rounded-none font-normal"
-                >
-                  {tech}
-                </Badge>
+                <li key={tech}>
+                  <Badge variant="secondary" className="rounded-none font-normal">
+                    {tech}
+                  </Badge>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
 
           {project.link && (
             <a
               href={project.link}
               target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm hover:text-muted-foreground transition-colors group"
             >
               View project
@@ -272,6 +187,6 @@ function ProjectDetail({ project, onClose }: ProjectDetailProps) {
           )}
         </div>
       </div>
-    </div>
+    </article>
   );
 }

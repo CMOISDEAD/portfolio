@@ -1,0 +1,28 @@
+export const SITE = {
+  url: "https://camilodavila.space",
+  name: "Camilo Dávila",
+  alternateName: "Camilo Esteban Dávila",
+  jobTitle: "Full Stack Developer",
+  email: "camiloesteban661@gmail.com",
+  github: "https://github.com/CMOISDEAD",
+  linkedin: "https://www.linkedin.com/in/camilo-esteban-davila",
+  ogImage: "/og-image.png",
+  cv: {
+    en: "/cvs/Camilo%20Davila%2C%20Ingles.pdf",
+    es: "/cvs/Camilo%20Davila%2C%20espa%C3%B1ol.pdf",
+  },
+  knowsAbout: [
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Node.js",
+    "Tailwind CSS",
+    "Strapi CMS",
+    "PostgreSQL",
+    "MySQL",
+    "Mapbox",
+    "WebRTC",
+    "Rust",
+    "Linux",
+  ],
+} as const;

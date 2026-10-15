@@ -1,4 +1,6 @@
-import Dither from "@/components/dither";
+import { BackgroundDither } from "@/components/background-dither";
+import { SITE } from "@/data/site";
+import { useIsMobile } from "@/hooks/use-client";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
@@ -74,8 +76,10 @@ const skills = [
 ];
 
 export function ExperiencePage() {
+  const isMobile = useIsMobile();
+
   return (
-    <main className="flex flex-col md:flex-row h-full">
+    <div className="flex flex-col md:flex-row h-full">
       <div className="hidden md:flex bg-card h-full md:w-1/6 border-r flex-col justify-between p-6">
         <div>
           <span className="text-xs text-muted-foreground font-mono">
@@ -92,7 +96,7 @@ export function ExperiencePage() {
       <ScrollArea className="h-full w-full md:w-2/6 border-r border-border">
         <header className="p-6 mb-10 border-b border-border pb-6">
           <h1 className="text-2xl font-medium tracking-tight text-foreground mb-1">
-            Camilo Davila
+            {SITE.name}
           </h1>
           <p className="text-muted-foreground text-xs mt-1">
             Full Stack Developer
@@ -104,9 +108,9 @@ export function ExperiencePage() {
             Experience
           </h2>
           <div className="space-y-0">
-            {experiences.map((exp, index) => (
+            {experiences.map((exp) => (
               <article
-                key={index}
+                key={`${exp.company}-${exp.period}`}
                 className="group py-5 border-b border-border hover:bg-muted/30 transition-colors -mx-6 px-6 md:-mx-8 md:px-8 lg:-mx-10 lg:px-10"
               >
                 <div className="flex flex-col gap-1">
@@ -157,24 +161,18 @@ export function ExperiencePage() {
         </section>
 
         <footer className="p-6 border-t border-border">
-          <p className="text-xs text-muted-foreground font-mono">
-            camiloesteban661@gmail.com
-          </p>
+          <a
+            href={`mailto:${SITE.email}`}
+            className="text-xs text-muted-foreground font-mono hover:text-foreground"
+          >
+            {SITE.email}
+          </a>
         </footer>
       </ScrollArea>
 
       <div className="hidden md:block relative bg-background grow">
-        <Dither
-          waveColor={[0.5, 0.5, 0.5]}
-          disableAnimation={false}
-          enableMouseInteraction={true}
-          mouseRadius={0.3}
-          colorNum={4}
-          waveAmplitude={0.3}
-          waveFrequency={3}
-          waveSpeed={0.01}
-        />
+        {!isMobile && <BackgroundDither />}
       </div>
-    </main>
+    </div>
   );
 }

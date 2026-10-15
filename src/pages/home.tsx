@@ -1,10 +1,12 @@
-import Dither from "@/components/dither";
+import { BackgroundDither } from "@/components/background-dither";
 import { AboutWindow } from "@/components/windows/about-window";
 import { ContactWindow } from "@/components/windows/contact-window";
 import { ExperienceWindow } from "@/components/windows/experience-window";
 import { ProjectsWindow } from "@/components/windows/projects-window";
 import { WindowSelector } from "@/components/windows/window-selector";
-import { useEffect, useState } from "react";
+import { useIsMobile } from "@/hooks/use-client";
+import { SITE } from "@/data/site";
+import { useState } from "react";
 
 export function HomePage() {
   const [windows, setWindows] = useState({
@@ -18,35 +20,23 @@ export function HomePage() {
     setWindows((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useIsMobile();
+  const [prevIsMobile, setPrevIsMobile] = useState(isMobile);
 
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  useEffect(() => {
-    if (!isMobile) return;
-
-    setWindows((p) => ({ ...p, contact: false, experience: false }));
-  }, [isMobile]);
+  if (isMobile !== prevIsMobile) {
+    setPrevIsMobile(isMobile);
+    if (isMobile) {
+      setWindows((p) => ({ ...p, contact: false, experience: false }));
+    }
+  }
 
   return (
     <div className="h-screen w-screen relative overflow-hidden bg-background flex">
-      <Dither
-        waveColor={[0.5, 0.5, 0.5]}
-        disableAnimation={false}
-        enableMouseInteraction={!isMobile}
-        mouseRadius={0.3}
-        colorNum={4}
-        waveAmplitude={0.3}
-        waveFrequency={3}
-        waveSpeed={0.01}
-      />
+      <h1 className="sr-only">
+        {SITE.name} · {SITE.jobTitle}
+      </h1>
+
+      <BackgroundDither enableMouseInteraction={!isMobile} />
 
       <WindowSelector windows={windows} toggleWindow={toggleWindow} />
 
