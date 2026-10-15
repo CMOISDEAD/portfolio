@@ -5,11 +5,15 @@ import type { WindowKey } from "@/components/windows/types";
 interface Props {
   windows: Record<WindowKey, boolean>;
   toggleWindow: (key: WindowKey) => void;
+  ref?: React.Ref<HTMLDivElement>;
 }
 
-export function WindowSelector({ windows, toggleWindow }: Props) {
+export function WindowSelector({ windows, toggleWindow, ref }: Props) {
   return (
-    <div className="absolute top-2 left-2 md:top-4 md:left-4 z-20 grid grid-cols-2 md:flex-col gap-2 p-2 bg-background border">
+    <div
+      ref={ref}
+      className="absolute top-2 left-2 md:top-4 md:left-4 z-[1000] grid grid-cols-2 gap-2 p-2 bg-background border"
+    >
       <div className="flex items-center gap-2">
         <Checkbox
           id="about"

@@ -79,7 +79,7 @@ export function Layout() {
           <Outlet />
         </Suspense>
       </main>
-      <footer className="h-8 flex items-center justify-between px-4 border-t border-border">
+      <footer className="h-8 overflow-hidden flex items-center justify-between px-4 border-t border-border">
         <div className="flex items-center">
           <Button asChild variant="link" size="sm">
             <a href={SITE.github} target="_blank" rel="me noopener noreferrer">

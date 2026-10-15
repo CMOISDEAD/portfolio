@@ -1,23 +1,25 @@
 import { Minus, Plus, X } from "lucide-react";
-import { useCallback, useLayoutEffect, useReducer } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useReducer,
+  useRef,
+  useState,
+} from "react";
 import { Rnd, type RndDragCallback, type RndResizeCallback } from "react-rnd";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-
-type Anchor =
-  | "top-left"
-  | "top-right"
-  | "bottom-left"
-  | "bottom-right"
-  | "center";
+import { useIsClient } from "@/hooks/use-client";
+import type { Rect } from "@/components/windows/layout";
 
 interface Props {
   children: React.ReactNode;
   title: string;
-  defaultPosition?: { x: number; y: number };
-  defaultSize?: { width: number | string; height: number | string };
-  anchor?: Anchor;
-  offset?: { x: number; y: number };
+  /** Computed by the home page from the container size; null until measured */
+  layout: Rect | null;
   onClose: () => void;
   isMobile?: boolean;
 }
@@ -45,40 +47,9 @@ type WindowAction =
       };
     };
 
-const MINIMIZED_HEIGHT = 80;
-
-// Calcular posición segun anchor
-function computeAnchoredPosition(
-  anchor: Anchor,
-  offset: { x: number; y: number },
-  size: { width: number | string; height: number | string },
-) {
-  const w = window.innerWidth;
-  const h = window.innerHeight;
-
-  const width =
-    typeof size.width === "string" ? parseInt(size.width) : size.width;
-  const height =
-    typeof size.height === "string" ? parseInt(size.height) : size.height;
-
-  switch (anchor) {
-    case "bottom-left":
-      return { x: offset.x, y: h - height - offset.y };
-
-    case "bottom-right":
-      return { x: w - width - offset.x, y: h - height - offset.y };
-
-    case "top-right":
-      return { x: w - width - offset.x, y: offset.y };
-
-    case "center":
-      return { x: (w - width) / 2, y: (h - height) / 2 };
-
-    case "top-left":
-    default:
-      return { x: offset.x, y: offset.y };
-  }
-}
+// Title bar (32px buttons + borders)
+const MINIMIZED_HEIGHT = 35;
+const FALLBACK_SIZE = { width: 380, height: 300 };
 
 // Reducer
 function windowReducer(state: WindowState, action: WindowAction): WindowState {
@@ -118,38 +89,77 @@ function windowReducer(state: WindowState, action: WindowAction): WindowState {
   }
 }
 
+// Shared stacking order: the last window touched goes on top
+let topZIndex = 10;
+
+const PresenceContext = createContext({ open: true, onExited: () => {} });
+
+/** Keeps its window mounted until the exit animation has finished. */
+export function WindowPresence({
+  open,
+  children,
+}: {
+  open: boolean;
+  children: React.ReactNode;
+}) {
+  const [rendered, setRendered] = useState(open);
+  if (open && !rendered) setRendered(true);
+
+  const onExited = useCallback(() => setRendered(false), []);
+
+  if (!rendered) return null;
+  return (
+    <PresenceContext.Provider value={{ open, onExited }}>
+      {children}
+    </PresenceContext.Provider>
+  );
+}
+
 export function Window({
   children,
   title,
-  defaultPosition = { x: 20, y: 20 },
-  defaultSize = { width: 380, height: 300 },
-  anchor,
-  offset = { x: 20, y: 20 },
+  layout,
   onClose,
   isMobile = false,
 }: Props) {
-  // The viewport is unknown while prerendering / hydrating, so start from a
+  const { open, onExited } = useContext(PresenceContext);
+  const frameRef = useRef<HTMLDivElement>(null);
+  const isClient = useIsClient();
+  const [zIndex, setZIndex] = useState(() => ++topZIndex);
+  const bringToFront = (e: { target: EventTarget | null }) => {
+    if ((e.target as Element | null)?.closest?.("button")) return;
+    if (zIndex !== topZIndex) setZIndex(++topZIndex);
+  };
+
+  // The container is unknown while prerendering / hydrating, so start from a
   // deterministic position and place the window before the first paint.
   const [state, dispatch] = useReducer(windowReducer, {
-    position: anchor ? offset : defaultPosition,
-    size: defaultSize,
-    previousSize: defaultSize,
+    position: { x: 0, y: 0 },
+    size: FALLBACK_SIZE,
+    previousSize: FALLBACK_SIZE,
     isMinimized: false,
     isPositioned: false,
   });
 
-  // RESET al cambiar tamaño móvil, anchor, size, etc.
+  const { x, y, width, height } = layout ?? {};
   useLayoutEffect(() => {
-    const newPosition = anchor
-      ? computeAnchoredPosition(anchor, offset, defaultSize)
-      : defaultPosition;
-
+    if (x === undefined || y === undefined || !width || !height) return;
     dispatch({
       type: "RESET",
-      payload: { position: newPosition, size: defaultSize },
+      payload: { position: { x, y }, size: { width, height } },
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isMobile]);
+  }, [x, y, width, height]);
+
+  // Wait for hydration so windows closed by default on mobile never flash
+  const [shown, setShown] = useState(false);
+  if (open && isClient && state.isPositioned && !shown) setShown(true);
+
+  // Never shown or no exit animation (e.g. reduced motion): unmount right away
+  useEffect(() => {
+    if (!open && (!shown || !frameRef.current?.getAnimations().length)) {
+      onExited();
+    }
+  }, [open, shown, onExited]);
 
   const handleMinimize = useCallback(() => {
     dispatch({ type: "TOGGLE_MINIMIZE" });
@@ -174,22 +184,39 @@ export function Window({
     <Rnd
       position={state.position}
       size={state.size}
-      // enableResizing={!isMobile}
       bounds="parent"
+      // Only the title bar drags, so taps on buttons, links and scrolling
+      // content keep working on touch screens
+      dragHandleClassName="window-drag-handle"
+      cancel="button, a"
+      minWidth={200}
+      minHeight={MINIMIZED_HEIGHT}
+      style={{ zIndex }}
+      onMouseDown={bringToFront}
+      onTouchStart={bringToFront}
       onDragStop={handleDragStop}
       onResizeStop={handleResizeStop}
-      className={cn(
-        "transition-opacity duration-300",
-        state.isPositioned ? "opacity-100" : "opacity-0",
-      )}
+      className={cn(!shown && "opacity-0", !open && "pointer-events-none")}
     >
-      <div className="bg-background border flex flex-col h-full">
-        <header className="text-sm flex justify-between items-center border-b select-none">
-          <div className="px-3 flex items-center gap-4">
+      <div
+        ref={frameRef}
+        onAnimationEnd={(e) => {
+          if (e.target === e.currentTarget && !open) onExited();
+        }}
+        className={cn(
+          "bg-background border flex flex-col h-full duration-200 motion-reduce:animate-none",
+          shown &&
+            (open
+              ? "animate-in fade-in zoom-in-95"
+              : "animate-out fade-out zoom-out-95 fill-mode-forwards"),
+        )}
+      >
+        <header className="window-drag-handle text-sm flex justify-between items-center border-b select-none cursor-move touch-none">
+          <div className="px-3 flex items-center gap-4 min-w-0">
             <div className="size-2 bg-muted-foreground hover:bg-foreground" />
-            <p className="font-medium">{title}</p>
+            <p className="font-medium truncate">{title}</p>
           </div>
-          <div className="flex gap-1">
+          <div className="flex gap-1 shrink-0 cursor-default">
             <Button
               size="icon-sm"
               variant="ghost"
@@ -220,7 +247,7 @@ export function Window({
           )}
         >
           <div
-            className={cn("flex items-center h-full", isMobile ? "p-4" : "p-3")}
+            className={cn("flex items-center min-h-full", isMobile ? "p-4" : "p-3")}
           >
             {children}
           </div>

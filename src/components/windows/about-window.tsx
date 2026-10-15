@@ -6,15 +6,11 @@ import { SITE } from "@/data/site";
 
 type Props = WindowProps;
 
-export function AboutWindow({ toggleWindow, isMobile }: Props) {
+export function AboutWindow({ toggleWindow, isMobile, layout }: Props) {
   return (
     <Window
       title="whoami"
-      anchor="top-right"
-      offset={isMobile ? { x: 10, y: 96 } : { x: 80, y: 40 }}
-      defaultSize={
-        isMobile ? { width: 350, height: 420 } : { width: 380, height: 415 }
-      }
+      layout={layout}
       onClose={() => toggleWindow("about")}
       isMobile={isMobile}
     >

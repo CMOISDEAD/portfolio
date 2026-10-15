@@ -4,15 +4,11 @@ import { SITE } from "@/data/site";
 
 type Props = WindowProps;
 
-export function ContactWindow({ toggleWindow, isMobile }: Props) {
+export function ContactWindow({ toggleWindow, isMobile, layout }: Props) {
   return (
     <Window
       title="cat ./contact.txt"
-      anchor="top-right"
-      offset={isMobile ? { x: 10, y: 96 } : { x: 50, y: 340 }}
-      defaultSize={
-        isMobile ? { width: 290, height: 200 } : { width: 320, height: 200 }
-      }
+      layout={layout}
       onClose={() => toggleWindow("contact")}
       isMobile={isMobile}
     >

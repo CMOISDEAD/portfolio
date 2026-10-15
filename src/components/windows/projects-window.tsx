@@ -5,19 +5,21 @@ import { projects, type Project } from "@/data/projects";
 
 type Props = WindowProps;
 
-export function ProjectsWindow({ toggleWindow, isMobile }: Props) {
+// Must match the translate in the `infinite-scroll` keyframes (-100% / copies)
+const MARQUEE_COPIES = 4;
+
+export function ProjectsWindow({ toggleWindow, isMobile, layout }: Props) {
   return (
     <Window
       title="~/workspaces/projects/"
-      anchor="bottom-left"
-      offset={isMobile ? { x: 0, y: 165 } : { x: 0, y: 225 }}
-      defaultSize={{ width: "100%", height: "17%" }}
+      layout={layout}
       onClose={() => toggleWindow("projects")}
       isMobile={isMobile}
     >
       <div className="overflow-hidden w-full group">
-        <div className="flex whitespace-nowrap animate-infinite-scroll pause-child">
-          {[0, 1, 2].map((copy) =>
+        {/* w-max: the translate % must be relative to the content, not the visible width */}
+        <div className="flex w-max whitespace-nowrap animate-infinite-scroll pause-child">
+          {Array.from({ length: MARQUEE_COPIES }, (_, copy) =>
             projects.map((project) => (
               <CardLink
                 key={`${copy}-${project.slug}`}

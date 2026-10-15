@@ -8,8 +8,8 @@ export const SITE = {
   linkedin: "https://www.linkedin.com/in/camilo-esteban-davila",
   ogImage: "/og-image.png",
   cv: {
-    en: "/cvs/Camilo%20Davila%2C%20Ingles.pdf",
-    es: "/cvs/Camilo%20Davila%2C%20espa%C3%B1ol.pdf",
+    en: "/cvs/camilo-davila-cv-en.pdf",
+    es: "/cvs/camilo-davila-cv-es.pdf",
   },
   knowsAbout: [
     "React",

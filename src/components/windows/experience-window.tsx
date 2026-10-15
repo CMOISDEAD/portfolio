@@ -40,7 +40,7 @@ const experiences: Experience[] = [
   },
 ];
 
-export function ExperienceWindow({ toggleWindow, isMobile }: Props) {
+export function ExperienceWindow({ toggleWindow, isMobile, layout }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const exp = experiences[currentIndex];
 
@@ -61,11 +61,7 @@ export function ExperienceWindow({ toggleWindow, isMobile }: Props) {
   return (
     <Window
       title="./experience.sh"
-      anchor="top-left"
-      offset={isMobile ? { x: 10, y: 96 } : { x: 10, y: 180 }}
-      defaultSize={
-        isMobile ? { width: 320, height: 420 } : { width: 448, height: 450 }
-      }
+      layout={layout}
       onClose={() => toggleWindow("experience")}
       isMobile={isMobile}
     >

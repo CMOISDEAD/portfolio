@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { ArrowUpRight, X } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { findProject, projects, type Project } from "@/data/projects";
 import { NotFoundPage } from "@/pages/not-found";
@@ -27,20 +27,23 @@ export function ProjectPage() {
   if (slug && !selectedProject) return <NotFoundPage />;
 
   return (
-    <div className="flex flex-col md:flex-row h-full overflow-auto">
-      <div className="hidden bg-card h-1/6 md:h-full md:w-1/6 border-r md:flex flex-col justify-between p-6">
-        <div>
-          <span className="text-xs text-muted-foreground">/work</span>
-        </div>
-        <div className="hidden md:block">
-          <p className="text-xs text-muted-foreground leading-relaxed">
-            A collection of projects built with attention to detail and clean
-            architecture.
-          </p>
-        </div>
-      </div>
+    // Below lg the list and the detail are separate views (master / detail),
+    // so opening a project never renders it off-screen under the list
+    <div className="flex h-full">
+      <aside className="hidden xl:flex bg-card w-1/6 border-r flex-col justify-between p-6">
+        <span className="text-xs text-muted-foreground">/work</span>
+        <p className="text-xs text-muted-foreground leading-relaxed">
+          A collection of projects built with attention to detail and clean
+          architecture.
+        </p>
+      </aside>
 
-      <div className="bg-background md:w-2/6 border-r border-border flex flex-col">
+      <div
+        className={cn(
+          "bg-background w-full lg:w-2/5 xl:w-2/6 lg:border-r border-border flex-col",
+          selectedProject ? "hidden lg:flex" : "flex",
+        )}
+      >
         <header className="p-6 border-b border-border">
           {selectedProject ? (
             <p className="text-2xl font-medium tracking-tight text-foreground mb-1">
@@ -56,9 +59,9 @@ export function ProjectPage() {
           </p>
         </header>
 
-        <ScrollArea className="flex-1 overflow-auto">
+        <ScrollArea className="flex-1 min-h-0">
           <nav aria-label="Projects">
-            <ul>
+            <ul className="divide-y divide-border lg:divide-y-0">
               {projects.map((project, i) => (
                 <li key={project.slug}>
                   <Link
@@ -74,7 +77,7 @@ export function ProjectPage() {
                       selectedProject?.slug === project.slug && "bg-muted",
                     )}
                   >
-                    <article className="flex items-start justify-between gap-4">
+                    <div className="flex items-start justify-between gap-4">
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-3 mb-2">
                           <span className="text-xs text-muted-foreground font-mono">
@@ -91,7 +94,7 @@ export function ProjectPage() {
                       <span className="text-xs text-muted-foreground shrink-0">
                         {project.year}
                       </span>
-                    </article>
+                    </div>
                   </Link>
                 </li>
               ))}
@@ -100,16 +103,19 @@ export function ProjectPage() {
         </ScrollArea>
       </div>
 
-      <div className="bg-secondary/30 flex-1">
+      <div
+        className={cn(
+          "bg-secondary/30 flex-1 min-w-0",
+          selectedProject ? "block" : "hidden lg:block",
+        )}
+      >
         {selectedProject ? (
-          <ProjectDetail project={selectedProject} />
+          <ProjectDetail key={selectedProject.slug} project={selectedProject} />
         ) : (
           <div className="h-full flex items-center justify-center p-6">
-            <div className="text-center">
-              <p className="text-muted-foreground text-sm">
-                Select a project to view details
-              </p>
-            </div>
+            <p className="text-muted-foreground text-sm">
+              Select a project to view details
+            </p>
           </div>
         )}
       </div>
@@ -118,31 +124,45 @@ export function ProjectPage() {
 }
 
 function ProjectDetail({ project }: { project: Project }) {
+  const index = projects.indexOf(project);
+  const prev = projects[(index - 1 + projects.length) % projects.length];
+  const next = projects[(index + 1) % projects.length];
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      if (e.target instanceof HTMLElement && e.target.isContentEditable) return;
+      if (e.key === "p") navigate(`/projects/${prev.slug}`);
+      else if (e.key === "n") navigate(`/projects/${next.slug}`);
+      else if (e.key === "Escape") navigate("/projects");
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [navigate, prev.slug, next.slug]);
+
   return (
     <article className="h-full flex flex-col">
-      <div className="p-6 border-b border-border flex items-center justify-between lg:hidden">
-        <span className="text-xs text-muted-foreground font-mono">
-          ~/projects/{project.slug}
-        </span>
+      <div className="px-6 h-12 shrink-0 border-b border-border flex items-center justify-between gap-4 text-xs text-muted-foreground font-mono">
         <Link
           to="/projects"
-          aria-label="Close project details"
-          className="p-1 hover:bg-muted transition-colors"
+          className="inline-flex items-center gap-2 hover:text-foreground transition-colors lg:hidden"
         >
-          <X className="size-4" />
+          <ArrowLeft className="size-3.5" />
+          cd ..
         </Link>
+        <span className="truncate">~/projects/{project.slug}</span>
+        <span className="shrink-0">
+          [{String(index).padStart(2, "0")}/
+          {String(projects.length - 1).padStart(2, "0")}]
+        </span>
       </div>
 
-      <div className="flex-1 p-6 overflow-auto">
-        <div className="max-w-lg">
-          <div className="flex items-center justify-between mb-6">
-            <span className="text-xs text-muted-foreground font-mono hidden lg:block">
-              ~/projects/{project.slug}
-            </span>
-            <span className="text-xs text-muted-foreground">
-              {project.year}
-            </span>
-          </div>
+      <div className="flex-1 overflow-auto">
+        <div className="p-6 max-w-2xl mx-auto lg:mx-0 lg:max-w-lg animate-in fade-in duration-200 motion-reduce:animate-none">
+          <span className="block text-xs text-muted-foreground mb-4">
+            {project.year}
+          </span>
 
           <div className="aspect-video bg-muted mb-8 overflow-hidden">
             <img
@@ -185,6 +205,24 @@ function ProjectDetail({ project }: { project: Project }) {
               <ArrowUpRight className="size-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </a>
           )}
+
+          <nav
+            aria-label="More projects"
+            className="mt-10 pt-4 border-t border-border flex items-center justify-between gap-4 text-xs"
+          >
+            <Link
+              to={`/projects/${prev.slug}`}
+              className="text-muted-foreground hover:text-foreground transition-colors truncate"
+            >
+              [p]rev · {prev.title}
+            </Link>
+            <Link
+              to={`/projects/${next.slug}`}
+              className="text-muted-foreground hover:text-foreground transition-colors truncate text-right"
+            >
+              {next.title} · [n]ext
+            </Link>
+          </nav>
         </div>
       </div>
     </article>

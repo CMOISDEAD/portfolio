@@ -1,6 +1,6 @@
 import { BackgroundDither } from "@/components/background-dither";
 import { SITE } from "@/data/site";
-import { useIsMobile } from "@/hooks/use-client";
+import { useMediaQuery } from "@/hooks/use-client";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
@@ -76,11 +76,11 @@ const skills = [
 ];
 
 export function ExperiencePage() {
-  const isMobile = useIsMobile();
+  const showBackground = useMediaQuery("(min-width: 1024px)");
 
   return (
-    <div className="flex flex-col md:flex-row h-full">
-      <div className="hidden md:flex bg-card h-full md:w-1/6 border-r flex-col justify-between p-6">
+    <div className="flex h-full">
+      <div className="hidden xl:flex bg-card h-full w-1/6 border-r flex-col justify-between p-6">
         <div>
           <span className="text-xs text-muted-foreground font-mono">
             /experience
@@ -93,85 +93,87 @@ export function ExperiencePage() {
         </div>
       </div>
 
-      <ScrollArea className="h-full w-full md:w-2/6 border-r border-border">
-        <header className="p-6 mb-10 border-b border-border pb-6">
-          <h1 className="text-2xl font-medium tracking-tight text-foreground mb-1">
-            {SITE.name}
-          </h1>
-          <p className="text-muted-foreground text-xs mt-1">
-            Full Stack Developer
-          </p>
-        </header>
+      <ScrollArea className="h-full w-full lg:w-1/2 xl:w-2/6 lg:border-r border-border">
+        <div className="max-w-2xl mx-auto lg:max-w-none">
+          <header className="p-6 mb-10 border-b border-border pb-6">
+            <h1 className="text-2xl font-medium tracking-tight text-foreground mb-1">
+              {SITE.name}
+            </h1>
+            <p className="text-muted-foreground text-xs mt-1">
+              Full Stack Developer
+            </p>
+          </header>
 
-        <section className="px-6 mb-10">
-          <h2 className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-6">
-            Experience
-          </h2>
-          <div className="space-y-0">
-            {experiences.map((exp) => (
-              <article
-                key={`${exp.company}-${exp.period}`}
-                className="group py-5 border-b border-border hover:bg-muted/30 transition-colors -mx-6 px-6 md:-mx-8 md:px-8 lg:-mx-10 lg:px-10"
-              >
-                <div className="flex flex-col gap-1">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-foreground font-medium text-sm">
-                      {exp.role}
-                    </h3>
-                    <span className="text-xs text-muted-foreground font-mono">
-                      {exp.period}
-                    </span>
+          <section className="px-6 mb-10">
+            <h2 className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-6">
+              Experience
+            </h2>
+            <div className="space-y-0">
+              {experiences.map((exp) => (
+                <article
+                  key={`${exp.company}-${exp.period}`}
+                  className="group py-5 border-b border-border hover:bg-muted/30 transition-colors -mx-6 px-6"
+                >
+                  <div className="flex flex-col gap-1">
+                    <div className="flex items-start justify-between gap-4">
+                      <h3 className="text-foreground font-medium text-sm">
+                        {exp.role}
+                      </h3>
+                      <span className="text-xs text-muted-foreground font-mono shrink-0 whitespace-nowrap">
+                        {exp.period}
+                      </span>
+                    </div>
+                    <p className="text-muted-foreground text-xs">{exp.company}</p>
+                    <p className="text-muted-foreground text-xs mt-2 leading-relaxed">
+                      {exp.description}
+                    </p>
+                    <div className="flex flex-wrap gap-1.5 mt-3">
+                      {exp.technologies.map((tech) => (
+                        <Badge
+                          key={tech}
+                          variant="secondary"
+                          className="rounded-none font-normal text-[10px] px-2 py-0.5"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
                   </div>
-                  <p className="text-muted-foreground text-xs">{exp.company}</p>
-                  <p className="text-muted-foreground text-xs mt-2 leading-relaxed">
-                    {exp.description}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5 mt-3">
-                    {exp.technologies.map((tech) => (
-                      <Badge
-                        key={tech}
-                        variant="secondary"
-                        className="rounded-none font-normal text-[10px] px-2 py-0.5"
-                      >
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
+                </article>
+              ))}
+            </div>
+          </section>
 
-        <section className="mb-10 p-6">
-          <h2 className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-4">
-            Skills
-          </h2>
-          <div className="flex flex-wrap gap-1.5">
-            {skills.map((skill) => (
-              <Badge
-                key={skill}
-                variant="outline"
-                className="rounded-none font-normal text-[10px] px-2 py-0.5"
-              >
-                {skill}
-              </Badge>
-            ))}
-          </div>
-        </section>
+          <section className="mb-10 p-6">
+            <h2 className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-4">
+              Skills
+            </h2>
+            <div className="flex flex-wrap gap-1.5">
+              {skills.map((skill) => (
+                <Badge
+                  key={skill}
+                  variant="outline"
+                  className="rounded-none font-normal text-[10px] px-2 py-0.5"
+                >
+                  {skill}
+                </Badge>
+              ))}
+            </div>
+          </section>
 
-        <footer className="p-6 border-t border-border">
-          <a
-            href={`mailto:${SITE.email}`}
-            className="text-xs text-muted-foreground font-mono hover:text-foreground"
-          >
-            {SITE.email}
-          </a>
-        </footer>
+          <footer className="p-6 border-t border-border">
+            <a
+              href={`mailto:${SITE.email}`}
+              className="text-xs text-muted-foreground font-mono hover:text-foreground"
+            >
+              {SITE.email}
+            </a>
+          </footer>
+        </div>
       </ScrollArea>
 
-      <div className="hidden md:block relative bg-background grow">
-        {!isMobile && <BackgroundDither />}
+      <div className="hidden lg:block relative bg-background grow">
+        {showBackground && <BackgroundDither />}
       </div>
     </div>
   );
